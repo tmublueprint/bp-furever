@@ -1,10 +1,13 @@
 import './style.css';
+import FoundAnimal from '../FoundAnimal';
 
 function LandingPage() {
   return (
     <>
-      <p>Welcome to the landing page!</p>
       {/* Add code here */}
+      <div id="top-component">
+        <FoundAnimal/>
+      </div>
       <div className="locations-section">
         <h1>Service Locations</h1>
         <div id="service-locations">
