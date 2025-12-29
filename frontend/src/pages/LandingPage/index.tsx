@@ -1,13 +1,35 @@
 import './style.css';
 import FoundAnimal from '../FoundAnimal';
+import ctaBtn from '../../assets/CTA-CARD-PRIMARY-BUTTON.svg'; 
+import licensedCheckIcon from '../../assets/licensed-check-icon.svg'; 
+import licensedCertIcon from '../../assets/licensed-cert-icon.svg'; 
+import humaneCareIcon from '../../assets/humane-care-icon.svg';  
+
 
 function LandingPage() {
   return (
     <>
       {/* Add code here */}
-      <div id="top-component">
-        <FoundAnimal/>
+      <div className="horizontalCentering">
+        <div id="hero-component">
+          <div id="services">
+            <h1 style={{width: "600px"}} className="titleText">Wildlife Rescue & Rehabilitation</h1>
+            <p className="headingThree" style={{width: "600px"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
+            aiming to return them to their natural habitat.</p>
+            <p className="headingThree" style={{fontWeight: "bold"}}>We are not a removal service.</p>
+            <button id="ctaButton"> 
+              <img src={ctaBtn} alt="CTA Card Btn"/>
+            </button>
+            <div id="credentials">
+              <img src={licensedCertIcon} alt="licensed cert icon"/>
+              <img src={humaneCareIcon} alt="humane care icon"/>
+              <img src={licensedCheckIcon} alt="licensed check icon"/>
+            </div>
+          </div>
+          <FoundAnimal/>
+        </div>
       </div>
+
       <div className="locations-section">
         <h1>Service Locations</h1>
         <div id="service-locations">
