@@ -8,8 +8,6 @@
 ### Backend
 - **Node.js 20**
 
-
-
 ## Getting Started Start
 ### Prerequisites
 - **Git**
@@ -24,12 +22,13 @@ git clone https://github.com/tmublueprint/bp-furever.git
 # 2. Create environment file
 cp backend/env.example backend/.env (will change this)
 
-# 3. Start
-docker compose up --build
-
-# Install all npm packages ig
+# 3. Install all npm packages ig
 npm install
 npm run postinstall
+
+# 4. Start
+docker compose up --build
+For development you can also use `npm run dev` (better because you can see real time changes), but because of how docker works you should not use plaintext strings for paths, instead import.
 ```
 
 ### Access Points
@@ -88,7 +87,7 @@ bp-furever/
 
 1. Clone repo
 2. Create `.env` file (`cp backend/env.example backend/.env`) (we will change this in the future)
-3. Start development (`docker compose up --build`)
+3. Start development (`docker compose up --build` or `npm run dev`)
 4. Make changes (hot reload handles updates)
 5. Commit and push
 
