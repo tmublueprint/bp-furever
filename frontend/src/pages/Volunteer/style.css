@@ -1,0 +1,67 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Keep padding/width consistent */
+.volunteer-page,
+.volunteer-page * {
+  box-sizing: border-box;
+}
+
+/* Page wrap */
+.volunteer-page {
+  width: 100%;
+  background-color: #f5f5f5;
+}
+
+/* Hero spacing */
+.volunteer-hero {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  background-color: #ffffff;
+  
+}
+
+/* Left alignment */
+.volunteer-hero-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 125px;
+  padding-right: 125px;
+}
+
+/* Text box*/
+.volunteer-hero-text {  
+  max-width: 1149px;
+}
+
+/* Title */
+.volunteer-hero-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 90px;
+  line-height: 1.05;
+  letter-spacing: 0;
+  color: #132f27;
+  max-width: 1149px;
+  margin: 0 0 40px 0;
+}
+
+/* Body */
+.volunteer-hero-body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: #000000;
+  max-width: 872px;
+  margin: 0 0 32px 0;
+}
+
+/* Body - bold */
+.volunteer-hero-body-bold {
+  font-weight: 500;
+  margin: 0;
+}
