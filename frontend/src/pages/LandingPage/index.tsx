@@ -1,20 +1,23 @@
 import './style.css';
 import NavBar from '../../components/NavBar/NavBar'; 
+import HowYouCanHelp from '../../components/LandingPage/LandingPage';
+import Footer from '../../components/Footer/Footer'; 
 
-import adultBtn from '../../assets/Group 19.svg'; 
-import babyBtn from '../../assets/Group 20.svg'; 
-import safetyIcon from '../../assets/Group 21.svg'; 
-import feedIcon from '../../assets/Group 22.svg'; 
-import talkingIcon from '../../assets/Group 24.svg'; 
+
+// import adultBtn from '../../assets/Group 19.svg'; 
+// import babyBtn from '../../assets/Group 20.svg'; 
+import safetyIcon from '../../assets/shield-ui-icon.svg'; 
+import feedIcon from '../../assets/no-food-icon.svg'; 
+import talkingIcon from '../../assets/no-talking-icon.svg'; 
 import raccoonLogo from '../../assets/logo.svg'; 
-import ctaBtn from '../../assets/CTA-CARD-PRIMARY-BUTTON.svg'; 
+// import ctaBtn from '../../assets/CTA-CARD-PRIMARY-BUTTON.svg'; 
 import licensedCheckIcon from '../../assets/licensed-check-icon.svg'; 
 import licensedCertIcon from '../../assets/licensed-cert-icon.svg'; 
 import humaneCareIcon from '../../assets/humane-care-icon.svg';  
 
 
 const noticeBoxStyle = {
-    backgroundColor: "#F8F9E9", 
+    backgroundColor: "#5b6c2d26", 
     width: "593px", 
     height: "654px", 
     backgroundImage: `url(${raccoonLogo})`,
@@ -27,19 +30,22 @@ const noticeBoxStyle = {
 function LandingPage() {
   return (
     <>
-      <div id="background" style={{width: "100%", minHeight: "100vh", backgroundColor: "#E5EAD2"}}>
+      <div id="background" style={{width: "100%", minHeight: "100vh", backgroundColor: "#fbfcf5"}}>
       {/** Nav Bar */}
         <NavBar/>
         {/** Hero Component */} 
         <div className="horizontalCentering">
           <div id="hero-component">
             <div id="services">
-              <h1 style={{width: "600px"}} className="titleText">Wildlife Rescue & Rehabilitation</h1>
+              <h1 style={{width: "600px"}} className="titleText">Welcome to Fur-Ever Wild Rehabilitation</h1>
               <p className="headingThree" style={{width: "600px"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
               aiming to return them to their natural habitat.</p>
               <p className="headingThree" style={{fontWeight: "bold"}}>We are not a removal service.</p>
               <button id="ctaButton"> 
-                <img src={ctaBtn} alt="CTA Card Btn"/>
+                <p>Trained in wildlife behavior, management and conflict.
+                   Authorized and Regulated by Ontario`s Ministry of Natural
+                   Resources & Forestry.
+                </p>
               </button>
               <div id="credentials">
                 <img src={licensedCertIcon} alt="licensed cert icon"/>
@@ -50,17 +56,17 @@ function LandingPage() {
             {/** Found Animal Notice Box */}
             <div id="notice-box" style={noticeBoxStyle}>
               <div id="group-top">
-                <h2 style={{color: "#d10303"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
-                <h3 style={{width: "400px"}}>Choose one to get immediate guidance: </h3>
+                <h2 style={{color: "#778932"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
+                <h3 style={{width: "500px"}}>Choose one to get immediate guidance: </h3>
                 <div id="container-btn">
-                  <button id="adultBtn">
-                    <img src={adultBtn} alt="adult button"/>
+                  <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn">
+                    <p>Adult</p>
                   </button>
-                  <button id="babyBtn">
-                    <img src={babyBtn} alt="baby button"/> 
+                  <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn">
+                    <p>Baby</p> 
                   </button> 
                 </div>
-                <h3>Things to Keep in Mind-</h3>
+                <h3>Things to Keep in Mind -</h3>
               </div>
               <div id="group-bottom">
                 <img src={safetyIcon} alt="safety icon"/>
@@ -101,6 +107,12 @@ function LandingPage() {
             </a>
           </div>
         </div>
+
+        {/** How You Can Help */}
+        <div>
+          <HowYouCanHelp></HowYouCanHelp>
+        </div>
+        <Footer></Footer>
       </div>
     </>
   )

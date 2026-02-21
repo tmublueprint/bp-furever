@@ -4,27 +4,27 @@
 
 /* Text */
 .titleText {
-    margin-top: 0; 
-    font-size: 70px;
+    margin-top: 20px; 
+    font-size: 55px;
     font-weight: 600; 
 }
 .headingThree {
     font-family: "DM Sans", "Poppins";  
     margin-top: 0; 
     font-size: 24px;
-    font-weight: normal; 
+    font-weight: light; 
 }
 
 /* Wildlife Rescue and Services */
 .horizontalCentering { 
-    background-color: #E5EAD2;
+    background-color: #fbfcf5;
     width: 100%; 
     display: flex;
     justify-content: center; 
     margin-top: 30px;
 }
 #hero-component { 
-    background-color: #e5ead2; 
+    background-color: #fbfcf5; 
     width: 1279px;
     height: 730px;
     display: flex;
@@ -48,12 +48,15 @@
 }
 #ctaButton {
     cursor: pointer; 
-    width: 340px; 
+    width: 600px; 
     height: 85px;
     border-radius: 35px;
     padding: 0; 
     background: none;
     border: none;
+    border-radius: 15px;
+
+    
 }
 #ctaButton img {
     width: 100%;
@@ -62,10 +65,18 @@
     display: block; 
 }
 
+#ctaButton p{
+    font-size: 15px;
+    text-align: left;
+    margin-left: 20px;
+}
+
 /* Found Animal Notice Box */
 #notice-box {
     font-family: "Poppins", Arial;  
     border-radius: 10px;
+    margin-top: 20px;
+
 }
 #notice-box > div {
     margin-left: 30px;
@@ -80,6 +91,10 @@
 #container-btn {
     display: flex;
     flex-direction: row;
+    gap: 30px;
+    justify-content: center;
+    padding: 20px;
+    margin: 20px;
 }
 #group-bottom {
     display: flex;
@@ -88,13 +103,20 @@
 }
 button {
     cursor: pointer; 
-    width: 170px; 
-    height: 85px;
+    width: 300px; 
+    height: 65px;
     border-radius: 35px;
     padding: 0; 
-    margin-right: 15px;
     background: none;
-    border: none;
+    border: solid 2px #4C5C41;
+    background-color: #f6f7ef;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+p {
+    font-family: "Montserrat", "Poppins"; 
+    font-size: 20px;
+
 }
 button img {
     width: 100%;
@@ -109,9 +131,12 @@ h2 {
     margin-bottom: 0; 
 }
 h3 {
-    font-size: 24px; 
-    font-weight: 500; 
+    font-size: 20px; 
     margin-top: 15px; 
+    font-family: "DM Sans", "Poppins";  
+    font-weight: 500; 
+
+
 }
 
 /* locations */

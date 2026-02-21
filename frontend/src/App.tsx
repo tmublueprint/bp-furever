@@ -19,6 +19,7 @@ function App() {
         <Route path="/volunteer" element={<Volunteer/>} />
         <Route path="*" element={<ErrorPage />} /> {/* Any other page which is not found above */}
       </Routes>
+
     </BrowserRouter>
   )
 }
