@@ -43,7 +43,7 @@ function LandingPage() {
               <p className="headingThree" style={{fontWeight: "bold"}}>We are not a removal service.</p>
               <button id="ctaButton"> 
                 <p>Trained in wildlife behavior, management and conflict.
-                   Authorized and Regulated by Ontario`s Ministry of Natural
+                   Authorized and Regulated by Ontario's Ministry of Natural
                    Resources & Forestry.
                 </p>
               </button>
