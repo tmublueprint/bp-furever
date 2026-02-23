@@ -23,14 +23,14 @@
 }
 
 
-.text-on-image {
+.how-you-can-help-btn-text {
     display: flex;
     margin-top: 190px;
     justify-content: center;
     position: absolute; 
     color: rgb(0, 0, 0); 
     text-align: center;
-    padding-top: 15px;
+    padding: 15px;
     font-family: "Montserrat", "Poppins"; 
     font-size: 18px;
 }

@@ -1,6 +1,6 @@
 import './style.css';
 import NavBar from '../../components/NavBar/NavBar'; 
-import HowYouCanHelp from '../../components/LandingPage/LandingPage';
+import HowYouCanHelp from '../../components/HowYouCanHelp/HowYouCanHelp';
 import Footer from '../../components/Footer/Footer'; 
 
 
@@ -41,12 +41,13 @@ function LandingPage() {
               <p className="headingThree" style={{width: "600px"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
               aiming to return them to their natural habitat.</p>
               <p className="headingThree" style={{fontWeight: "bold"}}>We are not a removal service.</p>
-              <button id="ctaButton"> 
+              <div id="certification-label"> 
+                <img alt="Licensed Check Icon" src="src/assets/license-check.svg"></img>
                 <p>Trained in wildlife behavior, management and conflict.
                    Authorized and Regulated by Ontario's Ministry of Natural
                    Resources & Forestry.
                 </p>
-              </button>
+              </div>
               <div id="credentials">
                 <img src={licensedCertIcon} alt="licensed cert icon"/>
                 <img src={humaneCareIcon} alt="humane care icon"/>
