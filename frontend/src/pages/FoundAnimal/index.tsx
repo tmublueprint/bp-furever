@@ -20,11 +20,11 @@ function FoundAnimal() {
       <div className="help-tips">
         <h1>Before You Help, Remember:</h1>
         <div className="help-svgs">
-          <img src={Tip1} alt="tip 1"/>
-          <img src={Tip2} alt="tip 2"/>
-          <img src={Tip3} alt="tip 3"/>
-          <img src={Tip4} alt="tip 4"/>
-          <img src={Tip5} alt="tip 5"/>
+          <img src={Tip1} alt="Keep yourself safe, your safety is #1"/>
+          <img src={Tip2} alt="Do not go near the animal, stay 30m away"/>
+          <img src={Tip3} alt="Do not give any food or water"/>
+          <img src={Tip4} alt="If the animal is injured, call your local animal control"/>
+          <img src={Tip5} alt="No talking to the animal & no sudden noises"/>
         </div>
       </div>
       {/* Add code here */}
