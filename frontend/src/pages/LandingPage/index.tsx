@@ -1,6 +1,6 @@
 import './style.css';
 import NavBar from '../../components/NavBar/NavBar'; 
-import HowFurEverHelps from '../../components/LandingPage/HowFurEverHelps/HowFurEverHelps';
+import HowFurEverHelps from '../../components/HowFurEverHelps/HowFurEverHelps';
 
 import adultBtn from '../../assets/Group 19.svg'; 
 import babyBtn from '../../assets/Group 20.svg'; 
