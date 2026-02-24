@@ -1,5 +1,6 @@
 import './style.css';
 import NavBar from '../../components/NavBar/NavBar'; 
+import HowFurEverHelps from '../../components/LandingPage/HowFurEverHelps/HowFurEverHelps';
 
 import adultBtn from '../../assets/Group 19.svg'; 
 import babyBtn from '../../assets/Group 20.svg'; 
@@ -102,6 +103,9 @@ function LandingPage() {
           </div>
         </div>
       </div>
+
+      {/* How Fur-Ever Helps */}
+      <HowFurEverHelps />
     </>
   )
 }
