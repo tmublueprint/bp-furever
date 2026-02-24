@@ -14,15 +14,15 @@ function HowYouCanHelp() {
       <div id="how-you-can-help">
             <div id="images">
                 <img src={imagePlaceholder} alt="placeholder" ></img>
-                <button className='how-you-can-help-btn-text'>Volunteer With Us</button>
+                <button className='how-you-can-help-btn-text'><p>Volunteer With Us</p></button>
             </div>
             <div id="images">
                 <img src={imagePlaceholder} alt="placeholder" ></img>
-                <button className='how-you-can-help-btn-text'>Make A Donation</button>
+                <button className='how-you-can-help-btn-text'><p>Make A Donation</p></button>
             </div>
             <div id="images">
                 <img src={imagePlaceholder} alt="placeholder"></img>
-                <button className='how-you-can-help-btn-text'>Follow Our Blog</button>
+                <button className='how-you-can-help-btn-text'><p>Follow Our Blog</p></button>
 
             </div>
 

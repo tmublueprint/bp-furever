@@ -10,8 +10,8 @@ import safetyIcon from '../../assets/shield-ui-icon.svg';
 import feedIcon from '../../assets/no-food-icon.svg'; 
 import talkingIcon from '../../assets/no-talking-icon.svg'; 
 import raccoonLogo from '../../assets/logo.svg'; 
-// import ctaBtn from '../../assets/CTA-CARD-PRIMARY-BUTTON.svg'; 
-import licensedCheckIcon from '../../assets/licensed-check-icon.svg'; 
+import licenseCheck from '../../assets/license-check.svg'; 
+import licensedCheckIcon from '../../assets/licensed-check-icon.svg'; //license check icon with text
 import licensedCertIcon from '../../assets/licensed-cert-icon.svg'; 
 import humaneCareIcon from '../../assets/humane-care-icon.svg';  
 
@@ -42,7 +42,7 @@ function LandingPage() {
               aiming to return them to their natural habitat.</p>
               <p className="headingThree" style={{fontWeight: "bold"}}>We are not a removal service.</p>
               <div id="certification-label"> 
-                <img alt="Licensed Check Icon" src="src/assets/license-check.svg"></img>
+                <img src={licenseCheck} alt="licensed check icon"/>
                 <p>Trained in wildlife behavior, management and conflict.
                    Authorized and Regulated by Ontario's Ministry of Natural
                    Resources & Forestry.
@@ -51,7 +51,7 @@ function LandingPage() {
               <div id="credentials">
                 <img src={licensedCertIcon} alt="licensed cert icon"/>
                 <img src={humaneCareIcon} alt="humane care icon"/>
-                <img src={licensedCheckIcon} alt="licensed check icon"/>
+                <img src={licensedCheckIcon} alt="licensed check icon with text"/>
               </div>
             </div>
             {/** Found Animal Notice Box */}

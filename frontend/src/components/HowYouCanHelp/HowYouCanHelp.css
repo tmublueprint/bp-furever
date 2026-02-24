@@ -34,3 +34,9 @@
     font-family: "Montserrat", "Poppins"; 
     font-size: 18px;
 }
+
+
+.how-you-can-help-btn-text p {
+    padding: 0px;
+    margin: auto;
+}
