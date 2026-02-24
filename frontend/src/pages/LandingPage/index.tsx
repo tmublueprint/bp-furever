@@ -2,18 +2,11 @@ import './style.css';
 import NavBar from '../../components/NavBar/NavBar'; 
 import HowYouCanHelp from '../../components/HowYouCanHelp/HowYouCanHelp';
 import Footer from '../../components/Footer/Footer'; 
-
-
-// import adultBtn from '../../assets/Group 19.svg'; 
-// import babyBtn from '../../assets/Group 20.svg'; 
 import safetyIcon from '../../assets/shield-ui-icon.svg'; 
 import feedIcon from '../../assets/no-food-icon.svg'; 
 import talkingIcon from '../../assets/no-talking-icon.svg'; 
 import raccoonLogo from '../../assets/logo.svg'; 
 import licenseCheck from '../../assets/license-check.svg'; 
-import licensedCheckIcon from '../../assets/licensed-check-icon.svg'; //license check icon with text
-import licensedCertIcon from '../../assets/licensed-cert-icon.svg'; 
-import humaneCareIcon from '../../assets/humane-care-icon.svg';  
 
 
 const noticeBoxStyle = {
@@ -47,11 +40,6 @@ function LandingPage() {
                    Authorized and Regulated by Ontario's Ministry of Natural
                    Resources & Forestry.
                 </p>
-              </div>
-              <div id="credentials">
-                <img src={licensedCertIcon} alt="licensed cert icon"/>
-                <img src={humaneCareIcon} alt="humane care icon"/>
-                <img src={licensedCheckIcon} alt="licensed check icon with text"/>
               </div>
             </div>
             {/** Found Animal Notice Box */}
