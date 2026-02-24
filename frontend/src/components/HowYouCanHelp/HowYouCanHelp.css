@@ -1,0 +1,42 @@
+#how-you-can-help {
+    margin-bottom: 90px;
+    position: relative; 
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+
+#images {
+    display: flex;
+    justify-content: center;
+
+}
+
+#images img {
+    width: 400px;
+
+}
+
+#images button {
+    width: 250px;
+}
+
+
+.how-you-can-help-btn-text {
+    display: flex;
+    margin-top: 190px;
+    justify-content: center;
+    position: absolute; 
+    color: rgb(0, 0, 0); 
+    text-align: center;
+    padding: 15px;
+    font-family: "Montserrat", "Poppins"; 
+    font-size: 18px;
+}
+
+
+.how-you-can-help-btn-text p {
+    padding: 0px;
+    margin: auto;
+}
