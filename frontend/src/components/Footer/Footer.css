@@ -1,0 +1,24 @@
+#footer {
+    color: rgb(255, 255, 255);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    margin: 0;
+    align-items: center;
+    background-color: #4C5C41; 
+    font-family: "Montserrat", "Poppins"; 
+    padding: 50px 0px 50px 0px;
+    gap: 10px;
+}
+
+#footer h3 {
+    font-weight: lighter;
+    font-size: 24px;
+}
+
+#small-footer {
+    display: flex;
+    gap: 20px;
+    font-weight: lighter;
+}

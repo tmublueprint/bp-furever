@@ -92,8 +92,10 @@
     width: 82px;
     height: 84px;
     top: 27px;
-    right: 20px;
-    background: none;
+    right: 36px;
+    box-shadow: none;
+    border-radius: 0%;
+    background-color: transparent;
     border: none;
     padding: 0;
     cursor: pointer;
