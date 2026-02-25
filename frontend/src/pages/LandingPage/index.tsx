@@ -7,7 +7,10 @@ import feedIcon from '../../assets/no-food-icon.svg';
 import talkingIcon from '../../assets/no-talking-icon.svg'; 
 import raccoonLogo from '../../assets/logo.svg'; 
 import licenseCheck from '../../assets/license-check.svg'; 
-
+import cityOfThomas from '../../assets/city-of-st-thomas.png';
+import centralElgin from '../../assets/central-elgin.png';
+import southwold from '../../assets/southwold-township.png';
+import aylmer from '../../assets/town-of-aylmer.png';
 
 const noticeBoxStyle = {
     backgroundColor: "#5b6c2d26", 
@@ -72,25 +75,25 @@ function LandingPage() {
           <div id="service-locations">
             <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
               <div className="map-container">
-                <img alt="Map of City of St. Thomas" src="src/assets/city-of-st-thomas.png"></img>
+                <img alt="Map of City of St. Thomas" src={cityOfThomas}></img>
                 <h4>City of St. Thomas</h4>
               </div>
             </a>
             <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
               <div className="map-container">
-                <img alt="Map of Central Elgin" src="src/assets/central-elgin.png"></img>
+                <img alt="Map of Central Elgin" src={centralElgin}></img>
                 <h4>Central Elgin</h4>
               </div>
             </a>
             <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
               <div className="map-container">
-                <img alt="Map of Southwold" src="src/assets/southwold-township.png"></img>
+                <img alt="Map of Southwold" src={southwold}></img>
                 <h4>Southwold Township</h4>
               </div>
             </a>
             <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
             <div className="map-container">
-              <img alt="Map of Aylmer" src="src/assets/town-of-aylmer.png"></img>
+              <img alt="Map of Aylmer" src={aylmer}></img>
               <h4>Town of Aylmer</h4>
             </div>
             </a>
