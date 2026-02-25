@@ -1,5 +1,6 @@
 import './style.css';
 import NavBar from '../../components/NavBar/NavBar'; 
+import HowFurEverHelps from '../../components/HowFurEverHelps/HowFurEverHelps';
 import HowYouCanHelp from '../../components/HowYouCanHelp/HowYouCanHelp';
 import Footer from '../../components/Footer/Footer'; 
 import safetyIcon from '../../assets/shield-ui-icon.svg'; 
@@ -114,12 +115,16 @@ function LandingPage() {
         </div>
         {showAdultPopup && <AdultWildlifePopup visible={showAdultPopup} onClose={handleCloseAdultPopup} />}
 
+        {/* How Fur-Ever Helps */}
+        <HowFurEverHelps />
+
         {/** How You Can Help */}
         <div>
           <HowYouCanHelp></HowYouCanHelp>
         </div>
         <Footer></Footer>
       </div>
+
     </>
   )
 }
