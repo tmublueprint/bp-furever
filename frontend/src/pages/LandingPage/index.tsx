@@ -1,20 +1,11 @@
 import './style.css';
 import NavBar from '../../components/NavBar/NavBar'; 
-<<<<<<< HEAD
 import HowFurEverHelps from '../../components/HowFurEverHelps/HowFurEverHelps';
-
-import adultBtn from '../../assets/Group 19.svg'; 
-import babyBtn from '../../assets/Group 20.svg'; 
-import safetyIcon from '../../assets/Group 21.svg'; 
-import feedIcon from '../../assets/Group 22.svg'; 
-import talkingIcon from '../../assets/Group 24.svg'; 
-=======
 import HowYouCanHelp from '../../components/HowYouCanHelp/HowYouCanHelp';
 import Footer from '../../components/Footer/Footer'; 
 import safetyIcon from '../../assets/shield-ui-icon.svg'; 
 import feedIcon from '../../assets/no-food-icon.svg'; 
 import talkingIcon from '../../assets/no-talking-icon.svg'; 
->>>>>>> main
 import raccoonLogo from '../../assets/logo.svg'; 
 import licenseCheck from '../../assets/license-check.svg'; 
 
@@ -107,6 +98,9 @@ function LandingPage() {
           </div>
         </div>
 
+        {/* How Fur-Ever Helps */}
+        <HowFurEverHelps />
+
         {/** How You Can Help */}
         <div>
           <HowYouCanHelp></HowYouCanHelp>
@@ -114,8 +108,6 @@ function LandingPage() {
         <Footer></Footer>
       </div>
 
-      {/* How Fur-Ever Helps */}
-      <HowFurEverHelps />
     </>
   )
 }

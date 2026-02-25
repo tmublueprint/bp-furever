@@ -11,7 +11,7 @@ function HowFurEverHelps() {
     return (
         <>
             <div id="how-furever-helps">
-                <h2>How Fur-Ever Helps</h2>
+                <h1>How Fur-Ever Helps</h1>
                 <div id="cards">
                     <div className="card">
                         <img id="leaf" src={leaf} alt="leaf icon"></img>
