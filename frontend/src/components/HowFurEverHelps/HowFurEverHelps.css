@@ -23,7 +23,7 @@
     width: 600px;
 }
 
-.card p{
+.how-furever-helps-info p{
     font-family: 'DM Sans', 'Poppins';
     font-size: 24px;
     padding: 0px;
@@ -32,13 +32,13 @@
     height: 100px;
 }
 
-.card h3{
+.furever-helps-card h3{
     font-family: 'DM Sans', 'Poppins';
     font-size: 26px;
     color: #324436;
 }
 
-#cards {
+#how-furever-helps-info {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -47,7 +47,7 @@
 
 
 
-.card {
+.furever-helps-card {
     box-sizing: border-box;
     display: flex;
     width: 440px;
@@ -61,7 +61,7 @@
     padding: 30px;
 }
 
-img{
+#leaf, #handshake, #group{
     width: 80px;
     height: 60px;
 }
