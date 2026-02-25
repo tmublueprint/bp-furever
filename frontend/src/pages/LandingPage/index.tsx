@@ -109,6 +109,12 @@ function LandingPage() {
           </div>
         </div>
         {showAdultPopup && <AdultWildlifePopup visible={showAdultPopup} onClose={handleCloseAdultPopup} />}
+
+        {/** How You Can Help */}
+        <div>
+          <HowYouCanHelp></HowYouCanHelp>
+        </div>
+        <Footer></Footer>
       </div>
     </>
   )
