@@ -7,6 +7,9 @@ import feedIcon from '../../assets/no-food-icon.svg';
 import talkingIcon from '../../assets/no-talking-icon.svg'; 
 import raccoonLogo from '../../assets/logo.svg'; 
 import licenseCheck from '../../assets/license-check.svg'; 
+import AdultWildlifePopup from '../../components/adultWildlifePopup/adultWildlifePopup';
+import { useState } from 'react';
+
 import cityOfThomas from '../../assets/city-of-st-thomas.png';
 import centralElgin from '../../assets/central-elgin.png';
 import southwold from '../../assets/southwold-township.png';
@@ -24,6 +27,16 @@ const noticeBoxStyle = {
 
 
 function LandingPage() {
+  const [showAdultPopup, setShowAdultPopup] = useState(false);
+
+  const handleAdultBtnClick = () => {
+    setShowAdultPopup(true);
+  };
+
+  const handleCloseAdultPopup = () => {
+    setShowAdultPopup(false);
+  };
+
   return (
     <>
       <div id="background" style={{width: "100%", minHeight: "100vh", backgroundColor: "#fbfcf5"}}>
@@ -51,7 +64,7 @@ function LandingPage() {
                 <h2 style={{color: "#778932"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
                 <h3 style={{width: "500px"}}>Choose one to get immediate guidance: </h3>
                 <div id="container-btn">
-                  <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn">
+                  <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick}>
                     <p>Adult</p>
                   </button>
                   <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn">
@@ -99,6 +112,7 @@ function LandingPage() {
             </a>
           </div>
         </div>
+        {showAdultPopup && <AdultWildlifePopup visible={showAdultPopup} onClose={handleCloseAdultPopup} />}
 
         {/** How You Can Help */}
         <div>
