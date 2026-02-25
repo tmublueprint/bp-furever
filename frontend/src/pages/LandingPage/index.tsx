@@ -11,6 +11,8 @@ import ctaBtn from '../../assets/CTA-CARD-PRIMARY-BUTTON.svg';
 import licensedCheckIcon from '../../assets/licensed-check-icon.svg'; 
 import licensedCertIcon from '../../assets/licensed-cert-icon.svg'; 
 import humaneCareIcon from '../../assets/humane-care-icon.svg';  
+import AdultWildlifePopup from '../../components/adultWildlifePopup/adultWildlifePopup';
+import { useState } from 'react';
 
 
 const noticeBoxStyle = {
@@ -25,6 +27,16 @@ const noticeBoxStyle = {
 
 
 function LandingPage() {
+  const [showAdultPopup, setShowAdultPopup] = useState(false);
+
+  const handleAdultBtnClick = () => {
+    setShowAdultPopup(true);
+  };
+
+  const handleCloseAdultPopup = () => {
+    setShowAdultPopup(false);
+  };
+
   return (
     <>
       <div id="background" style={{width: "100%", minHeight: "100vh", backgroundColor: "#E5EAD2"}}>
@@ -53,7 +65,7 @@ function LandingPage() {
                 <h2 style={{color: "#d10303"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
                 <h3 style={{width: "400px"}}>Choose one to get immediate guidance: </h3>
                 <div id="container-btn">
-                  <button id="adultBtn">
+                  <button id="adultBtn" onClick={handleAdultBtnClick}>
                     <img src={adultBtn} alt="adult button"/>
                   </button>
                   <button id="babyBtn">
@@ -101,6 +113,7 @@ function LandingPage() {
             </a>
           </div>
         </div>
+        <AdultWildlifePopup visible={showAdultPopup} onClose={handleCloseAdultPopup} />
       </div>
     </>
   )
