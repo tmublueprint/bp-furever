@@ -38,3 +38,26 @@
     display: flex;
     gap: 100px;
 }
+
+.found-animal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 75px 0;
+    text-align: center;
+}
+
+.found-animal h1 {
+    font-weight: 600;
+    font-size: 64px;
+    text-transform: capitalize;
+    color: #778932;
+}
+
+.found-animal p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 38px;
+    color: #324436;
+    line-height: 50px;
+}
