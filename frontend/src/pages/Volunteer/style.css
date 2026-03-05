@@ -125,3 +125,59 @@ html, body {
   height: 200px;
   width: 100%;
 }
+
+/* Volunteer Requirements section */
+.volunteer-requirements-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 94px;
+}
+
+.volunteer-requirements-title {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 64px;
+  color: #132F27;
+  text-align: center;
+}
+
+.volunteer-requirements {
+  margin-top: 20px;
+}
+
+.volunteer-requirements-list {
+  list-style: none;
+}
+
+.volunteer-requirements-item {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 38px;
+  color: #000000;
+  line-height: 130%;
+  padding: 10px;
+}
+
+.volunteer-requirements-vector {
+  z-index: -1;
+  margin-top: 102px;
+  background-color: #F9F9F4;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.volunteer-requirements-vector-text {
+  font-family: 'Montserrat';
+  color: #4C5C41;
+  font-style: 600;
+  font-size: 36px;
+  line-height: 130%;
+  padding: 34px;
+  text-align: center;
+}
