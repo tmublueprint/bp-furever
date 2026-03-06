@@ -1,3 +1,4 @@
+import NavBar from '../../components/NavBar/NavBar'; 
 import './style.css';
 import Tip1 from '../../assets/help-tip-1.svg'; 
 import Tip2 from '../../assets/help-tip-2.svg'; 
@@ -12,6 +13,7 @@ import Tip5 from '../../assets/help-tip-5.svg';
 function FoundAnimal() {
   return (
     <>
+      <NavBar/>
       <h1 className="page-title">Found A Baby Animal?</h1>
       <p className="page-desc">
         Take a moment to observe before taking action.<br/>
@@ -26,6 +28,12 @@ function FoundAnimal() {
           <img src={Tip4} alt="If the animal is injured, call your local animal control"/>
           <img src={Tip5} alt="No talking to the animal & no sudden noises"/>
         </div>
+      </div>
+      <div className="found-animal">
+        <h1>Not sure what you’ve found?</h1>
+        <p>If the animal is injured, cold, or in immediate danger,
+          <br/>contact your local Animal Control or call Fur-Ever Wild Rehabilitation,
+          <br/>at 519-777-6440.</p>
       </div>
       {/* Add code here */}
     </>
