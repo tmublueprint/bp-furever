@@ -15,9 +15,15 @@
     color: white;
     font-family: "Poppins", Arial; 
     font-size: 20px;
+    border: none;
     text-decoration: none;
 }
 #navbar a:hover {
     color: #449aff;
     font-weight: none;
 }
+
+#navbar a.active {
+    border-bottom: 1.75px solid white;
+}
+

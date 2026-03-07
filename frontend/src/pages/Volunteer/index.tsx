@@ -2,10 +2,12 @@ import './style.css';
 import Role1 from '../../assets/on-site-support.svg'; 
 import Role2 from '../../assets/foster-care.svg'; 
 import Role3 from '../../assets/driver-support.svg'; 
+import NavBar from '../../components/NavBar/NavBar';
 
 function Volunteer() {
   return (
     <>
+      <NavBar/>
       <main className = "volunteer-page">
 
         {/*title card section*/}
