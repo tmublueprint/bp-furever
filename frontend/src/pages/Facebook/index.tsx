@@ -1,9 +1,11 @@
 import './style.css';
+import NavBar from '../../components/NavBar/NavBar';
 
 function Blog() {
   return (
     <>
-      <p>Testing Blog Page!</p>
+      <NavBar/>
+      <p>Testing Facebook Page!</p>
       {/* Add code here */}
     </>
   )
