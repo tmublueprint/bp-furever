@@ -110,10 +110,8 @@ function Volunteer() {
               <h1 className="how-to-apply-ending-text" style={{margin: "0"}}>Training and placement are determined by Fur-Ever Wild Rehabilitation.</h1>
               <h1 className="how-to-apply-ending-text" style={{paddingTop: "30px"}}>Volunteering with wildlife is a responsibility — thank you for considering it carefully.</h1>
             </div>
-            <div id="whiteSpace" style={{height: "50px"}}></div>
           </div>
         </section>
-        <Footer/>
 
 
       </main>
