@@ -4,7 +4,6 @@ import Role2 from '../../assets/foster-care.svg';
 import Role3 from '../../assets/driver-support.svg'; 
 import ApplyByEmailBtn from '../../assets/redrect-to-email-button.svg'; 
 import NavBar from '../../components/NavBar/NavBar';
-import Footer from '../../components/Footer/Footer'; 
 
 function Volunteer() {
   return (
@@ -93,7 +92,7 @@ function Volunteer() {
 
         <section className="how-to-apply">
           <div className="container-how-to-apply">
-            <h1 className="headerOne">How To Apply</h1>
+            <h1 className="how-to-apply-header-one">How To Apply</h1>
             <div className="how-to-apply-body">
               <ul id="how-to-apply-checklist">
                 <li>1. Ensure you meet all volunteer requirements</li>
