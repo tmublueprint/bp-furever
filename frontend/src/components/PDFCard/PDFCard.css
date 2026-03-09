@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+#PDFCard {
+    display: flex;
+    margin: auto;
+    box-sizing: border-box;
+    flex-direction: column;
+    height: 530px;
+    width: 440px;
+    background-color: #f9f9f4;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 15px;
+}
+
+#pdf-card-content{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 30px;
+    gap: 10px;
+}
+
+#PDFCard h1{
+    font-family: 'Montserrat', 'Poppins';
+    font-size: 28px;
+    text-align: center;
+    margin: 0;
+}
+
+#PDFCard p, #pdf-card-btn{
+    font-family: 'Montserrat', 'Poppins';
+    font-size: 18px;
+    text-align: center;
+}
+
+#PDFCard p{
+    height: 50px;
+    width: 360px;
+    margin: 0;
+}
+
+#pdf-card-image{
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    z-index: 2;
+}
+
+#pdf-card-image-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+#pdf-card-overlayed-img{
+    position: absolute;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80px;
+    width: 80px;
+    z-index: 1;
+}
+
+#pdf-card-btn{
+    display: flex;
+    border: 1px solid #778932;
+    text-decoration: none;
+    width: 180px;
+    height: 50px;
+    justify-content: end;
+    align-items: center;
+    padding: 0px 5px;
+    gap: 20px;
+    border-radius: 30px;
+}
+
+#PDFCard a{
+    color: black;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+#pdf-btn-imgs{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#pdf-card-arrow{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+}
+
+#pdf-card-ellipse{
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+}

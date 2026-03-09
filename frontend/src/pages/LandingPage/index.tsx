@@ -16,6 +16,9 @@ import centralElgin from '../../assets/central-elgin.png';
 import southwold from '../../assets/southwold-township.png';
 import aylmer from '../../assets/town-of-aylmer.png';
 
+//Testing
+import PDFCard from "../../components/PDFCard/PDFCard";
+
 const noticeBoxStyle = {
     backgroundColor: "#5b6c2d26", 
     width: "593px", 
@@ -117,6 +120,9 @@ function LandingPage() {
 
         {/* How Fur-Ever Helps */}
         <HowFurEverHelps />
+
+        {/* Testing pdf-card display */}
+        < PDFCard image={""} title={"Title Goes Here"} summary={"Short One line summary of what what\’s covered in the guide"} link={"https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwijobLDhJOTAxUEIDQIHQKpDiQQPAgJ"} />
 
         {/** How You Can Help */}
         <div>
