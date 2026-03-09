@@ -181,3 +181,54 @@ html, body {
   padding: 34px;
   text-align: center;
 }
+
+/* How to apply section */
+.container-how-to-apply {
+  background-color: #ffffff;
+  padding: 0; 
+  margin: 0; 
+  margin-top: 94px;
+}
+.headerOne {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 55px; /**55px, 64px*/
+  color: #132F27;
+  text-align: center;
+}
+.how-to-apply-body {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+}
+#how-to-apply-checklist {
+  color: black;
+  font-weight: 600; 
+  font-size: 38px; /* */
+  width: 1400px;
+  list-style-type: none;
+  text-align: left;
+}
+#how-to-apply-checklist li {
+  margin-bottom: 30px;
+  
+}
+#how-to-apply-checklist li:last-child {
+  margin-bottom: 0; 
+}
+#apply-email-btn {
+  cursor: pointer;
+}
+.how-to-apply-end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: #4C5C41;
+  background-color: #F9F9F4;
+}
+.how-to-apply-ending-text {
+  font-weight: 600; 
+}

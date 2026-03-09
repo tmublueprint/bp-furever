@@ -2,7 +2,9 @@ import './style.css';
 import Role1 from '../../assets/on-site-support.svg'; 
 import Role2 from '../../assets/foster-care.svg'; 
 import Role3 from '../../assets/driver-support.svg'; 
+import ApplyByEmailBtn from '../../assets/redrect-to-email-button.svg'; 
 import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/Footer/Footer'; 
 
 function Volunteer() {
   return (
@@ -88,6 +90,32 @@ function Volunteer() {
             <h1 className="volunteer-requirements-vector-text">Wildlife rehabilitation is a long-term commitment, especially during baby season.<br />Volunteers must be dependable and available as scheduled.</h1>
           </div>
         </section>
+
+        <section className="how-to-apply">
+          <div className="container-how-to-apply">
+            <h1 className="headerOne">How To Apply</h1>
+            <div className="how-to-apply-body">
+              <ul id="how-to-apply-checklist">
+                <li>1. Ensure you meet all volunteer requirements</li>
+                <li>2. Prepare your resume</li>
+                <li>3. Email Colleen to apply</li>
+                <li style={{fontWeight: "normal", fontStyle: "italic"}}>—  Please note, only applications meeting the requirements will be considered.</li>
+                <a href="mailto:cburns6440@gmail.com">
+                  <img src={ApplyByEmailBtn} id="apply-email-btn" alt="apply-by-email-btn"/>
+                </a> 
+              </ul>
+            </div>
+            <div className="how-to-apply-end">
+              <h1 className="how-to-apply-ending-text">Volunteer duties may vary depending on need and experience.</h1>
+              <h1 className="how-to-apply-ending-text" style={{margin: "0"}}>Training and placement are determined by Fur-Ever Wild Rehabilitation.</h1>
+              <h1 className="how-to-apply-ending-text" style={{paddingTop: "30px"}}>Volunteering with wildlife is a responsibility — thank you for considering it carefully.</h1>
+            </div>
+            <div id="whiteSpace" style={{height: "50px"}}></div>
+          </div>
+        </section>
+        <Footer/>
+
+
       </main>
     </>
   )
