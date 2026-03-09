@@ -16,9 +16,6 @@ import centralElgin from '../../assets/central-elgin.png';
 import southwold from '../../assets/southwold-township.png';
 import aylmer from '../../assets/town-of-aylmer.png';
 
-//Testing
-import PDFCard from "../../components/PDFCard/PDFCard";
-
 const noticeBoxStyle = {
     backgroundColor: "#5b6c2d26", 
     width: "593px", 
