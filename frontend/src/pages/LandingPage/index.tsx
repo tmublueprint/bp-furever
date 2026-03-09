@@ -121,10 +121,6 @@ function LandingPage() {
         {/* How Fur-Ever Helps */}
         <HowFurEverHelps />
 
-        {/* Testing pdf-card display */}
-        < PDFCard image={""} title={"Title Goes Here"} summary={"Short One line summary of what what\’s covered in the guide"} link={"https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwijobLDhJOTAxUEIDQIHQKpDiQQPAgJ"} />
-
-        {/** How You Can Help */}
         <div>
           <HowYouCanHelp></HowYouCanHelp>
         </div>
