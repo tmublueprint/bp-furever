@@ -3,6 +3,7 @@ import Role1 from '../../assets/on-site-support.svg';
 import Role2 from '../../assets/foster-care.svg'; 
 import Role3 from '../../assets/driver-support.svg'; 
 import NavBar from '../../components/NavBar/NavBar';
+import Footer from '../../components/Footer/Footer';
 
 function Volunteer() {
   return (
@@ -89,6 +90,7 @@ function Volunteer() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   )
 }
