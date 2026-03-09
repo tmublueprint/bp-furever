@@ -118,7 +118,6 @@ function LandingPage() {
         {/* How Fur-Ever Helps */}
         <HowFurEverHelps />
 
-        {/** How You Can Help */}
         <div>
           <HowYouCanHelp></HowYouCanHelp>
         </div>
