@@ -27,12 +27,6 @@
     padding: 75px 0;
 }
 
-.help-tips h1 {
-    font-weight: 600;
-    font-size: 64px;
-    color: #132F27;
-}
-
 .help-svgs {
     margin-top: 50px;
     display: flex;
@@ -47,17 +41,51 @@
     text-align: center;
 }
 
-.found-animal h1 {
-    font-weight: 600;
-    font-size: 64px;
-    text-transform: capitalize;
-    color: #778932;
-}
-
 .found-animal p {
     font-style: normal;
     font-weight: 500;
     font-size: 38px;
     color: #324436;
     line-height: 50px;
+}
+
+.section-header {
+    font-weight: 600;
+    text-align: center;
+    font-size: 64px;
+    text-transform: capitalize;
+    color: #132F27;
+}
+
+.select-animal {
+    margin-top: 200px;
+    display: grid;
+    align-items: center;
+}
+
+.select-animal h1 {
+    margin-bottom: 75px;
+}
+
+.cards {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.left, .right {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.left > * {
+    width: 854px;
+    height: 350px;
+}
+
+.right > * {
+    width: 880px;
+    height: 630px;
 }
