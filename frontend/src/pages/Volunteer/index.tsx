@@ -2,7 +2,7 @@ import './style.css';
 import Role1 from '../../assets/on-site-support.svg'; 
 import Role2 from '../../assets/foster-care.svg'; 
 import Role3 from '../../assets/driver-support.svg'; 
-import ApplyByEmailBtn from '../../assets/redrect-to-email-button.svg'; 
+import ArrowBtn from '../../assets/arrow-btn.svg'; 
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 
@@ -100,15 +100,16 @@ function Volunteer() {
                 <li>2. Prepare your resume</li>
                 <li>3. Email Colleen to apply</li>
                 <li style={{fontWeight: "normal", fontStyle: "italic"}}>—  Please note, only applications meeting the requirements will be considered.</li>
-                <a href="mailto:cburns6440@gmail.com">
-                  <img src={ApplyByEmailBtn} id="apply-email-btn" alt="apply-by-email-btn"/>
+                <a href="mailto:cburns6440@gmail.com" id="apply-email-btn" aria-label="Apply by email">
+                  <span id="apply-email-btn-text">Apply by Email</span>
+                  <span id="apply-email-btn-arrow-circle" aria-hidden="true">
+                    <img src={ArrowBtn} id="apply-email-btn-arrow" alt=""/>
+                  </span>
                 </a> 
               </ul>
             </div>
             <div className="how-to-apply-end">
-              <h1 className="how-to-apply-ending-text">Volunteer duties may vary depending on need and experience.</h1>
-              <h1 className="how-to-apply-ending-text" style={{margin: "0"}}>Training and placement are determined by Fur-Ever Wild Rehabilitation.</h1>
-              <h1 className="how-to-apply-ending-text" style={{paddingTop: "30px"}}>Volunteering with wildlife is a responsibility — thank you for considering it carefully.</h1>
+              <h1 className="how-to-apply-ending-text">Volunteer duties may vary depending on need and experience.<br/>Training and placement are determined by Fur-Ever Wild Rehabilitation.<br/><br/>Volunteering with wildlife is a responsibility — thank you for considering it carefully.</h1>
             </div>
           </div>
         </section>
