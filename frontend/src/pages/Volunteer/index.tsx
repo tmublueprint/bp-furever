@@ -5,6 +5,7 @@ import Role3 from '../../assets/driver-support.svg';
 import ApplyByEmailBtn from '../../assets/redrect-to-email-button.svg'; 
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
+import VolunteerIcon from '../../assets/volunteer-img.svg'; 
 
 function Volunteer() {
   return (
@@ -35,6 +36,9 @@ function Volunteer() {
                 responsibility, and reliability.
               </p>
               
+            </div>
+            <div className = "volunteer-icon">
+              <img src={VolunteerIcon} alt ="volunteer icon"/>
             </div>
           </div>
         </section>

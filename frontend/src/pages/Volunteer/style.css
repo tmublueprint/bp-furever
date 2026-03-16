@@ -24,10 +24,22 @@ html, body {
 
 /* Left alignment */
 .volunteer-hero-container {
+  display: flex;
   max-width: 1440px;
   margin: 0 auto;
   padding-left: 125px;
   padding-right: 125px;
+}
+
+.volunteer-icon {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+}
+
+.volunteer-icon img {
+  width: 482px;
+  padding: 20px;
 }
 
 /* Text box*/
