@@ -22,18 +22,15 @@ function Volunteer() {
             <div className = "volunteer-hero-text">
 
               <h1 className = "volunteer-hero-title">
-                Volunteer With Fur-Ever <br />
-                Wild Rehabilitation
+                Volunteer With Fur-Ever Wild Rehabilitation
               </h1>
 
               <p className = "volunteer-hero-body">
-                Volunteers play a vital role in helping injured 
-                and orphaned wildlife receive proper care.
+                Volunteers play a vital role in helping injured and orphaned wildlife receive proper care.
               </p>
 
               <p className = "volunteer-hero-body volunteer-hero-body-bold">
-                This work requires commitment, <br />
-                responsibility, and reliability.
+                This work requires commitment, responsibility, and reliability.
               </p>
               
             </div>
