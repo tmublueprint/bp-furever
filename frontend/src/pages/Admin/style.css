@@ -1,13 +1,13 @@
 #admin-container {
     display: flex;
     align-items: center;
-    padding: 10vh 10vw;
+    padding: 10vh auto;
 }
 
 #admin-input-container {
     border: 6px solid black;
     border-radius: 20px;
-    width: 30vw;
+    /* width: 30vw; */
     height: 50vh;
     margin-left: auto;
     margin-top: 10vh;
@@ -15,7 +15,8 @@
 }
 
 #admin-preview-container {
-    margin: 0 auto;
+    margin-right: auto;
+    margin-left: 20px;
 }
 
 #title-input-container {

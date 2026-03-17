@@ -4,7 +4,6 @@ import PDFcard from '../../components/PDFCard/PDFCard';
 function Admin() {
   return (
     <>
-      <p>Testing Admin Side!</p>
       <div id="admin-container">
         <div id="admin-input-container">
           <div>
