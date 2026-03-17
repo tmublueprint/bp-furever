@@ -1,11 +1,11 @@
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import './style.css';
-import Tip1 from '../../assets/help-tip-1.svg'; 
-import Tip2 from '../../assets/help-tip-2.svg'; 
-import Tip3 from '../../assets/help-tip-3.svg'; 
-import Tip4 from '../../assets/help-tip-4.svg'; 
-import Tip5 from '../../assets/help-tip-5.svg'; 
+import Tip1 from '../../assets/FoundAnimal/help-tip-1.svg'; 
+import Tip2 from '../../assets/FoundAnimal/help-tip-2.svg'; 
+import Tip3 from '../../assets/FoundAnimal/help-tip-3.svg'; 
+import Tip4 from '../../assets/FoundAnimal/help-tip-4.svg'; 
+import Tip5 from '../../assets/FoundAnimal/help-tip-5.svg'; 
 
 function FoundAnimal() {
   const tips = [

@@ -1,6 +1,6 @@
 
 import './adultWildlifePopup.css';
-import closeIcon from '../../assets/close-icon.svg';
+import closeIcon from '../../assets/AdultWildLifePopup/close-icon.svg';
 import type { MouseEvent } from 'react';
 
 function AdultWildlifePopup({ visible, onClose }: { visible: boolean, onClose: () => void }) {

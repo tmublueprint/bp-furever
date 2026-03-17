@@ -2,7 +2,7 @@
 // import { Link, useNavigate } from "react-router-dom";
 // ^ May be required later
 import './Footer.css';
-import facebookIcon from '../../assets/facebook-icon.svg'; 
+import facebookIcon from '../../assets/Footer/facebook-icon.svg'; 
 
 
 function Footer() {
