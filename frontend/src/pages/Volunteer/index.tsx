@@ -5,6 +5,7 @@ import Role3 from '../../assets/driver-support.svg';
 import ArrowBtn from '../../assets/arrow-btn.svg'; 
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
+import VolunteerIcon from '../../assets/volunteer-img.svg'; 
 
 function Volunteer() {
   return (
@@ -21,20 +22,20 @@ function Volunteer() {
             <div className = "volunteer-hero-text">
 
               <h1 className = "volunteer-hero-title">
-                Volunteer With Fur-Ever <br />
-                Wild Rehabilitation
+                Volunteer With Fur-Ever Wild Rehabilitation
               </h1>
 
               <p className = "volunteer-hero-body">
-                Volunteers play a vital role in helping injured 
-                and orphaned wildlife receive proper care.
+                Volunteers play a vital role in helping injured and orphaned wildlife receive proper care.
               </p>
 
               <p className = "volunteer-hero-body volunteer-hero-body-bold">
-                This work requires commitment, <br />
-                responsibility, and reliability.
+                This work requires commitment, responsibility, and reliability.
               </p>
               
+            </div>
+            <div className = "volunteer-icon">
+              <img src={VolunteerIcon} alt ="volunteer icon"/>
             </div>
           </div>
         </section>
