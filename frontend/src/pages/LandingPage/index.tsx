@@ -1,4 +1,8 @@
 import './style.css';
+
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import NavBar from '../../components/NavBar/NavBar'; 
 import HowFurEverHelps from '../../components/HowFurEverHelps/HowFurEverHelps';
 import HowYouCanHelp from '../../components/HowYouCanHelp/HowYouCanHelp';
@@ -9,7 +13,6 @@ import talkingIcon from '../../assets/no-talking-icon.svg';
 import raccoonLogo from '../../assets/logo.svg'; 
 import licenseCheck from '../../assets/license-check.svg'; 
 import AdultWildlifePopup from '../../components/adultWildlifePopup/adultWildlifePopup';
-import { useState } from 'react';
 
 import cityOfThomas from '../../assets/city-of-st-thomas.png';
 import centralElgin from '../../assets/central-elgin.png';
@@ -36,6 +39,11 @@ function LandingPage() {
 
   const handleCloseAdultPopup = () => {
     setShowAdultPopup(false);
+  };
+
+  const navigate = useNavigate();
+  const babyBtnClick = () => {
+    navigate('/foundAnAnimal');
   };
 
   return (
@@ -68,9 +76,9 @@ function LandingPage() {
                   <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick}>
                     <p>Adult</p>
                   </button>
-                  <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn">
-                    <p>Baby</p> 
-                  </button> 
+                    <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn" onClick={babyBtnClick}>
+                      <p>Baby</p> 
+                    </button> 
                 </div>
                 <h3>Things to Keep in Mind -</h3>
               </div>
