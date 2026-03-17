@@ -1,0 +1,27 @@
+#admin-container {
+    display: flex;
+    align-items: center;
+    padding: 10vh 10vw;
+}
+
+#admin-input-container {
+    border: 6px solid black;
+    border-radius: 20px;
+    width: 30vw;
+    height: 50vh;
+    margin-left: auto;
+    margin-top: 10vh;
+    padding: 10px;
+}
+
+#admin-preview-container {
+    margin: 0 auto;
+}
+
+#title-input-container {
+    display: flex;
+}
+
+#summary-input-container {
+    display: flex;
+}
