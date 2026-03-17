@@ -1,11 +1,12 @@
 import './style.css';
-import Role1 from '../../assets/on-site-support.svg'; 
-import Role2 from '../../assets/foster-care.svg'; 
-import Role3 from '../../assets/driver-support.svg'; 
-import ArrowBtn from '../../assets/arrow-btn.svg'; 
+import Role1 from '../../assets/Volunteer/on-site-support.svg'; 
+import Role2 from '../../assets/Volunteer/foster-care.svg'; 
+import Role3 from '../../assets/Volunteer/driver-support.svg'; 
+import ArrowBtn from '../../assets/Volunteer/arrow-btn.svg'; 
+import VolunteerIcon from '../../assets/Volunteer/volunteer-img.svg'; 
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
-import VolunteerIcon from '../../assets/volunteer-img.svg'; 
+
 
 function Volunteer() {
   return (

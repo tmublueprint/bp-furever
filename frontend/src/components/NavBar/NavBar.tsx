@@ -1,6 +1,6 @@
 
 import { NavLink } from "react-router-dom";
-import fureverLogo from '../../assets/fureverLogo.svg'; 
+import fureverLogo from '../../assets/NavBar/fureverLogo.svg'; 
 import './NavBar.css';
 
 function NavBar() {

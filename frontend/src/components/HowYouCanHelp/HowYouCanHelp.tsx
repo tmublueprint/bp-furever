@@ -2,7 +2,7 @@
 // import { Link, useNavigate } from "react-router-dom";
 // ^ May be required later
 import './HowYouCanHelp.css';
-import imagePlaceholder from '../../assets/how-you-can-help-card.svg'; 
+import imagePlaceholder from '../../assets/HowYouCanHelp/how-you-can-help-card.svg'; 
 
 
 
