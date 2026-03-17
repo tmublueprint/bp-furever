@@ -1,0 +1,28 @@
+#admin-container {
+    display: flex;
+    align-items: center;
+    padding-top: 10vh;
+    height: 530px;
+}
+
+#admin-input-container {
+    border: 6px solid black;
+    border-radius: 20px;
+    align-self: stretch;
+    box-sizing: border-box;
+    margin-left: auto;
+    padding: 10px;
+}
+
+#admin-preview-container {
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+#title-input-container {
+    display: flex;
+}
+
+#summary-input-container {
+    display: flex;
+}
