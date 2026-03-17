@@ -1,20 +1,23 @@
 import './style.css';
+
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import NavBar from '../../components/NavBar/NavBar'; 
+import AdultWildlifePopup from '../../components/adultWildlifePopup/adultWildlifePopup';
 import HowFurEverHelps from '../../components/HowFurEverHelps/HowFurEverHelps';
 import HowYouCanHelp from '../../components/HowYouCanHelp/HowYouCanHelp';
 import Footer from '../../components/Footer/Footer'; 
-import safetyIcon from '../../assets/shield-ui-icon.svg'; 
-import feedIcon from '../../assets/no-food-icon.svg'; 
-import talkingIcon from '../../assets/no-talking-icon.svg'; 
-import raccoonLogo from '../../assets/logo.svg'; 
-import licenseCheck from '../../assets/license-check.svg'; 
-import AdultWildlifePopup from '../../components/adultWildlifePopup/adultWildlifePopup';
-import { useState } from 'react';
 
-import cityOfThomas from '../../assets/city-of-st-thomas.png';
-import centralElgin from '../../assets/central-elgin.png';
-import southwold from '../../assets/southwold-township.png';
-import aylmer from '../../assets/town-of-aylmer.png';
+import safetyIcon from '../../assets/LandingPage/shield-ui-icon.svg'; 
+import feedIcon from '../../assets/LandingPage/no-food-icon.svg'; 
+import talkingIcon from '../../assets/LandingPage/no-talking-icon.svg'; 
+import raccoonLogo from '../../assets/LandingPage/logo.svg'; 
+import licenseCheck from '../../assets/LandingPage/license-check.svg'; 
+import cityOfThomas from '../../assets/LandingPage/city-of-st-thomas.png';
+import centralElgin from '../../assets/LandingPage/central-elgin.png';
+import southwold from '../../assets/LandingPage/southwold-township.png';
+import aylmer from '../../assets/LandingPage/town-of-aylmer.png';
 
 const noticeBoxStyle = {
     backgroundColor: "#5b6c2d26", 
@@ -36,6 +39,11 @@ function LandingPage() {
 
   const handleCloseAdultPopup = () => {
     setShowAdultPopup(false);
+  };
+
+  const navigate = useNavigate();
+  const babyBtnClick = () => {
+    navigate('/foundAnAnimal');
   };
 
   return (
@@ -68,9 +76,9 @@ function LandingPage() {
                   <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick}>
                     <p>Adult</p>
                   </button>
-                  <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn">
-                    <p>Baby</p> 
-                  </button> 
+                    <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn" onClick={babyBtnClick}>
+                      <p>Baby</p> 
+                    </button> 
                 </div>
                 <h3>Things to Keep in Mind -</h3>
               </div>

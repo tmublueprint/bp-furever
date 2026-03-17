@@ -2,7 +2,7 @@
 // import { Link, useNavigate } from "react-router-dom";
 // ^ May be required later
 import './HowYouCanHelp.css';
-import imagePlaceholder from '../../assets/how-you-can-help-card.svg'; 
+import imagePlaceholder from '../../assets/HowYouCanHelp/how-you-can-help-card.svg'; 
 
 
 
@@ -18,11 +18,11 @@ function HowYouCanHelp() {
             </div>
             <div id="images">
                 <img src={imagePlaceholder} alt="placeholder" ></img>
-                <button className='how-you-can-help-btn-text'><p>Make A Donation</p></button>
+                <button className='how-you-can-help-btn-text'><p>Learn More</p></button>
             </div>
             <div id="images">
                 <img src={imagePlaceholder} alt="placeholder"></img>
-                <button className='how-you-can-help-btn-text'><p>Follow Our Blog</p></button>
+                <button className='how-you-can-help-btn-text'><p>Follow Our Facebook</p></button>
 
             </div>
 

@@ -1,8 +1,8 @@
 import "./PDFCard.css";
-import arrow from "../../assets/pdf-card-arrow.svg";
-import placeholder from "../../assets/pdf-card-img-placeholder.svg";
-import missingImg from "../../assets/pdf-card-missing-img.svg";
-import ellipse from "../../assets/pdf-card-ellipse.svg";
+import arrow from "../../assets/PDFCard/pdf-card-arrow.svg";
+import placeholder from "../../assets/PDFCard/pdf-card-img-placeholder.svg";
+import missingImg from "../../assets/PDFCard/pdf-card-missing-img.svg";
+import ellipse from "../../assets/PDFCard/pdf-card-ellipse.svg";
 
 interface PDFCardProps{
     image: string;

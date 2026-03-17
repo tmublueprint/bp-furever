@@ -1,10 +1,12 @@
 import './style.css';
-import Role1 from '../../assets/on-site-support.svg'; 
-import Role2 from '../../assets/foster-care.svg'; 
-import Role3 from '../../assets/driver-support.svg'; 
-import ApplyByEmailBtn from '../../assets/redrect-to-email-button.svg'; 
+import Role1 from '../../assets/Volunteer/on-site-support.svg'; 
+import Role2 from '../../assets/Volunteer/foster-care.svg'; 
+import Role3 from '../../assets/Volunteer/driver-support.svg'; 
+import ArrowBtn from '../../assets/Volunteer/arrow-btn.svg'; 
+import VolunteerIcon from '../../assets/Volunteer/volunteer-img.svg'; 
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
+
 
 function Volunteer() {
   return (
@@ -21,20 +23,20 @@ function Volunteer() {
             <div className = "volunteer-hero-text">
 
               <h1 className = "volunteer-hero-title">
-                Volunteer With Fur-Ever <br />
-                Wild Rehabilitation
+                Volunteer With Fur-Ever Wild Rehabilitation
               </h1>
 
               <p className = "volunteer-hero-body">
-                Volunteers play a vital role in helping injured 
-                and orphaned wildlife receive proper care.
+                Volunteers play a vital role in helping injured and orphaned wildlife receive proper care.
               </p>
 
               <p className = "volunteer-hero-body volunteer-hero-body-bold">
-                This work requires commitment, <br />
-                responsibility, and reliability.
+                This work requires commitment, responsibility, and reliability.
               </p>
               
+            </div>
+            <div className = "volunteer-icon">
+              <img src={VolunteerIcon} alt ="volunteer icon"/>
             </div>
           </div>
         </section>
@@ -100,15 +102,16 @@ function Volunteer() {
                 <li>2. Prepare your resume</li>
                 <li>3. Email Colleen to apply</li>
                 <li style={{fontWeight: "normal", fontStyle: "italic"}}>—  Please note, only applications meeting the requirements will be considered.</li>
-                <a href="mailto:cburns6440@gmail.com">
-                  <img src={ApplyByEmailBtn} id="apply-email-btn" alt="apply-by-email-btn"/>
+                <a href="mailto:cburns6440@gmail.com" id="apply-email-btn" aria-label="Apply by email">
+                  <span id="apply-email-btn-text">Apply by Email</span>
+                  <span id="apply-email-btn-arrow-circle" aria-hidden="true">
+                    <img src={ArrowBtn} id="apply-email-btn-arrow" alt=""/>
+                  </span>
                 </a> 
               </ul>
             </div>
             <div className="how-to-apply-end">
-              <h1 className="how-to-apply-ending-text">Volunteer duties may vary depending on need and experience.</h1>
-              <h1 className="how-to-apply-ending-text" style={{margin: "0"}}>Training and placement are determined by Fur-Ever Wild Rehabilitation.</h1>
-              <h1 className="how-to-apply-ending-text" style={{paddingTop: "30px"}}>Volunteering with wildlife is a responsibility — thank you for considering it carefully.</h1>
+              <h1 className="how-to-apply-ending-text">Volunteer duties may vary depending on need and experience.<br/>Training and placement are determined by Fur-Ever Wild Rehabilitation.<br/><br/>Volunteering with wildlife is a responsibility — thank you for considering it carefully.</h1>
             </div>
           </div>
         </section>

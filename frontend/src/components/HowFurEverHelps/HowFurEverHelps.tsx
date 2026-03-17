@@ -3,9 +3,9 @@
 // ^ May be required later
 import "./HowFurEverHelps.css";
 
-import leaf from "../../assets/leaf-icon.svg";
-import handshake from "../../assets/handshake-icon.svg";
-import group from "../../assets/group-icon.svg";
+import leaf from "../../assets//HowFurEverHelps/leaf-icon.svg";
+import handshake from "../../assets/HowFurEverHelps/handshake-icon.svg";
+import group from "../../assets/HowFurEverHelps/group-icon.svg";
 
 function HowFurEverHelps() {
     return (
