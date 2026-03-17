@@ -1,4 +1,8 @@
 import './style.css';
+
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import NavBar from '../../components/NavBar/NavBar'; 
 import AdultWildlifePopup from '../../components/adultWildlifePopup/adultWildlifePopup';
 import HowFurEverHelps from '../../components/HowFurEverHelps/HowFurEverHelps';
@@ -40,6 +44,11 @@ function LandingPage() {
     setShowAdultPopup(false);
   };
 
+  const navigate = useNavigate();
+  const babyBtnClick = () => {
+    navigate('/foundAnAnimal');
+  };
+
   return (
     <>
       <div id="background" style={{width: "100%", minHeight: "100vh", backgroundColor: "#fbfcf5"}}>
@@ -70,9 +79,9 @@ function LandingPage() {
                   <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick}>
                     <p>Adult</p>
                   </button>
-                  <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn">
-                    <p>Baby</p> 
-                  </button> 
+                    <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn" onClick={babyBtnClick}>
+                      <p>Baby</p> 
+                    </button> 
                 </div>
                 <h3>Things to Keep in Mind -</h3>
               </div>
