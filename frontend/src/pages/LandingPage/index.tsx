@@ -15,8 +15,6 @@ import talkingIcon from '../../assets/LandingPage/no-talking-icon.svg';
 import raccoonLogo from '../../assets/LandingPage/logo.svg'; 
 import licenseCheck from '../../assets/LandingPage/license-check.svg'; 
 
-import { useState } from 'react';
-
 import cityOfThomas from '../../assets/LandingPage/city-of-st-thomas.png';
 import centralElgin from '../../assets/LandingPage/central-elgin.png';
 import southwold from '../../assets/LandingPage/southwold-township.png';
