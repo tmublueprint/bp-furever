@@ -84,9 +84,18 @@ function LandingPage() {
                 <h3>Things to Keep in Mind -</h3>
               </div>
               <div id="group-bottom">
-                <img src={safetyIcon} alt="safety icon"/>
-                <img src={feedIcon} alt="feed icon"/>
-                <img src={talkingIcon} alt="talk icon"/>
+                <div>
+                  <img src={safetyIcon} alt="Shield with checkmark"/>
+                  <p>Your Safety Is #1</p>
+                </div>
+                <div>
+                  <img src={feedIcon} alt="Crossed out hand feeding an animal"/>
+                  <p>Never Feed Any Wild Animal</p>
+                </div>
+                <div>
+                  <img src={talkingIcon} alt="Speech bubble with an X"/>
+                  <p>No Talking To The Animal</p>
+                </div>
               </div>
             </div>
           </div>
