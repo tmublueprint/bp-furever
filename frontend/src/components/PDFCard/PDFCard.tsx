@@ -12,12 +12,13 @@ interface PDFCardProps{
 }
 
 function PDFCard({image, title, summary, link}: PDFCardProps){
+    const hasCustomImage = Boolean(image);
 
     return(
         <div id="PDFCard">
             <div id="pdf-card-image-container">
                 <img id="pdf-card-image" src={image || placeholder} alt=""></img>
-                <img id="pdf-card-overlayed-img" src={missingImg}></img>
+                {!hasCustomImage && <img id="pdf-card-overlayed-img" src={missingImg}></img>}
             </div>
             <div id="pdf-card-content">
                 <h1>{title}</h1>
