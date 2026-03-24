@@ -13,6 +13,9 @@ function Education() {
            <p className="education-hero-body">Practical guidance to help protect wildlife and coexist responsibly.</p>
          </div>
        </section>
+       <section>
+        
+       </section>
       <Footer />
      </main>
     </>
