@@ -16,7 +16,7 @@ const pdfData = [
     image: "frontend/public/image/relocating-wildlife.png",
     title: "Relocating Wildlife Doesn't Work",
     summary: "Why relocation is not an effective solution",
-    link: "/frontend/public/pdf/Relocating Wildlife Doesn't Work.pdf",
+    link: "frontend/public/pdf/Relocating Wildlife Doesn't Work.pdf",
   },
 ]
 
