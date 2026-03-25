@@ -7,12 +7,12 @@
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
+    
     height: 530px;
     max-width: 440px;
     width: 100%;
-    background-color: #f9f9f4;
-    align-items: center;
 
+    background-color: #f9f9f4;
     border-radius: 15px;
 }
 
