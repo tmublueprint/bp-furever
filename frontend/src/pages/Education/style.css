@@ -28,3 +28,10 @@
     color: #324436;
     margin: 0 0 55px 0;
 }
+
+.pdf-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}

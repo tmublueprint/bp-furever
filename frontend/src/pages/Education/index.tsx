@@ -31,7 +31,7 @@ function Education() {
            <p className="education-hero-body">Practical guidance to help protect wildlife and coexist responsibly.</p>
          </div>
        </section>
-       <section className='pdf-gallery'>
+       <section className='pdf-section'>
         <PDFGallery pdfList={pdfData} />
        </section>
       <Footer />
