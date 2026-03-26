@@ -59,9 +59,8 @@
 }
 
 .pdf-card-image-container{
+    flex: 1;
     position: relative;
-    width: 100%;
-    height: 323px;
     overflow: hidden;
 }
 
