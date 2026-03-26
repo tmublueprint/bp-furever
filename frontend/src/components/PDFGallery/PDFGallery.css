@@ -3,5 +3,6 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
     gap: 1.5rem;
     padding: 1rem;
-    justify-content: center;
+    justify-content: space-evenly;
+    justify-items: center;
 }
