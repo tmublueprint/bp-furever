@@ -14,7 +14,7 @@ function AnimalBox({label = "Animal", hyperlink = "/foundananimal", image}: Anim
     return ( 
         <div className="box" style={{backgroundImage: `url(${image})`}}>
             <h1 style={{color: boxColor}}>{label}</h1>
-            <a href={hyperlink} className="url">
+            <a href={hyperlink} className="url" aria-hidden = "true">
                 <p>Learn what to do</p>
                 <img src={LeavePageIcon} alt="Click here to learn what to do" aria-hidden = "true"/>
             </a>
