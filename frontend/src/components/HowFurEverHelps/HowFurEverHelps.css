@@ -11,7 +11,7 @@
     padding: 0px;
 }
 
-#how-furever-helps h1{
+#how-furever-helps h2{
     display: flex;
     box-sizing: border-box;
     font-family: 'Montserrat', 'Poppins';
@@ -21,6 +21,7 @@
     padding: 50px;
     height: 100px;
     width: 600px;
+    font-weight: 500;
 }
 
 .how-furever-helps-info p{
@@ -33,8 +34,6 @@
 }
 
 .furever-helps-card h3{
-    font-family: 'DM Sans', 'Poppins';
-    font-size: 26px;
     color: #324436;
 }
 
