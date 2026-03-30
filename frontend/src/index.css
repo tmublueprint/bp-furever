@@ -5,3 +5,15 @@ body {
     font-weight: 300;
 }
 
+:root {
+    --heading-dark-green: #132F27;
+    --body-dark-green: #324436;
+    --dark-green: #4C5C41;
+    --medium-green: #778932;
+    --light-green: #AEBA82;
+    --canvas: #F9F9F4;
+    --white: #FFFFFF;
+
+    --warning-red: #EB4848;
+    --baby-btn: #A89F5A;
+}
