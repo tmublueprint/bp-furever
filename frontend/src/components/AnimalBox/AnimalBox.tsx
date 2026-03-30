@@ -13,7 +13,7 @@ function AnimalBox({label = "Animal", hyperlink = "/foundananimal", image}: Anim
     const boxColor = image ? "white" : "black";
     return ( 
         <div className="box" style={{backgroundImage: `url(${image})`}}>
-            <h1 style={{color: boxColor}}>{label}</h1>
+            <h3 style={{color: boxColor}}>{label}</h3>
             <a href={hyperlink} className="url">
                 <p>Learn what to do</p>
                 <img src={LeavePageIcon} alt="Click here to learn what to do"/>

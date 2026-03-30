@@ -76,11 +76,9 @@ function FoundAnimal() {
         <h2 className="section-header">Select The Animal You Found</h2>
         <div className="cards">
           <div className="left">
-            <h3>
               <AnimalBox label="Squirrel"/>
               <AnimalBox label="Rabbit"/>
               <AnimalBox label="Fawn" image={Example}/>
-            </h3>
           </div>
           <div className="right">
             <AnimalBox label="Raccoon"/>
