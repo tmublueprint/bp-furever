@@ -40,6 +40,7 @@ html, body {
 
 .volunteer-icon img {
   width: 350px;
+  margin: 50px;
 }
 
 /* Text box*/
@@ -55,7 +56,7 @@ html, body {
 .volunteer-hero-title {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
-  font-size: 55px;
+  font-size: 64px;
   line-height: 1.05;
   letter-spacing: 0;
   color: #132f27;
@@ -91,23 +92,30 @@ html, body {
   padding: 50px 0;
 }
 
+.volunteer-role h3 {
+  margin: 10px;
+  padding: none;
+}
+
 .volunteer-roles-title {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
-  font-size: 64px;
+  font-size: 38px;
   color: #132F27;
 }
 
 .volunteer-roles {
-  margin-top: 50px;
+  margin: 50px;
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
+
+
 .volunteer-role {
-  width: 568px;
-  height: 427px;
+  width: 420px;
+  height: 327px;
   background: #F9F9F4;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
@@ -115,6 +123,8 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 30px;
+
 }
 
 .volunteer-role h1 {
@@ -127,7 +137,7 @@ html, body {
 .volunteer-role p {
   font-family: 'DM Sans';
   font-weight: 400;
-  font-size: 30px;
+  font-size: 20px;
   color: #324436;
   width: 75%;
   text-align: center;
@@ -156,7 +166,7 @@ html, body {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
-  font-size: 64px;
+  font-size: 38px;
   color: #132F27;
   text-align: center;
 }
@@ -167,13 +177,15 @@ html, body {
 
 .volunteer-requirements-list {
   list-style: none;
+  font-size: 30px;
+
 }
 
 .volunteer-requirements-item {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  font-size: 38px;
+  font-size: 30px;
   color: #000000;
   line-height: 130%;
   padding: 10px;
@@ -193,7 +205,7 @@ html, body {
   font-family: 'Montserrat';
   color: #4C5C41;
   font-style: 600;
-  font-size: 36px;
+  font-size: 30px;
   line-height: 130%;
   padding: 34px;
   text-align: center;
@@ -210,7 +222,7 @@ html, body {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
-  font-size: 64px; /**55px, 64px*/
+  font-size: 38px;
   color: #132F27;
   text-align: center;
 }
@@ -222,9 +234,11 @@ html, body {
 #how-to-apply-checklist {
   color: black;
   font-weight: 600; 
-  font-size: 38px; /* */
+  font-size: 30px;
+  width: 1400px;
   list-style-type: none;
-  text-align: left;
+  margin: 50px;
+  /* text-align: left; */
 }
 #how-to-apply-checklist li {
   margin-bottom: 30px;
@@ -234,61 +248,19 @@ html, body {
   margin-bottom: 0; 
 }
 #apply-email-btn {
-  margin-top: 32px;
-  margin-bottom: 94px;
-  width: 389px;
-  min-height: 93px;
-  border: 2px solid rgba(119, 137, 50, 0.5);
-  border-radius: 70px;
-  box-shadow: 0px 4px 4px rgba(19, 47, 39, 0.25);
-  background-color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 16px 14px 36px;
-  text-decoration: none;
   cursor: pointer;
 }
-
-#apply-email-btn-text {
-  font-family: 'Montserrat';
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 105%;
-  color: #000000;
-}
-
-#apply-email-btn-arrow-circle {
-  width: 76px;
-  height: 72px;
-  border-radius: 50%;
-  background-color: #83A254;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-#apply-email-btn-arrow {
-  width: 76px;
-  height: 76px;
-  display: block;
-}
-
 .how-to-apply-end {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
+  height: 300px;
   color: #4C5C41;
   background-color: #F9F9F4;
-  padding: 62px;
 }
 .how-to-apply-ending-text {
-  font-weight: 600;
-  line-height: 130%;
-  font-size: 36px;
+  font-weight: 600; 
+  font-size: 30px;
   text-align: center;
 }

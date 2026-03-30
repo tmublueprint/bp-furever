@@ -61,7 +61,7 @@ function FoundAnimal() {
 
       <section className="help-tips">
         <div className="help-tips-container">
-          <h1>Before You Help, Remember:</h1>
+          <h2>Before You Help, Remember:</h2>
           <ul className="help-svgs">
             {tips.map((tip) => (
               <li className="help-tip-item" key={tip.alt}>
@@ -73,12 +73,14 @@ function FoundAnimal() {
         </div>
       </section>
       <div className="select-animal">
-        <h1 className="section-header">Select The Animal You Found</h1>
+        <h2 className="section-header">Select The Animal You Found</h2>
         <div className="cards">
           <div className="left">
-            <AnimalBox label="Squirrel"/>
-            <AnimalBox label="Rabbit"/>
-            <AnimalBox label="Fawn" image={Example}/>
+            <h3>
+              <AnimalBox label="Squirrel"/>
+              <AnimalBox label="Rabbit"/>
+              <AnimalBox label="Fawn" image={Example}/>
+            </h3>
           </div>
           <div className="right">
             <AnimalBox label="Raccoon"/>
@@ -87,7 +89,7 @@ function FoundAnimal() {
         </div>
       </div>
       <div className="found-animal">
-        <h1 className="section-header" style={{color: '#778932'}}>Not sure what you’ve found?</h1>
+        <h2 className="section-header" style={{color: '#778932'}}>Not sure what you’ve found?</h2>
         <p>If the animal is injured, cold, or in immediate danger,
           <br/>contact your local Animal Control or call Fur-Ever Wild Rehabilitation,
           <br/>at 519-777-6440.</p>
