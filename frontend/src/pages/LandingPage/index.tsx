@@ -108,19 +108,19 @@ function LandingPage() {
             <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
               <div className="map-container">
                 <img alt="Map of City of St. Thomas" src={cityOfThomas}></img>
-                <h4>City of St. Thomas</h4>
+                <h3>City of St. Thomas</h3>
               </div>
             </a>
             <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
               <div className="map-container">
                 <img alt="Map of Central Elgin" src={centralElgin}></img>
-                <h4>Central Elgin</h4>
+                <h3>Central Elgin</h3>
               </div>
             </a>
             <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
               <div className="map-container">
                 <img alt="Map of Southwold" src={southwold}></img>
-                <h4>Southwold Township</h4>
+                <h3>Southwold Township</h3>
               </div>
             </a>
             <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
