@@ -16,4 +16,9 @@ body {
 
     --warning-red: #EB4848;
     --baby-btn: #A89F5A;
+
+    --text-size-heading-one: 4em;
+    --text-size-heading-two: 3em;
+    --text-size-heading-three: 2em;
+    --text-size-paragraph: 1em;
 }
