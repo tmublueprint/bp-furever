@@ -13,16 +13,16 @@ function HowYouCanHelp() {
 
       <div id="how-you-can-help">
             <div id="images">
-                <img src={imagePlaceholder} alt="placeholder" ></img>
+                <img src={imagePlaceholder} alt="placeholder" aria-hidden = "true"></img>
                 <button className='how-you-can-help-btn-text'><p>Volunteer With Us</p></button>
             </div>
             <div id="images">
-                <img src={imagePlaceholder} alt="placeholder" ></img>
+                <img src={imagePlaceholder} alt="placeholder" aria-hidden = "true" ></img>
                 <button className='how-you-can-help-btn-text'><p>Learn More</p></button>
             </div>
             <div id="images">
-                <img src={imagePlaceholder} alt="placeholder"></img>
-                <button className='how-you-can-help-btn-text'><p>Follow Our Blog</p></button>
+                <img src={imagePlaceholder} alt="placeholder" aria-hidden = "true"></img>
+                <button className='how-you-can-help-btn-text'><p>Follow Our Facebook</p></button>
 
             </div>
 

@@ -102,25 +102,25 @@ function LandingPage() {
         <div className="locations-section">
           <h2>Service Locations</h2>
           <div id="service-locations">
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
               <div className="map-container">
                 <img alt="Map of City of St. Thomas" src={cityOfThomas}></img>
                 <h3>City of St. Thomas</h3>
               </div>
             </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
               <div className="map-container">
                 <img alt="Map of Central Elgin" src={centralElgin}></img>
                 <h3>Central Elgin</h3>
               </div>
             </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
               <div className="map-container">
                 <img alt="Map of Southwold" src={southwold}></img>
                 <h3>Southwold Township</h3>
               </div>
             </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
             <div className="map-container">
               <img alt="Map of Aylmer" src={aylmer}></img>
               <h3>Town of Aylmer</h3>
