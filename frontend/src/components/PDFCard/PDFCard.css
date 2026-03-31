@@ -43,7 +43,7 @@
 
 .PDFCard p{
     height: 50px;
-    width: 360px;
+    width: 100%;
     margin: 0;
 }
 
@@ -52,16 +52,20 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: top;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
+    flex-shrink: 0;
     z-index: 2;
 }
 
 .pdf-card-image-container{
-    flex: 1;
     position: relative;
     overflow: hidden;
+    height: 320px;
+    width: 100%;
+    min-width: 440px;
+    flex-shrink: 0;
 }
 
 .pdf-card-overlayed-img{
@@ -77,13 +81,14 @@
 
 .pdf-card-btn{
     display: flex;
+    color: black;
     border: 1px solid #778932;
     text-decoration: none;
     width: 180px;
     height: 50px;
     justify-content: end;
     align-items: center;
-    padding: 0px 5px;
+    padding: 5px 5px;
     gap: 20px;
     border-radius: 30px;
 }

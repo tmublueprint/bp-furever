@@ -25,8 +25,8 @@ function PDFCard({image, title, summary, link}: PDFCardProps){
                 <p>{summary}</p>
                 <a className="pdf-card-btn" href={link} target="_blank" rel="noopener noreferrer">Read Guide
                     <div className="pdf-btn-imgs">
-                        <img className="pdf-card-arrow" src={arrow} alt="Arrow"></img>
-                        <img className="pdf-card-ellipse" src={ellipse}></img>
+                        <img className="pdf-card-arrow" src={arrow} alt="Arrow" aria-hidden="true"></img>
+                        <img className="pdf-card-ellipse" src={ellipse} aria-hidden="true" ></img>
                     </div>
                 </a>
             </div>
