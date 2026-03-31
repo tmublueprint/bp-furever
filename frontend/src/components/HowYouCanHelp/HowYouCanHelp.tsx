@@ -9,7 +9,7 @@ import imagePlaceholder from '../../assets/HowYouCanHelp/how-you-can-help-card.s
 function HowYouCanHelp() {
   return ( 
     <>
-        <h1 style={{textAlign: "center", margin: "45px 0px 45px 0px"}}>How You Can Help</h1>
+        <h2 style={{textAlign: "center", margin: "45px 0px 45px 0px"}}>How You Can Help</h2>
 
       <div id="how-you-can-help">
             <div id="images">

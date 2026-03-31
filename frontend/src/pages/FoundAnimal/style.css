@@ -29,12 +29,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #F8F9E9;
+    background-color: #F9F9F4;
     padding: 75px 0;
 }
 
 .help-tips-container {
     text-align: center;
+}
+
+.help-tips-container h2{
+    color: #132F27;
+    font-weight: 600;
 }
 
 .help-tips h1 {
