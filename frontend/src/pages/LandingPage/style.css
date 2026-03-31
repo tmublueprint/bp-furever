@@ -19,14 +19,12 @@
 
 /* Wildlife Rescue and Services */
 .horizontalCentering { 
-    background-color: #ffffff;
     width: 100%; 
     display: flex;
     justify-content: center; 
     margin-top: 30px;
 }
 #hero-component { 
-    background-color: #ffffff; 
     width: 1279px;
     height: 730px;
     display: flex;
@@ -209,6 +207,12 @@ h4 {
     align-items: center;
     padding: 10px 15px 5px 10px;
     margin: 10px 20px -20px 20px;
+}
+
+.map-container h3 {
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 5px;
 }
 
 .map-container img {

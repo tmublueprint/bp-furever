@@ -9,7 +9,7 @@ function Footer() {
   return (
     <>
       <div id="footer">
-        <p>We Are Not An Emergency Drop-off Location.</p>
+        <p id ="bigger-footer-text">We Are Not An Emergency Drop-off Location.</p>
         <p>Please Consult Our Guide Before Contacting Us.</p>
         <div id="small-footer">
             <img src={facebookIcon} alt="facebook-icon" aria-hidden = "true"></img>
