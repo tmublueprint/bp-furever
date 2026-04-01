@@ -10,7 +10,7 @@
     flex-direction: column;
     height: 530px;
     width: 440px;
-    background-color: #f9f9f4;
+    background-color: var(--color-canvas);
     align-items: center;
 
     border-radius: 15px;

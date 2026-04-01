@@ -18,7 +18,7 @@ html, body {
 .volunteer-hero {
   padding-top: 60px;
   /* padding-bottom: 80px; */
-  background-color: #ffffff;
+  background-color: var(--color-white);
   
 }
 
@@ -58,7 +58,7 @@ html, body {
   font-size: 55px;
   line-height: 1.05;
   letter-spacing: 0;
-  color: #132f27;
+  color: var(--color-heading-dark-green);
   /* max-width: 1149px; */
   margin: 0 0 40px 0;
 }
@@ -96,7 +96,7 @@ html, body {
   font-style: normal;
   font-weight: 600;
   font-size: 64px;
-  color: #132F27;
+  color: var(--color-heading-dark-green);
 }
 
 .volunteer-roles {
@@ -121,14 +121,14 @@ html, body {
   font-family: 'DM Sans';
   font-weight: 600;
   font-size: 32px;
-  color: #324436;
+  color: var(--color-body-dark-green);
 }
 
 .volunteer-role p {
   font-family: 'DM Sans';
   font-weight: 400;
   font-size: 30px;
-  color: #324436;
+  color: var(--color-body-dark-green);
   width: 75%;
   text-align: center;
   margin: 0;
@@ -138,7 +138,7 @@ html, body {
   position: absolute;
   z-index: -1;
   bottom: 0;
-  background-color: #AEBA82;
+  background-color: var(--color-light-green);
   height: 200px;
   width: 100%;
 }
@@ -157,7 +157,7 @@ html, body {
   font-style: normal;
   font-weight: 600;
   font-size: 64px;
-  color: #132F27;
+  color: var(--color-heading-dark-green);
   text-align: center;
 }
 
@@ -182,7 +182,7 @@ html, body {
 .volunteer-requirements-vector {
   z-index: -1;
   margin-top: 102px;
-  background-color: #F9F9F4;
+  background-color: var(--color-canvas);
   height: 100%;
   width: 100%;
   display: flex;
@@ -191,7 +191,7 @@ html, body {
 
 .volunteer-requirements-vector-text {
   font-family: 'Montserrat';
-  color: #4C5C41;
+  color: var(--color-dark-green);
   font-style: 600;
   font-size: 36px;
   line-height: 130%;
@@ -201,7 +201,7 @@ html, body {
 
 /* How to apply section */
 .container-how-to-apply {
-  background-color: #ffffff;
+  background-color: var(--color-white);
   padding: 0; 
   margin: 0; 
   margin-top: 94px;
@@ -211,7 +211,7 @@ html, body {
   font-style: normal;
   font-weight: 600;
   font-size: 64px; /**55px, 64px*/
-  color: #132F27;
+  color: var(--color-heading-dark-green);
   text-align: center;
 }
 .how-to-apply-body {
@@ -241,7 +241,7 @@ html, body {
   border: 2px solid rgba(119, 137, 50, 0.5);
   border-radius: 70px;
   box-shadow: 0px 4px 4px rgba(19, 47, 39, 0.25);
-  background-color: #ffffff;
+  background-color: var(--color-white);
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -282,8 +282,8 @@ html, body {
   justify-content: center;
   height: 100%;
   width: 100%;
-  color: #4C5C41;
-  background-color: #F9F9F4;
+  color: var(--color-dark-green);
+  background-color: var(--color-canvas);
   padding: 62px;
 }
 .how-to-apply-ending-text {

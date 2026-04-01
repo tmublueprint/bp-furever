@@ -35,7 +35,7 @@
 .furever-helps-card h3{
     font-family: 'DM Sans', 'Poppins';
     font-size: 26px;
-    color: #324436;
+    color: var(--color-body-dark-green);
 }
 
 #how-furever-helps-info {
@@ -56,7 +56,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: #F9F9F4;
+    background-color: var(--color-canvas);
     border-radius: 15px;
     padding: 30px;
 }

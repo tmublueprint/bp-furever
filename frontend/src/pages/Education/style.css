@@ -16,7 +16,7 @@
     font-weight: 600;
     font-size: 90px;
     text-align: center;
-    color: #132F27;
+    color: var(--color-heading-dark-green);
     margin: 146px 0 55px 0;
 }
 
@@ -25,6 +25,6 @@
     font-weight: 500;
     font-size: 38px;
     text-align: center;
-    color: #324436;
+    color: var(--color-body-dark-green);
     margin: 0 0 55px 0;
 }
