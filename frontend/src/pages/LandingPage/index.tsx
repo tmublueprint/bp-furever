@@ -1,6 +1,6 @@
 import './style.css';
 
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import NavBar from '../../components/NavBar/NavBar'; 
@@ -33,6 +33,33 @@ const noticeBoxStyle = {
 
 function LandingPage() {
   const [showAdultPopup, setShowAdultPopup] = useState(false);
+  const openAdultBtn = useRef<HTMLButtonElement>(null);
+  const firstRender = useRef(true); 
+  
+    useEffect(() => {
+        const horizontalCentering = document.getElementById("horizontalCentering-sec"); 
+        const locationsSection = document.getElementById("locations-sec");  
+        const footer = document.getElementById("footer-sec");
+        const howYouCanHelp = document.getElementById("how-you-can-help-sec");
+        const navbar = document.getElementById("navbar-sec"); 
+        if (showAdultPopup) {
+          horizontalCentering?.setAttribute("inert", ""); 
+          locationsSection?.setAttribute("inert", ""); 
+          footer?.setAttribute("inert", ""); 
+          howYouCanHelp?.setAttribute("inert", ""); 
+          navbar?.setAttribute("inert", ""); 
+          firstRender.current = false; 
+        } else {
+          horizontalCentering?.removeAttribute("inert"); 
+          locationsSection?.removeAttribute("inert"); 
+          footer?.removeAttribute("inert"); 
+          howYouCanHelp?.removeAttribute("inert"); 
+          navbar?.removeAttribute("inert"); 
+          if (!firstRender.current)
+            openAdultBtn.current?.focus();
+        }
+    }, [showAdultPopup])
+
 
   const handleAdultBtnClick = () => {
     setShowAdultPopup(true);
@@ -51,9 +78,11 @@ function LandingPage() {
     <>
       <div id="background" style={{width: "100%", minHeight: "100vh", backgroundColor: "#fbfcf5"}}>
       {/** Nav Bar */}
-        <NavBar/>
+        <div id="navbar-sec">
+          <NavBar/>
+        </div>
         {/** Hero Component */} 
-        <div className="horizontalCentering">
+        <div className="horizontalCentering" id="horizontalCentering-sec">
           <div id="hero-component">
             <div id="services">
               <h1 style={{width: "600px"}} className="titleText">Welcome to Fur-Ever Wild Rehabilitation</h1>
@@ -74,7 +103,7 @@ function LandingPage() {
                 <h2 style={{color: "#778932"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
                 <h3 style={{width: "500px"}}>Choose one to get immediate guidance: </h3>
                 <div id="container-btn">
-                  <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick}>
+                  <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick} ref={openAdultBtn}>
                     <p>Adult</p>
                   </button>
                     <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn" onClick={babyBtnClick}>
@@ -93,7 +122,7 @@ function LandingPage() {
         </div>
 
         {/** Service Locations */}
-        <div className="locations-section">
+        <div className="locations-section" id="locations-sec">
           <h1>Service Locations</h1>
           <div id="service-locations">
             <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
@@ -127,10 +156,12 @@ function LandingPage() {
         {/* How Fur-Ever Helps */}
         <HowFurEverHelps />
 
-        <div>
+        <div id="how-you-can-help-sec">
           <HowYouCanHelp></HowYouCanHelp>
         </div>
-        <Footer></Footer>
+        <div id="footer-sec">
+          <Footer></Footer>
+        </div>
       </div>
 
     </>
