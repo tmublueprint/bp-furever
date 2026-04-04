@@ -9,19 +9,19 @@ import imagePlaceholder from '../../assets/HowYouCanHelp/how-you-can-help-card.s
 function HowYouCanHelp() {
   return ( 
     <>
-        <h1 style={{textAlign: "center", margin: "45px 0px 45px 0px"}}>How You Can Help</h1>
+        <h2 style={{textAlign: "center", margin: "45px 0px 45px 0px"}}>How You Can Help</h2>
 
       <div id="how-you-can-help">
             <div id="images">
-                <img src={imagePlaceholder} alt="placeholder" ></img>
+                <img src={imagePlaceholder} alt="placeholder" aria-hidden = "true"></img>
                 <button className='how-you-can-help-btn-text'><p>Volunteer With Us</p></button>
             </div>
             <div id="images">
-                <img src={imagePlaceholder} alt="placeholder" ></img>
+                <img src={imagePlaceholder} alt="placeholder" aria-hidden = "true" ></img>
                 <button className='how-you-can-help-btn-text'><p>Learn More</p></button>
             </div>
             <div id="images">
-                <img src={imagePlaceholder} alt="placeholder"></img>
+                <img src={imagePlaceholder} alt="placeholder" aria-hidden = "true"></img>
                 <button className='how-you-can-help-btn-text'><p>Follow Our Facebook</p></button>
 
             </div>

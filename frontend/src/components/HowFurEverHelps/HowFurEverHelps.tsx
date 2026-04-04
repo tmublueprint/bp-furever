@@ -11,20 +11,20 @@ function HowFurEverHelps() {
     return (
         <>
             <div id="how-furever-helps">
-                <h1>How Fur-Ever Helps</h1>
+                <h2>How Fur-Ever Helps</h2>
                 <div id="how-furever-helps-info">
                     <div className="furever-helps-card">
-                        <img id="leaf" src={leaf} alt="leaf icon"></img>
+                        <img id="leaf" src={leaf} alt="leaf icon" aria-hidden = "true"></img>
                         <h3>Wildlife Education</h3>
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu </p>
                     </div>
                     <div className="furever-helps-card">
-                        <img id="handshake" src={handshake} alt="handshaking icon"></img>
+                        <img id="handshake" src={handshake} alt="handshaking icon" aria-hidden = "true"></img>
                         <h3>Guidance & Support</h3>
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu </p>
                     </div>
                     <div className="furever-helps-card">
-                        <img id="group" src={group} alt="group icon"></img>
+                        <img id="group" src={group} alt="group icon" aria-hidden = "true"></img>
                         <h3>Community Awareness</h3>
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu </p>
                     </div>

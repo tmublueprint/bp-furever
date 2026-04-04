@@ -42,11 +42,11 @@ function Volunteer() {
         </section>
 
         <section className="volunteer-roles-container">
-          <h1 className="volunteer-roles-title">Volunteer Roles & Opportunities</h1>
+          <h2 className="volunteer-roles-title">Volunteer Roles & Opportunities</h2>
           <div className="volunteer-roles">
             <div className="volunteer-role">
               <img src={Role1} alt ="house icon"/>
-              <h1>On-Site Support</h1>
+              <h3>On-Site Support</h3>
               <p>
                 Lorem ipsum dolor sit amet,
                 consectetuer adipiscing elit, 
@@ -55,7 +55,7 @@ function Volunteer() {
             </div>
             <div className="volunteer-role">
               <img src={Role2} alt ="baby bottle icon"/>
-              <h1>Foster Care</h1>
+              <h3>Foster Care</h3>
               <p>
                 Lorem ipsum dolor sit amet,
                 consectetuer adipiscing elit, 
@@ -64,7 +64,7 @@ function Volunteer() {
             </div>
             <div className="volunteer-role">
               <img src={Role3} alt ="car icon"/>
-              <h1>Driver Support</h1>
+              <h3>Driver Support</h3>
               <p>
                 Lorem ipsum dolor sit amet,
                 consectetuer adipiscing elit, 
@@ -76,7 +76,7 @@ function Volunteer() {
         </section>
 
         <section className="volunteer-requirements-container">
-          <h1 className="volunteer-requirements-title">General Volunteer Requirements</h1>
+          <h2 className="volunteer-requirements-title">General Volunteer Requirements</h2>
           <div className="volunteer-requirements">
             <ul className="volunteer-requirements-list">
               <li className="volunteer-requirements-item">✔ Available during baby season (minimum <span style={{ fontWeight: 600 }}>2× per week, 4-hour shifts</span>)</li>
@@ -95,12 +95,12 @@ function Volunteer() {
 
         <section className="how-to-apply">
           <div className="container-how-to-apply">
-            <h1 className="how-to-apply-header-one">How To Apply</h1>
+            <h2 className="how-to-apply-header-one">How To Apply</h2>
             <div className="how-to-apply-body">
               <ul id="how-to-apply-checklist">
                 <li>1. Ensure you meet all volunteer requirements</li>
                 <li>2. Prepare your resume</li>
-                <li>3. Email Colleen to apply</li>
+                <li>3. Email Colleen (<a href="mailto:cburns6440@gmail.com" aria-hidden = "true">cburns6440@gmail.com</a>) to apply</li>
                 <li style={{fontWeight: "normal", fontStyle: "italic"}}>—  Please note, only applications meeting the requirements will be considered.</li>
                 <a href="mailto:cburns6440@gmail.com" id="apply-email-btn" aria-label="Apply by email">
                   <span id="apply-email-btn-text">Apply by Email</span>
@@ -111,7 +111,7 @@ function Volunteer() {
               </ul>
             </div>
             <div className="how-to-apply-end">
-              <h1 className="how-to-apply-ending-text">Volunteer duties may vary depending on need and experience.<br/>Training and placement are determined by Fur-Ever Wild Rehabilitation.<br/><br/>Volunteering with wildlife is a responsibility — thank you for considering it carefully.</h1>
+              <p className="how-to-apply-ending-text">Volunteer duties may vary depending on need and experience.<br/>Training and placement are determined by Fur-Ever Wild Rehabilitation.<br/><br/>Volunteering with wildlife is a responsibility — thank you for considering it carefully.</p>
             </div>
           </div>
         </section>

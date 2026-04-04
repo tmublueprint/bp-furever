@@ -29,9 +29,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #F8F9E9;
-    padding: 72px 0;
+    background-color: #F9F9F4;
+    padding: 75px 0;
+}
+
+.help-tips-container {
     text-align: center;
+}
+
+.help-tips-container h2{
+    color: #132F27;
+    font-weight: 600;
 }
 
 .help-tips h1 {
@@ -90,4 +98,45 @@
     font-size: 38px;
     color: #324436;
     line-height: 50px;
+}
+
+.section-header {
+    font-weight: 600;
+    text-align: center;
+    font-size: 64px;
+    text-transform: capitalize;
+    color: #132F27;
+}
+
+.select-animal {
+    margin-top: 200px;
+    display: grid;
+    align-items: center;
+}
+
+.select-animal h1 {
+    margin-bottom: 75px;
+}
+
+.cards {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    gap: 50px;
+}
+
+.left, .right {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.left > * {
+    width: 854px;
+    height: 353px;
+}
+
+.right > * {
+    width: 880px;
+    height: 630px;
 }

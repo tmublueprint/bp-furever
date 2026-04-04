@@ -14,10 +14,10 @@
 .education-hero-title {
     font-family: "Montserrat";
     font-weight: 600;
-    font-size: 90px;
     text-align: center;
     color: #132F27;
-    margin: 146px 0 55px 0;
+    margin: 70px 0 55px 0;
+    font-size: 64px;
 }
 
 .education-hero-body {

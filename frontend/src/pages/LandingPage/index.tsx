@@ -76,7 +76,7 @@ function LandingPage() {
 
   return (
     <>
-      <div id="background" style={{width: "100%", minHeight: "100vh", backgroundColor: "#fbfcf5"}}>
+      <div id="background" style={{width: "100%", minHeight: "100vh", backgroundColor: "#ffffff"}}>
       {/** Nav Bar */}
         <div id="navbar-sec">
           <NavBar/>
@@ -85,23 +85,20 @@ function LandingPage() {
         <div className="horizontalCentering" id="horizontalCentering-sec">
           <div id="hero-component">
             <div id="services">
-              <h1 style={{width: "600px"}} className="titleText">Welcome to Fur-Ever Wild Rehabilitation</h1>
-              <p className="headingThree" style={{width: "600px"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
+              <h1 style={{width: "600px"}} className="titleText">Welcome to<br />Fur-Ever Wild Rehabilitation</h1>
+              <p className="headingThree" style={{width: "600px", fontWeight: "300"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
               aiming to return them to their natural habitat.</p>
               <p className="headingThree" style={{fontWeight: "bold"}}>We are not a removal service.</p>
               <div id="certification-label"> 
                 <img src={licenseCheck} alt="licensed check icon"/>
-                <p>Trained in wildlife behavior, management and conflict.
-                   Authorized and Regulated by Ontario's Ministry of Natural
-                   Resources & Forestry.
-                </p>
+                <p>Trained in wildlife behaviour & management</p>
               </div>
             </div>
             {/** Found Animal Notice Box */}
             <div id="notice-box" style={noticeBoxStyle}>
               <div id="group-top">
-                <h2 style={{color: "#778932"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
-                <h3 style={{width: "500px"}}>Choose one to get immediate guidance: </h3>
+                <h2 style={{color: "#778932", fontWeight: "700"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
+                <p style={{width: "500px"}}>Choose one to get immediate guidance: </p>
                 <div id="container-btn">
                   <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick} ref={openAdultBtn}>
                     <p>Adult</p>
@@ -110,12 +107,21 @@ function LandingPage() {
                       <p>Baby</p> 
                     </button> 
                 </div>
-                <h3>Things to Keep in Mind -</h3>
+                <p>Things to Keep in Mind -</p>
               </div>
               <div id="group-bottom">
-                <img src={safetyIcon} alt="safety icon"/>
-                <img src={feedIcon} alt="feed icon"/>
-                <img src={talkingIcon} alt="talk icon"/>
+                <div>
+                  <img src={safetyIcon} alt="Shield with checkmark"/>
+                  <p>Your Safety Is #1</p>
+                </div>
+                <div>
+                  <img src={feedIcon} alt="Crossed out hand feeding an animal"/>
+                  <p>Never Feed Any Wild Animal</p>
+                </div>
+                <div>
+                  <img src={talkingIcon} alt="Speech bubble with an X"/>
+                  <p>No Talking To The Animal</p>
+                </div>
               </div>
             </div>
           </div>
@@ -123,30 +129,30 @@ function LandingPage() {
 
         {/** Service Locations */}
         <div className="locations-section" id="locations-sec">
-          <h1>Service Locations</h1>
+          <h2>Service Locations</h2>
           <div id="service-locations">
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
               <div className="map-container">
                 <img alt="Map of City of St. Thomas" src={cityOfThomas}></img>
-                <h4>City of St. Thomas</h4>
+                <h3>City of St. Thomas</h3>
               </div>
             </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
               <div className="map-container">
                 <img alt="Map of Central Elgin" src={centralElgin}></img>
-                <h4>Central Elgin</h4>
+                <h3>Central Elgin</h3>
               </div>
             </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
               <div className="map-container">
                 <img alt="Map of Southwold" src={southwold}></img>
-                <h4>Southwold Township</h4>
+                <h3>Southwold Township</h3>
               </div>
             </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
             <div className="map-container">
               <img alt="Map of Aylmer" src={aylmer}></img>
-              <h4>Town of Aylmer</h4>
+              <h3>Town of Aylmer</h3>
             </div>
             </a>
           </div>
