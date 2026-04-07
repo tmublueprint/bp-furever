@@ -12,7 +12,7 @@
 .page-title {
     text-align: center;
     color: var(--color-heading-dark-green);
-    font-size: 90px;
+    font-size: var(--font-size-heading-zero);
     font-weight: 600;
     margin: 146px 0 30px 0;
 }
@@ -42,9 +42,9 @@
     font-weight: 600;
 }
 
-.help-tips h1 {
+.help-tips h2 {
     font-weight: 600;
-    font-size: 64px;
+    font-size: var(--font-size-heading-one);
     color: var(--color-heading-dark-green);
 }
 
