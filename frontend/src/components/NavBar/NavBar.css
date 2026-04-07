@@ -6,7 +6,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 80px;
-    background-color: #4C5C41; 
+    background-color: var(--color-dark-green); 
 }
 #furever-logo {
     padding-left: 80px;
