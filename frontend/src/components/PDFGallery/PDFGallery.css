@@ -1,0 +1,7 @@
+.pdf-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+    width: 100%;
+}
