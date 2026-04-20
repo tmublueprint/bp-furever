@@ -95,7 +95,7 @@ function Volunteer() {
 
         <section className="how-to-apply">
           <div className="container-how-to-apply">
-            <h2 className="how-to-apply-header-one">How To Apply</h2>
+            <h2 className="how-to-apply-header-two">How To Apply</h2>
             <div className="how-to-apply-body">
               <ul id="how-to-apply-checklist">
                 <li>1. Ensure you meet all volunteer requirements</li>

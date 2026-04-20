@@ -12,9 +12,9 @@
 .facebook-hero-title {
     font-family: "Montserrat";
     font-weight: 600;
-    font-size: 90px;
+    font-size: var(--font-size-heading-zero);
     text-align: center;
-    color: #132F27;
+    color: var(--color-heading-dark-green);
     margin: 146px 0 55px 0;
 }
 

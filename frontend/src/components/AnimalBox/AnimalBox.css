@@ -1,4 +1,4 @@
-.box {
+.animalBoxContainer {
     font-family: 'Montserrat';
     display: flex;
     padding: 50px;
@@ -11,10 +11,10 @@
     padding-bottom: 100px;
 }
 
-.box h1 {
+.animalBoxContainer h3 {
     font-family: 'Poppins';
     font-weight: 500;
-    font-size: 48px;
+    font-size: var(--font-size-heading-two);
     color: #1E1E1E;
     margin-left: 50px;
 }
