@@ -261,7 +261,6 @@ html, body {
 #apply-email-btn-text {
   font-family: 'Montserrat';
   font-weight: 500;
-  font-size: var(--font-size-heading-three);
   line-height: 105%;
   color: #000000;
 }
