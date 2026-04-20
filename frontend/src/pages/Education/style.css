@@ -18,13 +18,13 @@
     text-align: center;
     color: var(--color-heading-dark-green);
     margin: 70px 0 55px 0;
-    font-size: 64px;
+    font-size: var(--font-size-heading-one);
 }
 
 .education-hero-body {
     font-family: "Montserrat";
     font-weight: 500;
-    font-size: 38px;
+    font-size: var(--font-size-heading-two);
     text-align: center;
     color: var(--color-body-dark-green);
     margin: 0 0 55px 0;

@@ -82,7 +82,7 @@
     left: 161px;
     bottom: 322px;
     color: #000000;
-    font-size: 38px;
+    font-size: var(--font-size-heading-two);
     font-family: "DM Sans";
     text-align: center;
 }

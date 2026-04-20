@@ -20,7 +20,7 @@
 .page-desc {
     text-align: center;
     color: var(--color-body-dark-green);
-    font-size: 38px;
+    font-size: var(--font-size-heading-two);
     font-weight: 500;
 }
 
@@ -37,15 +37,9 @@
     text-align: center;
 }
 
-.help-tips-container h2{
+.help-tips-container h2 {
     color: #132F27;
     font-weight: 600;
-}
-
-.help-tips h2 {
-    font-weight: 600;
-    font-size: var(--font-size-heading-one);
-    color: var(--color-heading-dark-green);
 }
 
 .help-svgs {
@@ -85,17 +79,11 @@
     text-align: center;
 }
 
-.found-animal h1 {
-    font-weight: 600;
-    font-size: 64px;
-    text-transform: capitalize;
-    color: var(--color-heading-dark-green);
-}
 
 .found-animal p {
     font-style: normal;
     font-weight: 500;
-    font-size: 38px;
+    font-size: var(--font-size-heading-two);
     color: var(--color-body-dark-green);
     line-height: 50px;
 }
@@ -103,7 +91,7 @@
 .section-header {
     font-weight: 600;
     text-align: center;
-    font-size: 64px;
+    font-size: var(--font-size-heading-one);
     text-transform: capitalize;
     color: var(--color-heading-dark-green);
 }
