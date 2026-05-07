@@ -1,7 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 body {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
 }
 
+:root {
+    --color-heading-dark-green: #132F27;
+    --color-body-dark-green: #324436;
+    --color-dark-green: #4C5C41;
+    --color-medium-green: #778932;
+    --color-medium-green-half: rgba(119, 137, 50, 0.5);
+    --color-light-green: #AEBA82;
+    --color-canvas: #F9F9F4;
+    --color-white: #FFFFFF;
+
+    --color-warning-red: #EB4848;
+
+    --font-size-heading-zero: 5.625em;
+    --font-size-heading-one: 4em;
+    --font-size-card-text: 3em;
+    --font-size-heading-two: 2.375em;
+    --font-size-heading-three: 2em;
+    --font-size-paragraph: 1em;
+}
