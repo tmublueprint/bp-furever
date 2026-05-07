@@ -8,19 +8,30 @@ import facebookIcon from '../../assets/Footer/facebook-icon.svg';
 function Footer() {
   return (
     <>
-      <div id="footer">
-        <p id ="bigger-footer-text">We Are Not An Emergency Drop-off Location.</p>
-        <p>Please Consult Our Guide Before Contacting Us.</p>
+      <footer id="footer">
+        <p id ="bigger-footer-text">
+          We Are Not An Emergency Drop-off Location.
+        </p>
+
+        <p>
+          Please Consult Our Guide Before Contacting Us.
+        </p>
+
         <div id="small-footer">
-            <img src={facebookIcon} alt="facebook-icon" aria-hidden = "true"></img>
+            <img 
+              src={facebookIcon} 
+              alt="facebook-icon" 
+              aria-hidden = "true"
+            />
             <p>Facebook</p>
             <p>│</p>
             <p>Fur-ever Wild Rehabilitation</p>
         </div>
-      </div>
+
+      </footer>
 
     </>
-  )
+  );
 }
 
 export default Footer
