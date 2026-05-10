@@ -38,6 +38,10 @@ html, body {
   width: 400px;
 }
 
+.volunteer-icon-phone {
+  display: none; 
+}
+
 .volunteer-icon img {
   width: 350px;
   margin: 50px;
@@ -81,6 +85,28 @@ html, body {
   font-weight: 500;
   margin: 0;
   width: 650px;
+}
+
+@media (max-width: 576px) {
+  .volunteer-hero-container {
+    width: 100%; 
+    flex-direction: column; 
+    align-items: center;
+    padding: 0;
+  }
+  .volunteer-hero-text {
+    width: 90%;
+    align-items: center;
+  }
+  .volunteer-hero-body {
+    width: 90%;
+  }
+  .volunteer-icon-phone {
+    display: block; 
+  }
+  .volunteer-icon {
+    display: none; 
+  }
 }
 
 /* Volunteer Roles & Opportunities section */ 
@@ -144,6 +170,15 @@ html, body {
   background-color: var(--color-light-green);
   height: 200px;
   width: 100%;
+}
+
+@media (max-width: 576px) {
+  .volunteer-roles-title {
+    width: 60%;
+  }
+  .volunteer-roles {
+    flex-direction: column;
+  }
 }
 
 /* Volunteer Requirements section */
@@ -294,4 +329,13 @@ html, body {
   font-weight: 600; 
   font-size: 30px;
   text-align: center;
+}
+
+@media (max-width: 576px) {
+  #how-to-apply-checklist {
+    width: 80%;
+  }
+  .how-to-apply-end { 
+    height: 50%; 
+  }
 }

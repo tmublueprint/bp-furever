@@ -26,6 +26,10 @@ function Volunteer() {
                 Volunteer With Fur-Ever Wild Rehabilitation
               </h1>
 
+              <div className = "volunteer-icon-phone">
+                <img src={VolunteerIcon} alt ="volunteer icon"/>
+              </div>
+
               <p className = "volunteer-hero-body">
                 Volunteers play a vital role in helping injured and orphaned wildlife receive proper care.
               </p>
@@ -105,7 +109,7 @@ function Volunteer() {
                 <a href="mailto:cburns6440@gmail.com" id="apply-email-btn" aria-label="Apply by email">
                   <span id="apply-email-btn-text">Apply by Email</span>
                   <span id="apply-email-btn-arrow-circle" aria-hidden="true">
-                    <img src={ArrowBtn} id="apply-email-btn-arrow" alt=""/>
+                    <img src={ArrowBtn} id="apply-email-btn-arrow" alt="apply-email-btn-arrow"/>
                   </span>
                 </a> 
               </ul>

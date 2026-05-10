@@ -2,9 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'); 
 
+
 /* Text */
 .titleText {
-    margin-top: 20px; 
+    margin-top: 20px;
+    width: 100%;
     font-size: var(--font-size-heading-one);
     font-weight: 600; 
     color: #132F27;
@@ -14,19 +16,19 @@
     font-family: "DM Sans", "Poppins";  
     margin-top: 0; 
     font-size: 24px;
-    font-weight: light; 
 }
 
 /* Wildlife Rescue and Services */
-.horizontalCentering { 
+.hero-component-centering { 
     width: 100%; 
     display: flex;
     justify-content: center; 
     margin-top: 30px;
 }
 #hero-component { 
-    width: 1279px;
-    height: 730px;
+    /*width: 1279px;*/
+    width: 85%;
+    /*height: 730px;*/
     display: flex;
     flex-direction: row; 
     justify-content: space-between;
@@ -34,7 +36,7 @@
 #services {
     display: flex;
     flex-direction: column; 
-    margin-right: 60px; 
+
     gap: 15px;
 }
 #services {
@@ -67,13 +69,34 @@
     text-align: left;
     margin-right: 0px;
 }
+@media (max-width: 576px) {
+    .hero-component-centering {
+        justify-content: normal;
+    }
+    #hero-component {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    #services {
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+    }
+    .titleText {
+        margin-bottom: 0;
+    }
+}
 
 /* Found Animal Notice Box */
+#notice-box-phone {
+    display: none; 
+}
 #notice-box {
     font-family: "Poppins", Arial;  
     border-radius: 10px;
     margin-top: 20px;
-
 }
 #notice-box > div {
     margin-left: 30px;
@@ -157,8 +180,16 @@ h3 {
     font-family: "DM Sans", "Poppins";  
     font-weight: 600; 
 }
+@media (max-width: 576px) {
+    #notice-box-phone {
+        display: block;
+    }
+    #notice-box {
+        display: none; 
+    }
+}
 
-/* locations */
+/* Locations */
 .locations-section {
   width: 100%;
   display: flex;
@@ -228,4 +259,22 @@ h4 {
 
 .linkToBlog {
     cursor: pointer;
+}
+
+@media (max-width: 576px) { 
+    .locations-section {
+        margin: 0; 
+    }
+    #service-locations {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; 
+    }
+}
+
+@media (max-width: 576px) { 
+    #footer-sec {
+        width: 100%;
+    }
 }

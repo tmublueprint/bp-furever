@@ -39,3 +39,9 @@
     padding: 0px;
     margin: auto;
 }
+
+@media (max-width: 576px) {
+    #how-you-can-help {
+        flex-direction: column;
+    }
+}

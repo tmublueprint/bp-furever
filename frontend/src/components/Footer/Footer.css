@@ -27,3 +27,14 @@
     gap: 20px;
     font-weight: lighter;
 }
+@media (max-width: 576px) { 
+    #footer #bigger-footer-text {
+        width: 90%;
+    }
+    #small-footer {
+        width: 80%;
+    }
+    #footer p {
+        width: 95%;
+    }
+}

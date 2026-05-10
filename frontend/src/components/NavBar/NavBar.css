@@ -27,3 +27,16 @@
     border-bottom: 1.75px solid white;
 }
 
+@media (max-width: 576px) {
+    #navbar {
+        display: flex;
+        flex-wrap: wrap; 
+        width: 100%;
+        justify-content: space-between;
+        gap: 0px;
+        padding: 0;
+    }
+    #furever-logo {
+        padding-left: 10px; 
+    }
+}

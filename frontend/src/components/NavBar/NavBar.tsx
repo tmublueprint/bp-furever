@@ -7,7 +7,7 @@ function NavBar() {
   return (
     <>
       <div id="navbar">
-        <img src={fureverLogo} alt="furever-logo" style={{width: "85px", height: "90px", paddingLeft: "80px"}}/>
+        <img src={fureverLogo} id="furever-logo" alt="furever-logo" style={{width: "85px", height: "90px"}}/>
         <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
         <NavLink to="/education" className={({ isActive }) => isActive ? "active" : ""}>Education</NavLink>
         <NavLink to="/volunteer" className={({ isActive }) => isActive ? "active" : ""}>Volunteer</NavLink>
