@@ -82,7 +82,6 @@ function LandingPage() {
           <NavBar/>
         </div>
 
-
         <main>
           {/** Hero Component */} 
           <div className="horizontalCentering" id="horizontalCentering-sec">
@@ -164,17 +163,16 @@ function LandingPage() {
 
           {/* How Fur-Ever Helps */}
           <HowFurEverHelps />
-
           <div id="how-you-can-help-sec">
             <HowYouCanHelp></HowYouCanHelp>
           </div>
         </main>
-        
+
         <div id="footer-sec">
           <Footer></Footer>
         </div>
-      </div>
 
+      </div>
     </>
   )
 }

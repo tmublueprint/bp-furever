@@ -56,7 +56,7 @@ function Admin() {
 
   return (
     <>
-      <div id="admin-container">
+      <main id="admin-container">
         <div id="admin-input-container">
           <div>
             <p>Cover Image</p>
@@ -105,7 +105,7 @@ function Admin() {
         <div id="admin-preview-container">
           <PDFcard image={coverImage} title={title} summary={summary} link={pdfLink} />
         </div>
-      </div>
+      </main>
     </>
   )
 }
