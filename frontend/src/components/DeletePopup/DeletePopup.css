@@ -1,0 +1,121 @@
+.delete-popup-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.delete-popup-container {
+    width: 1055px;
+    height: 591px;
+    max-width: calc(100vw - 16px);
+    max-height: calc(100vh - 16px);
+    box-sizing: border-box;
+    padding: 52px 54px 42px;
+    border-radius: 18px;
+    background: var(--color-white);
+}
+
+.delete-popup-content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 62px 120px 52px;
+    border: 5px solid #83A254;
+    border-radius: 18px;
+}
+
+.delete-popup-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-popup-message {
+    margin: 0;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 795px;
+    height: 271px;
+    color: #000000;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 133%;
+    text-align: center;
+    margin-bottom: 29px;
+}
+
+.delete-popup-actions {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.delete-popup-yes-btn,
+.delete-popup-no-btn {
+    width: 234px;
+    height: 112px;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.delete-popup-yes-btn {
+    background: #FD8181;
+    color: #000000;
+}
+
+.delete-popup-no-btn {
+    background: var(--color-white);
+    color: #000000;
+}
+
+@media (max-width: 700px) {
+    .delete-popup-container {
+        width: calc(100vw - 16px);
+        height: auto;
+        max-height: calc(100vh - 16px);
+        padding: 24px 20px;
+    }
+
+    .delete-popup-content {
+        height: auto;
+        gap: 32px;
+        padding: 40px 24px 32px;
+        border-width: 4px;
+    }
+
+    .delete-popup-message {
+        font-size: 22px;
+    }
+
+    .delete-popup-actions {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .delete-popup-yes-btn,
+    .delete-popup-no-btn {
+        width: 132px;
+        height: 66px;
+        font-size: 24px;
+    }
+}
