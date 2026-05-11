@@ -81,90 +81,95 @@ function LandingPage() {
         <div id="navbar-sec">
           <NavBar/>
         </div>
-        {/** Hero Component */} 
-        <div className="horizontalCentering" id="horizontalCentering-sec">
-          <div id="hero-component">
-            <div id="services">
-              <h1 style={{width: "600px"}} className="titleText">Welcome to<br />Fur-Ever Wild Rehabilitation</h1>
-              <p className="headingThree" style={{width: "600px", fontWeight: "300"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
-              aiming to return them to their natural habitat.</p>
-              <p className="headingThree" style={{fontWeight: "bold"}}>We are not a removal service.</p>
-              <div id="certification-label"> 
-                <img src={licenseCheck} alt="licensed check icon"/>
-                <p>Trained in wildlife behaviour & management</p>
+
+
+        <main>
+          {/** Hero Component */} 
+          <div className="horizontalCentering" id="horizontalCentering-sec">
+            <div id="hero-component">
+              <div id="services">
+                <h1 style={{width: "600px"}} className="titleText">Welcome to<br />Fur-Ever Wild Rehabilitation</h1>
+                <p className="headingThree" style={{width: "600px", fontWeight: "300"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
+                aiming to return them to their natural habitat.</p>
+                <p className="headingThree" style={{fontWeight: "bold"}}>We are not a removal service.</p>
+                <div id="certification-label"> 
+                  <img src={licenseCheck} alt="licensed check icon"/>
+                  <p>Trained in wildlife behaviour & management</p>
+                </div>
               </div>
-            </div>
-            {/** Found Animal Notice Box */}
-            <div id="notice-box" style={noticeBoxStyle}>
-              <div id="group-top">
-                <h2 style={{color: "#778932", fontWeight: "700"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
-                <p style={{width: "500px"}}>Choose one to get immediate guidance: </p>
-                <div id="container-btn">
-                  <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick} ref={openAdultBtn}>
-                    <p>Adult</p>
-                  </button>
-                    <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn" onClick={babyBtnClick}>
-                      <p>Baby</p> 
-                    </button> 
+              {/** Found Animal Notice Box */}
+              <div id="notice-box" style={noticeBoxStyle}>
+                <div id="group-top">
+                  <h2 style={{color: "#778932", fontWeight: "700"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
+                  <p style={{width: "500px"}}>Choose one to get immediate guidance: </p>
+                  <div id="container-btn">
+                    <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick} ref={openAdultBtn}>
+                      <p>Adult</p>
+                    </button>
+                      <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn" onClick={babyBtnClick}>
+                        <p>Baby</p> 
+                      </button> 
+                  </div>
+                  <p>Things to Keep in Mind -</p>
                 </div>
-                <p>Things to Keep in Mind -</p>
-              </div>
-              <div id="group-bottom">
-                <div>
-                  <img src={safetyIcon} alt="Shield with checkmark"/>
-                  <p>Your Safety Is #1</p>
-                </div>
-                <div>
-                  <img src={feedIcon} alt="Crossed out hand feeding an animal"/>
-                  <p>Never Feed Any Wild Animal</p>
-                </div>
-                <div>
-                  <img src={talkingIcon} alt="Speech bubble with an X"/>
-                  <p>No Talking To The Animal</p>
+                <div id="group-bottom">
+                  <div>
+                    <img src={safetyIcon} alt="Shield with checkmark"/>
+                    <p>Your Safety Is #1</p>
+                  </div>
+                  <div>
+                    <img src={feedIcon} alt="Crossed out hand feeding an animal"/>
+                    <p>Never Feed Any Wild Animal</p>
+                  </div>
+                  <div>
+                    <img src={talkingIcon} alt="Speech bubble with an X"/>
+                    <p>No Talking To The Animal</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/** Service Locations */}
-        <div className="locations-section" id="locations-sec">
-          <h2>Service Locations</h2>
-          <div id="service-locations">
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
+          {/** Service Locations */}
+          <div className="locations-section" id="locations-sec">
+            <h2>Service Locations</h2>
+            <div id="service-locations">
+              <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
+                <div className="map-container">
+                  <img alt="Map of City of St. Thomas" src={cityOfThomas}></img>
+                  <h3>City of St. Thomas</h3>
+                </div>
+              </a>
+              <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
+                <div className="map-container">
+                  <img alt="Map of Central Elgin" src={centralElgin}></img>
+                  <h3>Central Elgin</h3>
+                </div>
+              </a>
+              <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
+                <div className="map-container">
+                  <img alt="Map of Southwold" src={southwold}></img>
+                  <h3>Southwold Township</h3>
+                </div>
+              </a>
+              <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
               <div className="map-container">
-                <img alt="Map of City of St. Thomas" src={cityOfThomas}></img>
-                <h3>City of St. Thomas</h3>
+                <img alt="Map of Aylmer" src={aylmer}></img>
+                <h3>Town of Aylmer</h3>
               </div>
-            </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
-              <div className="map-container">
-                <img alt="Map of Central Elgin" src={centralElgin}></img>
-                <h3>Central Elgin</h3>
-              </div>
-            </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
-              <div className="map-container">
-                <img alt="Map of Southwold" src={southwold}></img>
-                <h3>Southwold Township</h3>
-              </div>
-            </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
-            <div className="map-container">
-              <img alt="Map of Aylmer" src={aylmer}></img>
-              <h3>Town of Aylmer</h3>
+              </a>
             </div>
-            </a>
           </div>
-        </div>
-        {showAdultPopup && <AdultWildlifePopup visible={showAdultPopup} onClose={handleCloseAdultPopup} />}
+          {showAdultPopup && <AdultWildlifePopup visible={showAdultPopup} onClose={handleCloseAdultPopup} />}
 
-        {/* How Fur-Ever Helps */}
-        <HowFurEverHelps />
+          {/* How Fur-Ever Helps */}
+          <HowFurEverHelps />
 
-        <div id="how-you-can-help-sec">
-          <HowYouCanHelp></HowYouCanHelp>
-        </div>
+          <div id="how-you-can-help-sec">
+            <HowYouCanHelp></HowYouCanHelp>
+          </div>
+        </main>
+        
         <div id="footer-sec">
           <Footer></Footer>
         </div>
