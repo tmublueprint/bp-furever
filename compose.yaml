@@ -18,3 +18,13 @@ services:
     volumes:
       - ./frontend/src:/app/src
       - ./frontend/public:/app/public
+  
+  firebase-emulator:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.emulator
+    ports:
+      - "3005:3005"  # Firestore
+      - "3006:3006"  # Emulator UI
+      - "9099:9099"  # Auth emulator
+      - "9199:9199"  # Cloud storage
