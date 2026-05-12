@@ -132,7 +132,7 @@ function LandingPage() {
         {/** Service Locations */}
         <div className="locations-section" id="locations-sec">
 
-          <CallAnimalServicesBox />   {/* 👈 correct placement */}
+          <CallAnimalServicesBox /> 
 
           <h2>Areas of Service</h2>
 
