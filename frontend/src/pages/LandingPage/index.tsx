@@ -20,6 +20,8 @@ import centralElgin from '../../assets/LandingPage/central-elgin.png';
 import southwold from '../../assets/LandingPage/southwold-township.png';
 import aylmer from '../../assets/LandingPage/town-of-aylmer.png';
 
+import CallAnimalServicesBox from '../../components/CallAnimalServicesBox/CallAnimalServicesBox';
+
 const noticeBoxStyle = {
     backgroundColor: "#5b6c2d26", 
     width: "593px", 
@@ -129,33 +131,41 @@ function LandingPage() {
 
         {/** Service Locations */}
         <div className="locations-section" id="locations-sec">
-          <h2>Service Locations</h2>
+
+          <CallAnimalServicesBox />   {/* 👈 correct placement */}
+
+          <h2>Areas of Service</h2>
+
           <div id="service-locations">
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
               <div className="map-container">
                 <img alt="Map of City of St. Thomas" src={cityOfThomas}></img>
                 <h3>City of St. Thomas</h3>
               </div>
             </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
+
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
               <div className="map-container">
                 <img alt="Map of Central Elgin" src={centralElgin}></img>
                 <h3>Central Elgin</h3>
               </div>
             </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
+
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
               <div className="map-container">
                 <img alt="Map of Southwold" src={southwold}></img>
                 <h3>Southwold Township</h3>
               </div>
             </a>
-            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
-            <div className="map-container">
-              <img alt="Map of Aylmer" src={aylmer}></img>
-              <h3>Town of Aylmer</h3>
-            </div>
+
+            <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer">
+              <div className="map-container">
+                <img alt="Map of Aylmer" src={aylmer}></img>
+                <h3>Town of Aylmer</h3>
+              </div>
             </a>
           </div>
+
         </div>
         {showAdultPopup && <AdultWildlifePopup visible={showAdultPopup} onClose={handleCloseAdultPopup} />}
 
