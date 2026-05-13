@@ -1,9 +1,5 @@
-// import { useState } from "react";
-// import { Link, useNavigate } from "react-router-dom";
-// ^ May be required later
-import './Footer.css';
-import facebookIcon from '../../assets/Footer/facebook-icon.svg'; 
-
+import "./Footer.css";
+import facebookIcon from "../../assets/Footer/facebook-icon.svg";
 
 function Footer() {
   return (
@@ -34,4 +30,4 @@ function Footer() {
   );
 }
 
-export default Footer
+export default Footer;
