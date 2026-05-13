@@ -178,9 +178,9 @@ h3 {
 }
 
 .locations-section .call-animal-services-box {
-  position: absolute;
-  top: 30px;
-  left: 100px;
+  position: relative;
+  bottom: 140px;
+  right: 113px;
   z-index: 2;
 }
 

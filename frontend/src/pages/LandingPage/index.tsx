@@ -132,12 +132,16 @@ function LandingPage() {
         {/** Service Locations */}
         <div className="locations-section" id="locations-sec">
 
-          <CallAnimalServicesBox /> 
+          
 
           <h2>Areas of Service</h2>
 
           <div id="service-locations">
+            
             <a href="https://maps.google.com/" target="_blank" rel="noopener noreferrer" aria-hidden = "true">
+              <div style={{ position: "relative", height: "0px", width: "0px" }}> {/* weird hack to make this above city of st thomas but not take up space */}
+                <CallAnimalServicesBox /> 
+              </div>
               <div className="map-container">
                 <img alt="Map of City of St. Thomas" src={cityOfThomas}></img>
                 <h3>City of St. Thomas</h3>
