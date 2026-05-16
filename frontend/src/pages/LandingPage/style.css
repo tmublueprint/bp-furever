@@ -235,6 +235,15 @@ h3 {
    var(--color-medium-green-half) 70%,
    var(--color-medium-green-half) 100%
   );
+  position: relative;
+  min-height: 390px;
+}
+
+.locations-section .call-animal-services-box {
+  position: relative;
+  bottom: 140px;
+  right: 113px;
+  z-index: 2;
 }
 
 h1 {

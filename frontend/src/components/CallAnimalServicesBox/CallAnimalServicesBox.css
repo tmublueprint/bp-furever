@@ -1,0 +1,95 @@
+.call-animal-services-box {
+  width: 222px;
+  background-color: #fff8E0;
+  border: 3px solid #fddc83;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.call-animal-services-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.call-animal-services-title-row img {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.call-animal-services-title-row h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 105%;
+  letter-spacing: 0;
+  color: #000000;
+  margin: 0;
+}
+
+.call-animal-services-phone-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin: 10px 0 8px;
+}
+
+.call-animal-services-phone-row img {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.call-animal-services-phone-row p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 105%;
+  letter-spacing: 0;
+  color: #000000;
+  margin: 0;
+}
+
+.call-animal-services-description {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 105%;
+  letter-spacing: 0;
+  color: #000000;
+  margin: 0;
+}
+
+
+.call-animal-services-box {
+  position: relative;
+  
+}
+
+
+.call-animal-services-box::before {
+  content: "";
+  position: absolute;
+  bottom: -13px;
+  right: 22px;
+
+  width: 18px;
+  height: 18px;
+
+  background-color: #fff8E0;
+  border-right: 3px solid #fddc83;
+  border-bottom: 3px solid #fddc83;
+
+  transform: rotate(45deg);
+  border-radius: 0 0 3px 0;
+}
+
+.call-animal-services-box::after {
+  content: none;
+}
