@@ -21,12 +21,7 @@ import southwold from '../../assets/LandingPage/southwold-township.png';
 import aylmer from '../../assets/LandingPage/town-of-aylmer.png';
 
 const noticeBoxStyle = {
-    backgroundColor: "#5b6c2d26", 
-    width: "593px", 
-    height: "654px", 
     backgroundImage: `url(${raccoonLogo})`,
-    backgroundRepeat: "no-repeat", 
-    backgroundPosition: "bottom right"
 }
 
 
@@ -82,20 +77,54 @@ function LandingPage() {
           <NavBar/>
         </div>
         {/** Hero Component */} 
-        <div className="horizontalCentering" id="horizontalCentering-sec">
+        <div className="hero-component-centering" id="hero-component-centering-sec">
           <div id="hero-component">
             <div id="services">
-              <h1 style={{width: "600px"}} className="titleText">Welcome to<br />Fur-Ever Wild Rehabilitation</h1>
-              <p className="headingThree" style={{width: "600px", fontWeight: "300"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
+              <h1 className="titleText">Welcome to<br />Fur-Ever Wild Rehabilitation</h1>
+              <p className="headingThree" id="introductory-paragraph-landing-page" style={{fontWeight: "300"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
               aiming to return them to their natural habitat.</p>
+
+            {/** PHONE Found Animal Notice Box */}
+            <div className="found-animal-notice-box" id="notice-box-phone" style={noticeBoxStyle}>
+              <div id="group-top">
+                <h2 style={{color: "#778932", fontWeight: "700"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
+                <p>Choose one to get immediate guidance: </p>
+                <div id="container-btn">
+                  <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick} ref={openAdultBtn}>
+                    <p>Adult</p>
+                  </button>
+                    <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn" onClick={babyBtnClick}>
+                      <p>Baby</p> 
+                    </button> 
+                </div>
+                <p>Things to Keep in Mind -</p>
+              </div>
+              <div id="group-bottom">
+                <div>
+                  <img src={safetyIcon} alt="Shield with checkmark"/>
+                  <p>Your Safety Is #1</p>
+                </div>
+                <div>
+                  <img src={feedIcon} alt="Crossed out hand feeding an animal"/>
+                  <p>Never Feed Any Wild Animal</p>
+                </div>
+                <div>
+                  <img src={talkingIcon} alt="Speech bubble with an X"/>
+                  <p>No Talking To The Animal</p>
+                </div>
+              </div>
+            </div>
+
+
               <p className="headingThree" style={{fontWeight: "bold"}}>We are not a removal service.</p>
               <div id="certification-label"> 
                 <img src={licenseCheck} alt="licensed check icon"/>
                 <p>Trained in wildlife behaviour & management</p>
               </div>
             </div>
+
             {/** Found Animal Notice Box */}
-            <div id="notice-box" style={noticeBoxStyle}>
+            <div className="found-animal-notice-box" id="notice-box" style={noticeBoxStyle}>
               <div id="group-top">
                 <h2 style={{color: "#778932", fontWeight: "700"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
                 <p style={{width: "500px"}}>Choose one to get immediate guidance: </p>
@@ -124,6 +153,7 @@ function LandingPage() {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
