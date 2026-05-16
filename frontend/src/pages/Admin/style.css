@@ -17,6 +17,10 @@
 #admin-preview-container {
     margin-right: auto;
     margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
 }
 
 #title-input-container {
@@ -25,4 +29,27 @@
 
 #summary-input-container {
     display: flex;
+}
+
+#admin-delete-btn {
+    width: 229px;
+    height: 72px;
+    border: 1px solid #000000;
+    border-radius: 30px;
+    background-color: #F89494;
+    color: #000000;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#delete-pdf-remove-icon {
+    width: 25.61px;
+    height: 25.61px;
+    margin-right: 13.39px;
 }
