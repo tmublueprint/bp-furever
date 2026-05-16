@@ -262,7 +262,7 @@ html, body {
 #how-to-apply-checklist {
   color: black;
   font-weight: 600; 
-  font-size: 30px;
+  font-size: var(--font-size-heading-three);
   width: 1400px;
   list-style-type: none;
   margin: 50px;
@@ -327,7 +327,7 @@ html, body {
 }
 .how-to-apply-ending-text {
   font-weight: 600; 
-  font-size: 30px;
+  font-size: var(--font-size-heading-three);
   text-align: center;
 }
 

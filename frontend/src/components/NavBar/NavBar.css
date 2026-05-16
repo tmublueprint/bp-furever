@@ -11,6 +11,15 @@
 #furever-logo {
     padding-left: 80px;
 }
+
+.navlink-container {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 80px;
+}
+
 #navbar a {
     color: white;
     font-family: "Poppins", Arial; 
@@ -22,9 +31,15 @@
     color: #449aff;
     font-weight: none;
 }
-
 #navbar a.active {
     border-bottom: 1.75px solid white;
+}
+
+#hamburger-menu {
+    display: none; 
+}
+#closing-icon {
+    display: none; 
 }
 
 @media (max-width: 576px) {
@@ -37,6 +52,45 @@
         padding: 0;
     }
     #furever-logo {
-        padding-left: 10px; 
+        padding-left: 30px;
+    }
+    #hamburger-menu-wrapper {
+        cursor: pointer;
+    }
+    #hamburger-menu {
+        display: block;
+        margin-right: 20px;
+    }
+    .navlink-container {
+        position: fixed; /* */ 
+        top: 0; 
+        right: -100%; 
+        width: 70%; 
+        height: 100vh; 
+        background-color: var(--color-dark-green); 
+        border: 3px solid #46563c;
+
+        transition: right 0.4s ease-in-out; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center;
+        gap: 40px;
+
+        z-index: 1000; 
+    }
+    .navlink-container.show-side-menu {
+        right: 0; 
+    }
+    #closing-icon {
+        display: block; 
+    }
+    #x-icon-wrapper {
+        position: absolute; 
+        top: 20px;
+        left: 20px;
+    }
+    #x-icon-wrapper:hover {
+        cursor: pointer; 
+        background-color: #449aff;
     }
 }

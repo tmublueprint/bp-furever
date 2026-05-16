@@ -21,12 +21,7 @@ import southwold from '../../assets/LandingPage/southwold-township.png';
 import aylmer from '../../assets/LandingPage/town-of-aylmer.png';
 
 const noticeBoxStyle = {
-    backgroundColor: "#5b6c2d26", 
-    width: "593px", 
-    height: "654px", 
     backgroundImage: `url(${raccoonLogo})`,
-    backgroundRepeat: "no-repeat", 
-    backgroundPosition: "bottom right"
 }
 
 
@@ -86,14 +81,14 @@ function LandingPage() {
           <div id="hero-component">
             <div id="services">
               <h1 className="titleText">Welcome to<br />Fur-Ever Wild Rehabilitation</h1>
-              <p className="headingThree" style={{fontWeight: "300"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
+              <p className="headingThree" id="introductory-paragraph-landing-page" style={{fontWeight: "300"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
               aiming to return them to their natural habitat.</p>
 
             {/** PHONE Found Animal Notice Box */}
-            <div id="notice-box-phone" style={noticeBoxStyle}>
+            <div className="found-animal-notice-box" id="notice-box-phone" style={noticeBoxStyle}>
               <div id="group-top">
                 <h2 style={{color: "#778932", fontWeight: "700"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
-                <p style={{width: "500px"}}>Choose one to get immediate guidance: </p>
+                <p>Choose one to get immediate guidance: </p>
                 <div id="container-btn">
                   <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick} ref={openAdultBtn}>
                     <p>Adult</p>
@@ -129,7 +124,7 @@ function LandingPage() {
             </div>
 
             {/** Found Animal Notice Box */}
-            <div id="notice-box" style={noticeBoxStyle}>
+            <div className="found-animal-notice-box" id="notice-box" style={noticeBoxStyle}>
               <div id="group-top">
                 <h2 style={{color: "#778932", fontWeight: "700"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
                 <p style={{width: "500px"}}>Choose one to get immediate guidance: </p>
