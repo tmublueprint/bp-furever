@@ -1,9 +1,21 @@
 
 import { NavLink } from "react-router-dom";
+import { useState } from 'react';
 import fureverLogo from '../../assets/NavBar/fureverLogo.svg'; 
+import hamburgerMenuPlaceHolder from '../../assets/Navbar/hamburger_menu.svg'; 
+import xIcon from '../../assets/Navbar/x-icon.svg'; 
 import './NavBar.css';
 
+
 function NavBar() {
+
+
+  const [hideMenu, setHideMenu] = useState(true);
+
+  const handleMenuClick = () => {
+      setHideMenu(prev => !prev); 
+  }; 
+
   return (
     <header>
       <nav id="navbar">

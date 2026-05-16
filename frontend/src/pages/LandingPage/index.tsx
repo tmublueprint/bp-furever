@@ -20,13 +20,10 @@ import centralElgin from '../../assets/LandingPage/central-elgin.png';
 import southwold from '../../assets/LandingPage/southwold-township.png';
 import aylmer from '../../assets/LandingPage/town-of-aylmer.png';
 
+import CallAnimalServicesBox from '../../components/CallAnimalServicesBox/CallAnimalServicesBox';
+
 const noticeBoxStyle = {
-    backgroundColor: "#5b6c2d26", 
-    width: "593px", 
-    height: "654px", 
     backgroundImage: `url(${raccoonLogo})`,
-    backgroundRepeat: "no-repeat", 
-    backgroundPosition: "bottom right"
 }
 
 
@@ -127,6 +124,7 @@ function LandingPage() {
                 </div>
               </div>
             </div>
+
           </div>
 
           {/** Service Locations */}
