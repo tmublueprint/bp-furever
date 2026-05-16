@@ -10,9 +10,6 @@ import AnimalBox from '../../components/AnimalBox/AnimalBox';
 import Example from '../../assets/deer-example.svg';
 
 
-
-
-
 function FoundAnimal() {
   const tips = [
     {
@@ -47,55 +44,60 @@ function FoundAnimal() {
   ];
 
   return (
-    <main className='found-animal-page'>
+      <>
       <NavBar/>
-      <section className="found-animal-hero">
-        <div className="found-animal-hero-container">
-          <h1 className="page-title">Found A Baby Animal?</h1>
-          <p className="page-desc">
-            Take a moment to observe before taking action.<br/>
-            Many baby animals are not orphaned — even if they appear alone.
-          </p>
-        </div>
-      </section>
+      <main className='found-animal-page'>
+        <section className="found-animal-hero">
+          <div className="found-animal-hero-container">
+            <h1 className="page-title">Found A Baby Animal?</h1>
+            <p className="page-desc">
+              Take a moment to observe before taking action.<br/>
+              Many baby animals are not orphaned — even if they appear alone.
+            </p>
+          </div>
+        </section>
 
-      <section className="help-tips">
-        <div className="help-tips-container">
-          <h2>Before You Help, Remember:</h2>
-          <ul className="help-svgs">
-            {tips.map((tip) => (
-              <li className="help-tip-item" key={tip.alt}>
-                <img src={tip.image} alt={tip.alt} />
-                <p>{tip.text}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-      <div className="select-animal">
-        <h2 className="section-header">Select The Animal You Found</h2>
-        <div className="cards">
-          <div className="left">
-              <AnimalBox label="Squirrel"/>
-              <AnimalBox label="Rabbit"/>
-              <AnimalBox label="Fawn" image={Example}/>
+        <section className="help-tips">
+          <div className="help-tips-container">
+            <h2>Before You Help, Remember:</h2>
+            <ul className="help-svgs">
+              {tips.map((tip) => (
+                <li className="help-tip-item" key={tip.alt}>
+                  <img src={tip.image} alt={tip.alt} />
+                  <p>{tip.text}</p>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="right">
-            <AnimalBox label="Raccoon"/>
-            <AnimalBox label="Skunk"/>
+        </section>
+
+        <section className="select-animal">
+          <h2 className="section-header">Select The Animal You Found</h2>
+          <div className="cards">
+            <div className="left">
+                <AnimalBox label="Squirrel"/>
+                <AnimalBox label="Rabbit"/>
+                <AnimalBox label="Fawn" image={Example}/>
+            </div>
+            <div className="right">
+              <AnimalBox label="Raccoon"/>
+              <AnimalBox label="Skunk"/>
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="found-animal">
-        <h2 className="section-header" style={{color: '#778932'}}>Not sure what you’ve found?</h2>
-        <p>If the animal is injured, cold, or in immediate danger,
-          <br/>contact your local Animal Control or call Fur-Ever Wild Rehabilitation,
-          <br/>at 519-777-6440.</p>
-      </div>
-      {/* Add code here */}
-      <Footer/>
-    </main>
-  )
+        </section>
+
+        <section className="found-animal">
+          <h2 className="section-header" style={{color: '#778932'}}>Not sure what you’ve found?</h2>
+          <p>If the animal is injured, cold, or in immediate danger,
+            <br/>contact your local Animal Control or call Fur-Ever Wild Rehabilitation,
+            <br/>at 519-777-6440.</p>
+        </section>
+      </main>
+
+        {/* Add code here */}
+        <Footer/>
+        </>
+  );
 }
 
 export default FoundAnimal
