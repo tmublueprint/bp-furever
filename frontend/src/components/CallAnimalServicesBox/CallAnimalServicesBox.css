@@ -6,6 +6,7 @@
   padding: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   position: relative;
+  text-align: left;
 }
 
 .call-animal-services-title-row {
@@ -20,7 +21,7 @@
   flex-shrink: 0;
 }
 
-.call-animal-services-title-row h3 {
+.call-animal-services-title-row p {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 16px;

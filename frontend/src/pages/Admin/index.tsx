@@ -127,6 +127,7 @@ function Admin() {
             Remove PDF
           </button>
         </div>
+        <DeletePopup visible={showDeletePopup} onClose={handleCloseDeletePopup} pdfTitle={title} />
       </main>
     </>
   )

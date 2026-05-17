@@ -8,7 +8,7 @@ function CallAnimalServicesBox() {
     <div className="call-animal-services-box">
       <div className="call-animal-services-title-row">
         <img src={WarningIcon} alt="" aria-hidden="true" />
-        <h3>Call St. Thomas Animal Services First</h3>
+        <p>Call St. Thomas Animal Services First</p>
       </div>
 
       <div className="call-animal-services-phone-row">
