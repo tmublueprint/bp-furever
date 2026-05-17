@@ -7,18 +7,18 @@
 }
 
 
-#images {
+.images {
     display: flex;
     justify-content: center;
 
 }
 
-#images img {
+.images img {
     width: 400px;
 
 }
 
-#images button {
+.images button {
     width: 250px;
 }
 
@@ -38,4 +38,10 @@
 .how-you-can-help-btn-text p {
     padding: 0px;
     margin: auto;
+}
+
+@media (max-width: 576px) {
+    #how-you-can-help {
+        flex-direction: column;
+    }
 }

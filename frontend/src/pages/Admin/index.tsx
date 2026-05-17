@@ -69,7 +69,7 @@ function Admin() {
 
   return (
     <>
-      <div id="admin-container">
+      <main id="admin-container">
         <div id="admin-input-container">
           <div>
             <p>Cover Image</p>
@@ -127,8 +127,8 @@ function Admin() {
             Remove PDF
           </button>
         </div>
-      </div>
-      <DeletePopup visible={showDeletePopup} onClose={handleCloseDeletePopup} pdfTitle={title} />
+        <DeletePopup visible={showDeletePopup} onClose={handleCloseDeletePopup} pdfTitle={title} />
+      </main>
     </>
   )
 }

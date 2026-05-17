@@ -1,29 +1,116 @@
-#footer {
-    color: rgb(255, 255, 255);
+.footer {
+    background-color: #4b533a;
+    color: #ffffff;
+    font-family: "Montserrat", "Poppins", sans-serif;
     width: 100%;
+    min-width: max-content;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.footer-content {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    justify-content: center;
     align-items: center;
-    background-color: var(--color-dark-green); 
-    font-family: "Montserrat", "Poppins"; 
-    padding: 50px 0px 50px 0px;
-    gap: 10px;
+    flex-shrink: 0;
 }
 
-#footer #bigger-footer-text {
+.footer-columns {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    align-items: flex-start;
+    margin-bottom: 100px;
+    gap: 10rem;
+}
+
+.footer-column {
+    flex-shrink: 0;
+}
+
+.footer-header {
+    font-style: normal;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 42px;
+    line-height: 51px;
+    display: flex;
+    align-items: center;
+    margin: 100px 0 0 0;
 }
 
-#footer p {
-    font-size: 24px;
-    font-weight: lighter;
+.footer-subheader {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 44px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 80px;
 }
 
+.footer-column p {
+    margin: 0;
+}
 
-#small-footer {
+.col-header1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 38px;
     display: flex;
     gap: 20px;
     font-weight: lighter;
+}
+
+.col-header2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+}
+
+.col-text {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+}
+
+.col-subtext {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    margin-left: 0.4em;
+}
+
+#facebook-column {
+    font-size: 27px;
+}
+
+#facebook-column div:first-child a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; 
+    text-decoration: none; 
+    color: #ffffff;
+    margin-bottom: 15px;
+  }
+
+@media (max-width: 576px) { 
+    #footer #bigger-footer-text {
+        width: 90%;
+    }
+    #small-footer {
+        width: 80%;
+    }
+    #footer p {
+        width: 95%;
+    }
 }

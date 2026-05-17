@@ -36,3 +36,14 @@
     margin: 0 auto;
     padding: 2rem 1rem;
 }
+
+@media (max-width: 576px) {
+    .education-hero-title {
+        margin: 0; 
+        margin-top: 55px;
+        margin-bottom: 10px;
+    }
+    .education-hero-body {
+        font-size: var(--font-size-heading-three);
+    }
+}
