@@ -2,8 +2,8 @@
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
 import fureverLogo from '../../assets/NavBar/fureverLogo.svg'; 
-import hamburgerMenuPlaceHolder from '../../assets/Navbar/hamburger_menu.svg'; 
-import xIcon from '../../assets/Navbar/x-icon.svg'; 
+import hamburgerMenuPlaceHolder from '../../assets/NavBar/hamburger_menu.svg'; 
+import xIcon from '../../assets/NavBar/x-icon.svg'; 
 import './NavBar.css';
 
 
