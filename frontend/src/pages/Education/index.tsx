@@ -5,7 +5,6 @@ import PDFGallery from '../../components/PDFGallery/PDFGallery';
 import wildlife from "../../assets/pdf/Relocating Wildlife Doesn't Work.pdf";
 import property from '../../assets/pdf/Wildlife proofing your property A checklist for your home - Oakville.pdf';
 
-// eslint-disable-next-line react-refresh/only-export-components
 export const pdfData = [
   {
     id: 1, //to be change when needed

@@ -107,7 +107,7 @@ function Admin() {
   };
 
   return (
-    <div className="admin-page-shell">
+    <div className="admin-page-container">
       <header className="admin-header">
         <div className="admin-header-content">
           <img className="admin-logo" src={fureverLogo} alt="Fur-Ever Wild Rehabilitation" />

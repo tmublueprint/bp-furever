@@ -1,4 +1,4 @@
-.admin-page-shell {
+.admin-page-container {
     min-height: 100vh;
     background-color: var(--color-white);
     color: var(--color-heading-dark-green);
@@ -7,25 +7,25 @@
 
 .admin-header {
     width: 100%;
+    height: 150px;
     background-color: var(--color-dark-green);
 }
 
 .admin-header-content {
     width: 100%;
-    max-width: 1700px;
-    min-height: 180px;
-    margin: 0 auto;
-    padding-left: 130px;
-    padding-right: 130px;
+    height: 150px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+    padding: 0 80px;
+    background-color: var(--color-dark-green);
     box-sizing: border-box;
 }
 
 .admin-logo {
-    width: 112px;
-    height: auto;
+    width: 85px;
+    height: 90px;
 }
 
 .admin-header-title {
@@ -84,28 +84,6 @@
     line-height: 1;
 }
 
-.admin-pdf-gallery.pdf-gallery {
-    grid-template-columns: repeat(3, minmax(0, 440px));
-    justify-content: space-between;
-    justify-items: stretch;
-    gap: 72px 58px;
-    padding: 0;
-}
-
-.admin-pdf-gallery .pdf-gallery-item {
-    width: 100%;
-}
-
-.admin-pdf-gallery .PDFCard {
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.admin-pdf-gallery .pdf-card-image,
-.admin-pdf-gallery .pdf-card-image-container {
-    border-radius: 8px 8px 0 0;
-}
-
 .admin-pdf-gallery .pdf-gallery-card-action {
     opacity: 0;
     pointer-events: none;
@@ -150,22 +128,19 @@
         padding-left: 64px;
         padding-right: 64px;
     }
-
-    .admin-pdf-gallery.pdf-gallery {
-        grid-template-columns: repeat(2, minmax(0, 440px));
-        justify-content: center;
-    }
 }
 
 @media (max-width: 900px) {
     .admin-header-content {
-        min-height: 130px;
+        height: 150px;
         padding-left: 32px;
         padding-right: 32px;
+        gap: 32px;
     }
 
     .admin-logo {
-        width: 78px;
+        width: 85px;
+        height: 90px;
     }
 
     .admin-header-title {
@@ -188,7 +163,7 @@
 
 @media (max-width: 576px) {
     .admin-header-content {
-        padding-left: 20px;
+        padding-left: 30px;
         padding-right: 20px;
     }
 
@@ -199,12 +174,5 @@
 
     .admin-add-pdf-btn {
         width: 100%;
-    }
-
-    .admin-pdf-gallery.pdf-gallery {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 32px;
     }
 }
