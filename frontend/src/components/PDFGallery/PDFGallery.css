@@ -2,9 +2,27 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
     gap: 2rem;
+    justify-items: center;
     padding: 1rem;
     width: 100%;
 }
+
+.pdf-gallery-item {
+    position: relative;
+    width: min(100%, 440px);
+}
+
+.pdf-gallery-item .PDFCard {
+    width: 100%;
+}
+
+.pdf-gallery-card-action {
+    position: absolute;
+    top: 16px;
+    right: 14px;
+    z-index: 3;
+}
+
 @media (max-width: 576px) {
     .pdf-gallery {
         padding: 0;

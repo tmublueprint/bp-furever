@@ -64,7 +64,7 @@
     overflow: hidden;
     height: 320px;
     width: 100%;
-    min-width: 440px;
+    min-width: 0;
     flex-shrink: 0;
 }
 
