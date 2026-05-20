@@ -28,16 +28,10 @@ function Admin() {
   const [title, setTitle] = useState('');
   const [summary, setSummary] = useState('');
   const [pdfLink, setPdfLink] = useState('');
-  const [isAddFormOpen, setIsAddFormOpen] = useState(false);
   const [pdfPendingDelete, setPdfPendingDelete] = useState<AdminPdf | null>(null);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
-  const coverImageInputRef = useRef<HTMLInputElement>(null);
-  const pdfInputRef = useRef<HTMLInputElement>(null);
-  const draftCoverImageRef = useRef('');
-  const draftPdfLinkRef = useRef('');
   const deleteButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const pdfsRef = useRef<AdminPdf[]>([]);
-  const nextPdfIdRef = useRef(pdfData.length + 1);
 
   useEffect(() => {
     pdfsRef.current = pdfs;
@@ -45,36 +39,12 @@ function Admin() {
 
   useEffect(() => {
     return () => {
-      revokeBlobUrl(draftCoverImageRef.current);
-      revokeBlobUrl(draftPdfLinkRef.current);
       pdfsRef.current.forEach((pdf) => {
         revokeBlobUrl(pdf.image);
         revokeBlobUrl(pdf.link);
       });
     };
   }, []);
-
-  const resetDraft = (shouldRevoke = true) => {
-    if (shouldRevoke) {
-      revokeBlobUrl(draftCoverImageRef.current);
-      revokeBlobUrl(draftPdfLinkRef.current);
-    }
-
-    draftCoverImageRef.current = '';
-    draftPdfLinkRef.current = '';
-    setCoverImage('');
-    setTitle('');
-    setSummary('');
-    setPdfLink('');
-
-    if (coverImageInputRef.current) {
-      coverImageInputRef.current.value = '';
-    }
-
-    if (pdfInputRef.current) {
-      pdfInputRef.current.value = '';
-    }
-  };
 
   const handlePdfFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -83,10 +53,11 @@ function Admin() {
       return;
     }
 
-    revokeBlobUrl(draftPdfLinkRef.current);
+    if (pdfLink.startsWith('blob:')) {
+      URL.revokeObjectURL(pdfLink);
+    }
 
     const newPdfUrl = URL.createObjectURL(file);
-    draftPdfLinkRef.current = newPdfUrl;
     setPdfLink(newPdfUrl);
   };
 
@@ -97,53 +68,12 @@ function Admin() {
       return;
     }
 
-    revokeBlobUrl(draftCoverImageRef.current);
+    if (coverImage.startsWith('blob:')) {
+      URL.revokeObjectURL(coverImage);
+    }
 
     const newCoverImageUrl = URL.createObjectURL(file);
-    draftCoverImageRef.current = newCoverImageUrl;
     setCoverImage(newCoverImageUrl);
-  };
-
-  const handlePdfLinkChange = (event: ChangeEvent<HTMLInputElement>) => {
-    revokeBlobUrl(draftPdfLinkRef.current);
-
-    const nextPdfLink = event.target.value;
-    draftPdfLinkRef.current = nextPdfLink;
-    setPdfLink(nextPdfLink);
-
-    if (pdfInputRef.current) {
-      pdfInputRef.current.value = '';
-    }
-  };
-
-  const handleAddPdf = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const trimmedTitle = title.trim();
-    const trimmedSummary = summary.trim();
-    const trimmedPdfLink = pdfLink.trim();
-
-    if (!trimmedTitle || !trimmedPdfLink) {
-      return;
-    }
-
-    const newPdf: AdminPdf = {
-      id: `admin-added-pdf-${nextPdfIdRef.current}`,
-      image: coverImage,
-      title: trimmedTitle,
-      summary: trimmedSummary,
-      link: trimmedPdfLink,
-    };
-
-    nextPdfIdRef.current += 1;
-    setPdfs((currentPdfs) => [newPdf, ...currentPdfs]);
-    resetDraft(false);
-    setIsAddFormOpen(false);
-  };
-
-  const handleCancelAddPdf = () => {
-    resetDraft();
-    setIsAddFormOpen(false);
   };
 
   const handleAddPdfButtonClick = () => {
@@ -198,56 +128,6 @@ function Admin() {
               Add new PDF
             </button>
           </div>
-
-          {isAddFormOpen && (
-            <form className="admin-add-pdf-form" onSubmit={handleAddPdf}>
-              <label>
-                Cover Image
-                <input
-                  ref={coverImageInputRef}
-                  type="file"
-                  accept="image/*"
-                  onChange={handleCoverImageFileChange}
-                />
-              </label>
-              <label>
-                Title
-                <input
-                  type="text"
-                  value={title}
-                  onChange={(event) => setTitle(event.target.value)}
-                  required
-                />
-              </label>
-              <label>
-                Summary
-                <input
-                  type="text"
-                  value={summary}
-                  onChange={(event) => setSummary(event.target.value)}
-                />
-              </label>
-              <label>
-                PDF
-                <input
-                  ref={pdfInputRef}
-                  type="file"
-                  accept="application/pdf"
-                  onChange={handlePdfFileChange}
-                />
-              </label>
-              <label>
-                Hyperlink
-                <input type="text" value={pdfLink} onChange={handlePdfLinkChange} required />
-              </label>
-              <div className="admin-add-pdf-actions">
-                <button type="submit">Save PDF</button>
-                <button type="button" onClick={handleCancelAddPdf}>
-                  Cancel
-                </button>
-              </div>
-            </form>
-          )}
 
           <PDFGallery
             className="admin-pdf-gallery"
