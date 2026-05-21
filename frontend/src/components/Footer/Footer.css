@@ -44,8 +44,6 @@
     align-items: center;
     text-align: center;
     margin: 100px 0 0 0;
-    white-space: normal;
-    word-break: break-word;
 }
 
 .footer-subheader {
@@ -58,8 +56,6 @@
     align-items: center;
     text-align: center;
     margin-bottom: 50px;
-    white-space: normal;
-    word-break: break-word;
 }
 
 .footer-column p {
