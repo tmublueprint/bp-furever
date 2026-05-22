@@ -13,4 +13,4 @@ COPY dev-storage.rules ./
 
 EXPOSE 3005 3006 9099 9199
 
-CMD ["firebase", "emulators:start"]
+CMD ["firebase", "emulators:start", "--only", "firestore,auth", "--project", "bp-furever"]

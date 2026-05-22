@@ -1,6 +1,6 @@
 import admin from 'firebase-admin';
 
-const PROJECT_ID = 'demo-project';
+const PROJECT_ID = 'bp-furever';
 const EMULATOR_HOST = 'firebase-emulator:3003'; 
 const AUTH_EMULATOR_HOST = 'firebase-emulator:9099'
 const CLOUD_STORAGE_HOST = 'firebase-emulator:9100';
