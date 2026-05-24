@@ -1,28 +1,76 @@
+import { useEffect, useState } from 'react';
 import './style.css';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import PDFGallery from '../../components/PDFGallery/PDFGallery';
 import wildlife from "../../assets/pdf/Relocating Wildlife Doesn't Work.pdf";
 import property from '../../assets/pdf/Wildlife proofing your property A checklist for your home - Oakville.pdf';
+import wildlifeProofingImage from '../../assets/pdf/wildlife-proofing.png';
+import relocatingWildlifeImage from '../../assets/pdf/relocating-wildlife.png';
 
-const pdfData = [
-  {
-    id: 1, //to be change when needed
-    image: "src/assets/pdf/wildlife-proofing.png",
-    title: "Wildlife proofing your property",
-    summary: "A checklist for your home",
-    link: property,
-  },
-  {
-    id: 2,
-    image: "src/assets/pdf/relocating-wildlife.png",
-    title: "Relocating Wildlife Doesn't Work",
-    summary: "Why relocation is not an effective solution",
-    link: wildlife,
-  },
-]
+type Guide = {
+  guideID: string;
+  postTitle: string;
+  postSummary: string;
+  imageLink: string;
+  pdfLink: string;
+};
 
 function Education() {
+  const [guides, setGuides] = useState<Guide[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const defaultGuides = [
+    {
+      guideID: 'fallback-wildlife-proofing',
+      image: wildlifeProofingImage,
+      title: 'Wildlife proofing your property',
+      summary: 'A checklist for your home',
+      link: property,
+    },
+    {
+      guideID: 'fallback-relocating-wildlife',
+      image: relocatingWildlifeImage,
+      title: "Relocating Wildlife Doesn't Work",
+      summary: 'Why relocation is not an effective solution',
+      link: wildlife,
+    },
+  ];
+  const firestoreGuides = guides.map((guide) => ({
+    guideID: guide.guideID,
+    image: guide.imageLink,
+    title: guide.postTitle,
+    summary: guide.postSummary,
+    link: guide.pdfLink,
+  }));
+  const pdfList = firestoreGuides.length > 0 ? firestoreGuides : defaultGuides;
+
+  useEffect(() => {
+    const loadGuides = async () => {
+      try {
+        const response = await fetch('/api/guides');
+
+        if (!response.ok) {
+          throw new Error(`Failed to load guides: ${response.status}`);
+        }
+
+        const data = (await response.json()) as Guide[];
+        setGuides(data);
+
+        if (data.length === 0) {
+          setError('');
+        }
+      } catch (fetchError) {
+        console.error(fetchError);
+        setError('Unable to load guides right now.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadGuides();
+  }, []);
+
   return (
     <>
     <NavBar />
@@ -35,7 +83,9 @@ function Education() {
        </section>
 
        <section className='pdf-section'>
-        <PDFGallery pdfList={pdfData} />
+  {loading && <p className="education-status">Loading guides...</p>}
+  {!loading && error && <p className="education-status">{error}</p>}
+  {!loading && !error && <PDFGallery pdfList={pdfList} />}
        </section> 
     </main>
     <Footer />

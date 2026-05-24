@@ -62,6 +62,44 @@ function Admin() {
     setShowDeletePopup(true);
   };
 
+  const handleSave = async () => {
+    try {
+      const form = new FormData();
+      const imageInput = (document.querySelector('#admin-image-input') as HTMLInputElement);
+      const pdfInput = (document.querySelector('#admin-pdf-input') as HTMLInputElement);
+
+      const imageFile = imageInput?.files?.[0];
+      const pdfFile = pdfInput?.files?.[0];
+
+      if (imageFile) form.append('image', imageFile);
+      else if (coverImage) form.append('imageLink', coverImage);
+
+      if (pdfFile) form.append('pdf', pdfFile);
+      else if (pdfLink) form.append('pdfLink', pdfLink);
+
+      form.append('postTitle', title);
+      form.append('postSummary', summary);
+
+      const resp = await fetch('/api/guides', {
+        method: 'POST',
+        body: form,
+      });
+
+      if (!resp.ok) {
+        const err = await resp.json();
+        alert('Save failed: ' + (err?.error || resp.statusText));
+        return;
+      }
+
+      await resp.json();
+      alert('Guide saved');
+      // Optionally you could set state from returned guide
+    } catch (e) {
+      console.error(e);
+      alert('Save failed');
+    }
+  };
+
   const handleCloseDeletePopup = () => {
     setShowDeletePopup(false);
     deleteButtonRef.current?.focus();
@@ -74,6 +112,7 @@ function Admin() {
           <div>
             <p>Cover Image</p>
             <input
+              id="admin-image-input"
               type="file"
               accept="image/*"
               onChange={handleCoverImageFileChange}
@@ -100,6 +139,7 @@ function Admin() {
           <div>
             <p>PDF</p>
             <input
+              id="admin-pdf-input"
               type="file"
               accept="application/pdf"
               onChange={handlePdfFileChange}
@@ -117,6 +157,7 @@ function Admin() {
         </div>
         <div id="admin-preview-container">
           <PDFcard image={coverImage} title={title} summary={summary} link={pdfLink} />
+          <button id="admin-save-btn" type="button" onClick={handleSave}>Save</button>
           <button
             id="admin-delete-btn"
             type="button"

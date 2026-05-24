@@ -1,4 +1,4 @@
-import { bucket } from '../firebase'
+import { bucket } from '../firebase.js'
 
 // wrappers for generic file upload func
 export function uploadImage(  
@@ -40,4 +40,8 @@ async function uploadFile(
     console.error("Storage upload failed:", e);
     throw e;
   }
+}
+
+export function guideAssetPath(guideID: string, assetType: 'image' | 'pdf') {
+  return `guides/${guideID}/${assetType}`;
 }

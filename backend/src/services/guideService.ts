@@ -1,6 +1,6 @@
-import { guideModel } from '../models/guideModel'
-import { uploadPDF, uploadImage } from './storageService';
-import admin from '../firebase'
+import type { guideModel } from '../models/guideModel.js'
+import { guideAssetPath, uploadPDF, uploadImage } from './storageService.js';
+import admin from '../firebase.js'
 
 export async function getGuide(guideID: string, firebaseCollection: string) {
     try {
@@ -36,11 +36,11 @@ export async function createGuide(
 
   try {
     const imageLink = data.imageFile
-      ? await uploadImage(data.imageFile, `guides/${guideID}/image`)
+      ? await uploadImage(data.imageFile, guideAssetPath(guideID, 'image'))
       : data.imageLink?.trim();
 
     const pdfLink = data.pdfFile
-      ? await uploadPDF(data.pdfFile, `guides/${guideID}/pdf`)
+      ? await uploadPDF(data.pdfFile, guideAssetPath(guideID, 'pdf'))
       : data.pdfLink?.trim();
 
     if (!imageLink) {
@@ -55,8 +55,8 @@ export async function createGuide(
       guideID,
       postTitle: data.postTitle,
       postSummary: data.postSummary,
-      imageLink,
-      pdfLink,
+      imageLink: imageLink?.startsWith('http') ? imageLink : `/api/guides/${guideID}/image`,
+      pdfLink: pdfLink?.startsWith('http') ? pdfLink : `/api/guides/${guideID}/pdf`,
     };
 
     await guideRef.set(guide);

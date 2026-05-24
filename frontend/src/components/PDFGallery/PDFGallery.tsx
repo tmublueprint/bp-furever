@@ -4,7 +4,7 @@ import "./PDFGallery.css";
 type PDFCardProps = React.ComponentProps<typeof PDFCard>;
 
 interface PDFGalleryProps {
-    pdfList: PDFCardProps[];
+    pdfList: (PDFCardProps & { guideID?: string })[];
 }
 
 function PDFGallery({ pdfList }: PDFGalleryProps) {
@@ -12,7 +12,7 @@ function PDFGallery({ pdfList }: PDFGalleryProps) {
     <div className="pdf-gallery">
       {pdfList.map((pdf) => (
         <PDFCard
-        //   key={pdf.id}     --to be revisited once ID is required
+          key={pdf.guideID || `${pdf.title}-${pdf.link}`}
           image={pdf.image}
           title={pdf.title}
           summary={pdf.summary}
