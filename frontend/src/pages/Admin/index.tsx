@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.css';
 import DeletePopup from '../../components/DeletePopup/DeletePopup';
 import Footer from '../../components/Footer/Footer';
@@ -24,10 +24,10 @@ const revokeBlobUrl = (url: string) => {
 
 function Admin() {
   const [pdfs, setPdfs] = useState<AdminPdf[]>(() => pdfData.map(createAdminPdf));
-  const [coverImage, setCoverImage] = useState('');
-  const [title, setTitle] = useState('');
-  const [summary, setSummary] = useState('');
-  const [pdfLink, setPdfLink] = useState('');
+  //const [coverImage, setCoverImage] = useState('');
+  //const [title, setTitle] = useState('');
+  //const [summary, setSummary] = useState('');
+  //const [pdfLink, setPdfLink] = useState('');
   const [pdfPendingDelete, setPdfPendingDelete] = useState<AdminPdf | null>(null);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const deleteButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -46,6 +46,8 @@ function Admin() {
     };
   }, []);
 
+  //for adding new pdf
+  /*
   const handlePdfFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
 
@@ -79,6 +81,8 @@ function Admin() {
   const handleAddPdfButtonClick = () => {
     //implement popup add pdf functionality here.
   };
+
+  */
 
   const handleDeleteButtonClick = (pdf: AdminPdf) => {
     setPdfPendingDelete(pdf);
@@ -122,7 +126,7 @@ function Admin() {
             <button
               className="admin-add-pdf-btn"
               type="button"
-              onClick={handleAddPdfButtonClick}
+              //onClick={handleAddPdfButtonClick}
             >
               <span aria-hidden="true">+</span>
               Add new PDF
