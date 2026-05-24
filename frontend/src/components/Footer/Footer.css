@@ -156,11 +156,11 @@
 @media (max-width: 560px){
     .footer-columns {gap: 0.5rem;}
     .footer-header { 
-        font-size: 18px;
-        margin-top: 40px; }
-    .footer-subheader { 
         font-size: 16px;
-        margin-bottom: 20px; }
+        margin: 40px 10px 0 10px; }
+    .footer-subheader { 
+        font-size: 14px;
+        margin: 10px 10px 20px 10px; }
     .col-header1 {font-size: 14px; }
     .col-header2 {font-size: 12px; }
     .col-subtext {font-size: 12px; }
