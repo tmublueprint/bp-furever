@@ -1,33 +1,53 @@
-import { useEffect, useRef, useState, type ChangeEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.css';
-import PDFcard from '../../components/PDFCard/PDFCard';
 import DeletePopup from '../../components/DeletePopup/DeletePopup';
+import Footer from '../../components/Footer/Footer';
+import PDFGallery, { type PDFGalleryItem } from '../../components/PDFGallery/PDFGallery';
 import closeIcon from '../../assets/DeletePDFPopup/delete-pdf-remove.svg';
+import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
+import { pdfData } from '../Education';
+
+type AdminPdf = PDFGalleryItem & {
+  id: string;
+};
+
+const createAdminPdf = (pdf: PDFGalleryItem, index: number): AdminPdf => ({
+  ...pdf,
+  id: String(pdf.id ?? `pdf-${index + 1}`),
+});
+
+const revokeBlobUrl = (url: string) => {
+  if (url.startsWith('blob:')) {
+    URL.revokeObjectURL(url);
+  }
+};
 
 function Admin() {
-  const [coverImage, setCoverImage] = useState('');
-  const [title, setTitle] = useState('');
-  const [summary, setSummary] = useState('');
-  const [pdfLink, setPdfLink] = useState('');
+  const [pdfs, setPdfs] = useState<AdminPdf[]>(() => pdfData.map(createAdminPdf));
+  //const [coverImage, setCoverImage] = useState('');
+  //const [title, setTitle] = useState('');
+  //const [summary, setSummary] = useState('');
+  //const [pdfLink, setPdfLink] = useState('');
+  const [pdfPendingDelete, setPdfPendingDelete] = useState<AdminPdf | null>(null);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
-  const deleteButtonRef = useRef<HTMLButtonElement>(null);
+  const deleteButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const pdfsRef = useRef<AdminPdf[]>([]);
+
+  useEffect(() => {
+    pdfsRef.current = pdfs;
+  }, [pdfs]);
 
   useEffect(() => {
     return () => {
-      if (coverImage.startsWith('blob:')) {
-        URL.revokeObjectURL(coverImage);
-      }
+      pdfsRef.current.forEach((pdf) => {
+        revokeBlobUrl(pdf.image);
+        revokeBlobUrl(pdf.link);
+      });
     };
-  }, [coverImage]);
+  }, []);
 
-  useEffect(() => {
-    return () => {
-      if (pdfLink.startsWith('blob:')) {
-        URL.revokeObjectURL(pdfLink);
-      }
-    };
-  }, [pdfLink]);
-
+  //for adding new pdf
+  /*
   const handlePdfFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
 
@@ -58,79 +78,91 @@ function Admin() {
     setCoverImage(newCoverImageUrl);
   };
 
-  const handleDeleteButtonClick = () => {
+  const handleAddPdfButtonClick = () => {
+    //implement popup add pdf functionality here.
+  };
+
+  */
+
+  const handleDeleteButtonClick = (pdf: AdminPdf) => {
+    setPdfPendingDelete(pdf);
     setShowDeletePopup(true);
   };
 
   const handleCloseDeletePopup = () => {
+    const pendingPdfId = pdfPendingDelete?.id;
+
     setShowDeletePopup(false);
-    deleteButtonRef.current?.focus();
+    setPdfPendingDelete(null);
+
+    if (pendingPdfId) {
+      deleteButtonRefs.current[pendingPdfId]?.focus();
+    }
+  };
+
+  const handleConfirmDelete = () => {
+    if (!pdfPendingDelete) {
+      return;
+    }
+
+    revokeBlobUrl(pdfPendingDelete.image);
+    revokeBlobUrl(pdfPendingDelete.link);
+    setPdfs((currentPdfs) => currentPdfs.filter((pdf) => pdf.id !== pdfPendingDelete.id));
   };
 
   return (
-    <>
-      <main id="admin-container">
-        <div id="admin-input-container">
-          <div>
-            <p>Cover Image</p>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleCoverImageFileChange}
-            ></input>
-          </div>
-          <div id="title-input-container">
-            <p>Title</p>
-            <input
-              type="text"
-              style={{ height: 16, margin: 'auto 0 auto 10px' }}
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
-            ></input>
-          </div>
-          <div id="summary-input-container">
-            <p>Summary</p>
-            <input
-              type="text"
-              style={{ height: 16, margin: 'auto 0 auto 10px' }}
-              value={summary}
-              onChange={(event) => setSummary(event.target.value)}
-            ></input>
-          </div>
-          <div>
-            <p>PDF</p>
-            <input
-              type="file"
-              accept="application/pdf"
-              onChange={handlePdfFileChange}
-            ></input>
-          </div>
-          <p>Or</p>
-          <div>
-            <p>Hyperlink</p>
-            <input
-              type="text"
-              value={pdfLink}
-              onChange={(event) => setPdfLink(event.target.value)}
-            ></input>
-          </div>
+    <div className="admin-page-container">
+      <header className="admin-header">
+        <div className="admin-header-content">
+          <img className="admin-logo" src={fureverLogo} alt="Fur-Ever Wild Rehabilitation" />
+          <p className="admin-header-title">Admin Page</p>
         </div>
-        <div id="admin-preview-container">
-          <PDFcard image={coverImage} title={title} summary={summary} link={pdfLink} />
-          <button
-            id="admin-delete-btn"
-            type="button"
-            onClick={handleDeleteButtonClick}
-            ref={deleteButtonRef}
-          >
-            <img id="delete-pdf-remove-icon" src={closeIcon} aria-hidden = "true" alt="Close" />
-            Remove PDF
-          </button>
-        </div>
-        <DeletePopup visible={showDeletePopup} onClose={handleCloseDeletePopup} pdfTitle={title} />
+      </header>
+
+      <main id="admin-container" className="admin-main">
+        <section className="admin-current-pdfs" aria-labelledby="admin-current-pdfs-title">
+          <div className="admin-section-header">
+            <h1 id="admin-current-pdfs-title">Current PDFs</h1>
+            <button
+              className="admin-add-pdf-btn"
+              type="button"
+              //onClick={handleAddPdfButtonClick}
+            >
+              <span aria-hidden="true">+</span>
+              Add new PDF
+            </button>
+          </div>
+
+          <PDFGallery
+            className="admin-pdf-gallery"
+            pdfList={pdfs}
+            renderCardAction={(pdf) => (
+              <button
+                className="admin-remove-pdf-btn"
+                type="button"
+                onClick={() => handleDeleteButtonClick(pdf)}
+                ref={(element) => {
+                  deleteButtonRefs.current[pdf.id] = element;
+                }}
+              >
+                <img src={closeIcon} aria-hidden="true" alt="" />
+                Remove PDF
+              </button>
+            )}
+          />
+        </section>
+
+        <DeletePopup
+          visible={showDeletePopup}
+          onClose={handleCloseDeletePopup}
+          onConfirm={handleConfirmDelete}
+          pdfTitle={pdfPendingDelete?.title ?? ''}
+        />
       </main>
-    </>
-  )
+
+      <Footer />
+    </div>
+  );
 }
 
-export default Admin
+export default Admin;

@@ -1,37 +1,102 @@
-#admin-container {
-    display: flex;
-    align-items: center;
-    padding-top: 10vh;
-    height: 530px;
+.admin-page-container {
+    min-height: 100vh;
+    background-color: var(--color-white);
+    color: var(--color-heading-dark-green);
+    font-family: "Montserrat", "Poppins", sans-serif;
 }
 
-#admin-input-container {
-    border: 6px solid black;
-    border-radius: 20px;
-    align-self: stretch;
+.admin-header {
+    width: 100%;
+    height: 150px;
+    background-color: var(--color-dark-green);
+}
+
+.admin-header-content {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+    padding: 0 80px;
+    background-color: var(--color-dark-green);
     box-sizing: border-box;
-    margin-left: auto;
-    padding: 10px;
 }
 
-#admin-preview-container {
-    margin-right: auto;
-    margin-left: 20px;
+.admin-logo {
+    width: 85px;
+    height: 90px;
+}
+
+.admin-header-title {
+    margin: 0;
+    color: var(--color-white);
+    font-size: 28px;
+    font-weight: 500;
+}
+
+#admin-container.admin-main {
+    width: 100%;
+    max-width: 1700px;
+    margin: 0 auto;
+    padding: 110px 130px 170px 130px;
+    box-sizing: border-box;
+}
+
+.admin-section-header {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 16px;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 72px;
 }
 
-#title-input-container {
-    display: flex;
+.admin-section-header h1 {
+    margin: 0;
+    font-size: 90px;
+    line-height: 1.1;
+    font-weight: 600;
+    color: #132F27;
+
 }
 
-#summary-input-container {
-    display: flex;
+.admin-add-pdf-btn {
+    min-width: 250px;
+    min-height: 76px;
+    padding: 0 24px;
+    border: none;
+    border-radius: 16px;
+    background-color: #617553;
+    color: var(--color-white);
+    cursor: pointer;
+    font-family: "Montserrat", "Poppins", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    box-shadow: none;
 }
 
-#admin-delete-btn {
+.admin-add-pdf-btn span {
+    font-size: 32px;
+    line-height: 1;
+}
+
+.admin-pdf-gallery .pdf-gallery-card-action {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.admin-pdf-gallery .pdf-gallery-item:hover .pdf-gallery-card-action,
+.admin-pdf-gallery .pdf-gallery-item:focus-within .pdf-gallery-card-action {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.admin-remove-pdf-btn {
     width: 229px;
     height: 72px;
     border: 1px solid #000000;
@@ -39,17 +104,75 @@
     background-color: #F89494;
     color: #000000;
     cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-size: 24px;
     font-weight: 600;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
 }
 
-#delete-pdf-remove-icon {
+.admin-remove-pdf-btn img {
     width: 25.61px;
     height: 25.61px;
     margin-right: 13.39px;
+}
+
+@media (max-width: 1320px) {
+    .admin-header-content {
+        padding-left: 64px;
+        padding-right: 64px;
+    }
+
+    #admin-container.admin-main {
+        padding-left: 64px;
+        padding-right: 64px;
+    }
+}
+
+@media (max-width: 900px) {
+    .admin-header-content {
+        height: 150px;
+        padding-left: 32px;
+        padding-right: 32px;
+        gap: 32px;
+    }
+
+    .admin-logo {
+        width: 85px;
+        height: 90px;
+    }
+
+    .admin-header-title {
+        font-size: 22px;
+    }
+
+    #admin-container.admin-main {
+        padding: 72px 32px 110px 32px;
+    }
+
+    .admin-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-section-header h1 {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 576px) {
+    .admin-header-content {
+        padding-left: 30px;
+        padding-right: 20px;
+    }
+
+    #admin-container.admin-main {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .admin-add-pdf-btn {
+        width: 100%;
+    }
 }
