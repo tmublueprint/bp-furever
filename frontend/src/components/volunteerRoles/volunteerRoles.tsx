@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import Role1 from '../../assets/Volunteer/on-site-support.svg'; 
 import Role2 from '../../assets/Volunteer/foster-care.svg'; 
-import Role3 from '../../assets/Volunteer/driver-support.svg'; 
+import Role3 from '../../assets/Volunteer/driver-support.svg';
+import checkButton from '../../assets/Volunteer/checkmark.svg'; 
 import "./volunteerRoles.css";
 
 function VolunteerRoles(){
@@ -55,6 +56,7 @@ function VolunteerRoles(){
         <>
             <section className="roles-container">
                 <h2 className="roles-title">Volunteer Roles & Opportunities</h2>
+                <h3 className="roles-subtitle">Click below to learn more about each role</h3>
                 <div className="roles">
                     {[
                         { id: 'onsite', img: Role1, alt: 'house icon', label: 'On-Site Support', desc:'Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh eu'},
@@ -66,6 +68,9 @@ function VolunteerRoles(){
                             className={`role ${selectedRole == role.id ? 'active' :''}`}
                             onClick={() => setSelectedRole(selectedRole === role.id ? 'onsite': role.id as RoleId)}
                         >
+                            {selectedRole === role.id && (
+                                <img src={checkButton} alt="role selected" className="role-active-check" />
+                            )}
                             <img src={role.img} alt={role.alt}/>
                             <h3>{role.label}</h3>
                             <p>{role.desc}</p>
