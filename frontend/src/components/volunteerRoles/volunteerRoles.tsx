@@ -86,6 +86,9 @@ function VolunteerRoles(){
                         ))}
                     </ul>
                 </div>
+                <div className="requirement-vector">
+                    <h1 className="requirement-vector-text">Wildlife rehabilitation is a long-term commitment, especially during baby season.<br />Volunteers must be dependable and available as scheduled.</h1>
+                </div>
             </section>
         </>
     )

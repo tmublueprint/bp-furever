@@ -1,7 +1,4 @@
 import './style.css';
-import Role1 from '../../assets/Volunteer/on-site-support.svg'; 
-import Role2 from '../../assets/Volunteer/foster-care.svg'; 
-import Role3 from '../../assets/Volunteer/driver-support.svg'; 
 import ArrowBtn from '../../assets/Volunteer/arrow-btn.svg'; 
 import VolunteerIcon from '../../assets/Volunteer/volunteer-img.svg'; 
 import VolunteerSection from '../../components/volunteerRoles/volunteerRoles';

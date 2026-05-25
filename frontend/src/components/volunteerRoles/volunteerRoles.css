@@ -1,3 +1,4 @@
+/*Role Buttons Section*/
 .roles-container{
     position: relative;
     display: flex;
@@ -24,7 +25,6 @@
     display: flex;
     gap: 20px;
 }
-
 
 .role {
   width: 420px;
@@ -57,4 +57,71 @@
   background-color: var(--color-light-green);
   height: 200px;
   width: 100%;
+}
+
+@media (max-width: 576px) {
+  .roles-title {
+    width: 60%;
+  }
+  .roles {
+    flex-direction: column;
+  }
+}
+
+/* Volunteer Requirements section */
+.requirement-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 94px;
+}
+
+.requirement-title {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: var(--font-size-heading-two);
+  color: var(--color-heading-dark-green);
+  text-align: center;
+}
+
+.requirements {
+  margin-top: 20px;
+}
+
+.requirement-list {
+  list-style: none;
+  font-size: 30px;
+
+}
+
+.requirement-item {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  color: #000000;
+  line-height: 130%;
+  padding: 10px;
+}
+
+.requirement-vector {
+  z-index: -1;
+  margin-top: 102px;
+  background-color: var(--color-canvas);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.requirement-vector-text {
+  font-family: 'Montserrat';
+  color: var(--color-dark-green);
+  font-style: 600;
+  font-size: 30px;
+  line-height: 130%;
+  padding: 34px;
+  text-align: center;
 }
