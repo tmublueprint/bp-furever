@@ -46,7 +46,7 @@ function Volunteer() {
           </div>
         </section>
 
-        <section className="volunteer-roles-container">
+        {/* <section className="volunteer-roles-container">
           <h2 className="volunteer-roles-title">Volunteer Roles & Opportunities</h2>
           <div className="volunteer-roles">
             <div className="volunteer-role">
@@ -96,8 +96,8 @@ function Volunteer() {
           <div className="volunteer-requirements-vector">
             <h1 className="volunteer-requirements-vector-text">Wildlife rehabilitation is a long-term commitment, especially during baby season.<br />Volunteers must be dependable and available as scheduled.</h1>
           </div>
-        </section>
-
+        </section> */}
+        <VolunteerSection/>
         <section className="how-to-apply">
           <div className="container-how-to-apply">
             <h2 className="how-to-apply-header-two">How To Apply</h2>

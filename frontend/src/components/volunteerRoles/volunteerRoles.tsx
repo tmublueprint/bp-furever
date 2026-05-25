@@ -54,7 +54,7 @@ function VolunteerRoles(){
     return (
         <>
             <section className="roles-container">
-                <h2 className="title">Volunteer Roles & Opportunities</h2>
+                <h2 className="roles-title">Volunteer Roles & Opportunities</h2>
                 <div className="roles">
                     {[
                         { id: 'onsite', img: Role1, alt: 'house icon', label: 'On-Site Support', desc:'Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh eu'},
@@ -63,7 +63,7 @@ function VolunteerRoles(){
                     ].map(role => (
                         <div
                             key={role.id}
-                            className={`roles ${selectedRole == role.id ? 'active' :''}`}
+                            className={`role ${selectedRole == role.id ? 'active' :''}`}
                             onClick={() => setSelectedRole(selectedRole === role.id ? 'onsite': role.id as RoleId)}
                         >
                             <img src={role.img} alt={role.alt}/>
