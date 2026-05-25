@@ -1,0 +1,94 @@
+import { useState } from 'react';
+import Role1 from '../../assets/Volunteer/on-site-support.svg'; 
+import Role2 from '../../assets/Volunteer/foster-care.svg'; 
+import Role3 from '../../assets/Volunteer/driver-support.svg'; 
+import "./volunteerRoles.css";
+
+function VolunteerRoles(){
+
+    type RoleId = 'onsite' | 'foster' | 'driver';
+
+    const [selectedRole, setSelectedRole] = useState<RoleId>('onsite');
+
+    const roleInfo = {
+        onsite: {
+            title: "General Volunteer Requirements",
+            items: [
+                "Available during baby season (minimum 2× per week, 4-hour shifts)",
+                "Valid driver's license",
+                "Must be 18 years or older",
+                "Resume required (no cover letter) plus 2 references",
+                "Tetanus, Season Flu, and Avian Influenza Vaccines",
+                "RVS Exam completed (MNRF— Aylmer District)",
+                "—To complete the rabies vector species exam and get study material email",
+                "mnfr.ay@ontario.ca",
+                "—Experience with wildlife or animal rescue is considered an asset."
+            ]
+        },
+        foster: {
+            title: "Foster Care Requirements",
+            items: [
+                "Available during baby season (minimum 2× per week, 4-hour shifts)",
+                "Valid driver's license",
+                "Must be 18 years or older",
+                "Resume required (no cover letter) plus 2 references",
+                "Tetanus, Season Flu, and Avian Influenza Vaccines",
+                "RVS Exam completed (MNRF— Aylmer District)",
+                "—To complete the rabies vector species exam and get study material email",
+                "mnfr.ay@ontario.ca",
+                "—Experience with wildlife or animal rescue is considered an asset."
+            ]
+        },
+        driver: {
+            title: "Driver Volunteer Requirements",
+            items: [
+                "A Valid Driver license",
+                "Willing to drive a minimum of 1 hour away",
+                "Brief description of your past career history and your interest in helping",
+                "Willing to be on an 'on call' basis as we never know when, where or the condition of the animal(s).",
+                "—Experience with wildlife or animal rescue is considered an asset."
+            ]
+        }
+    }
+
+    return (
+        <>
+            <section className="roles-container">
+                <h2 className="title">Volunteer Roles & Opportunities</h2>
+                <div className="roles">
+                    {[
+                        { id: 'onsite', img: Role1, alt: 'house icon', label: 'On-Site Support', desc:'Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh eu'},
+                        { id: 'foster', img: Role2, alt: 'baby bottle icon', label: 'Foster Care', desc: 'Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh eu'},
+                        { id: 'driver', img: Role3, alt: 'car icon', label: 'Driver Support', desc: 'Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh eu'},
+                    ].map(role => (
+                        <div
+                            key={role.id}
+                            className={`roles ${selectedRole == role.id ? 'active' :''}`}
+                            onClick={() => setSelectedRole(selectedRole === role.id ? 'onsite': role.id as RoleId)}
+                        >
+                            <img src={role.img} alt={role.alt}/>
+                            <h3>{role.label}</h3>
+                            <p>{role.desc}</p>
+                        </div>
+                    ))}
+                </div>
+                <div className="green-vector"></div>
+            </section>
+
+            <section className="requirement-container">
+                <h2 className="requirement-title">
+                    {roleInfo[selectedRole].title}
+                </h2>
+                <div className="requirements">
+                    <ul className="requirement-list">
+                        {roleInfo[selectedRole].items.map((item, index) => (
+                            <li key={index} className="requirement-item"> ✔ {item}</li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+        </>
+    )
+}
+
+export default VolunteerRoles;
