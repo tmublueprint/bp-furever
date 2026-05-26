@@ -21,6 +21,7 @@
 }
 
 .roles-subtitle {
+    font-family: 'Poppins', 'san-serif';
     font-weight: 300;
     font-size: 24px;
     opacity: 0.66;
@@ -94,7 +95,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 94px;
+  margin-top: 30px;
 }
 
 .requirement-title {
@@ -124,6 +125,11 @@
   color: #000000;
   line-height: 130%;
   padding: 10px;
+}
+
+.requirement-note {
+  font-style: italic;
+  word-break: break-all;
 }
 
 .requirement-vector {
