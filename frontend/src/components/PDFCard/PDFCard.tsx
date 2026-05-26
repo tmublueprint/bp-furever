@@ -11,6 +11,11 @@ interface PDFCardProps{
     link: string;
 }
 
+export type PDFCardItem = PDFCardProps & {
+    id?: number | string;
+    guideID?: string;
+}
+
 function PDFCard({image, title, summary, link}: PDFCardProps){
     const hasCustomImage = Boolean(image);
 

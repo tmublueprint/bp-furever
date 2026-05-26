@@ -24,6 +24,7 @@ async function uploadFile(
     const fileRef = bucket.file(destinationPath);
 
     await fileRef.save(file.buffer, {
+      resumable: false,
       metadata: {
         contentType: fileType,
       },
@@ -44,4 +45,13 @@ async function uploadFile(
 
 export function guideAssetPath(guideID: string, assetType: 'image' | 'pdf') {
   return `guides/${guideID}/${assetType}`;
+}
+
+export async function deleteGuideAsset(destinationPath: string): Promise<void> {
+  const fileRef = bucket.file(destinationPath);
+  const [exists] = await fileRef.exists();
+
+  if (exists) {
+    await fileRef.delete();
+  }
 }

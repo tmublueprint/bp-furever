@@ -1,5 +1,5 @@
 import type { guideModel } from '../models/guideModel.js'
-import { guideAssetPath, uploadPDF, uploadImage } from './storageService.js';
+import { deleteGuideAsset, guideAssetPath, uploadPDF, uploadImage } from './storageService.js';
 import admin from '../firebase.js'
 
 export async function getGuide(guideID: string, firebaseCollection: string) {
@@ -67,4 +67,19 @@ export async function createGuide(
     console.error("Guide creation failed:", e);
     throw e;
   }
+}
+
+export async function deleteGuide(guideID: string, firestoreCollection: string) {
+  const guideRef = admin.firestore().collection(firestoreCollection).doc(guideID);
+  const doc = await guideRef.get();
+
+  if (!doc.exists) {
+    throw new Error(`Guide not found: ${guideID}`);
+  }
+
+  await Promise.all([
+    deleteGuideAsset(guideAssetPath(guideID, 'image')),
+    deleteGuideAsset(guideAssetPath(guideID, 'pdf')),
+    guideRef.delete(),
+  ]);
 }

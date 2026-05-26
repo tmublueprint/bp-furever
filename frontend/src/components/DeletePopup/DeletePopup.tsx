@@ -4,10 +4,11 @@ import './DeletePopup.css';
 interface DeletePopupProps {
   visible: boolean;
   onClose: () => void;
+  onConfirm: () => void | Promise<void>;
   pdfTitle: string;
 }
 
-function DeletePopup({ visible, onClose, pdfTitle }: DeletePopupProps) {
+function DeletePopup({ visible, onClose, onConfirm, pdfTitle }: DeletePopupProps) {
   if (!visible) return null;
 
   const displayTitle = pdfTitle.trim();
@@ -18,8 +19,8 @@ function DeletePopup({ visible, onClose, pdfTitle }: DeletePopupProps) {
     }
   };
 
-  const handleConfirmClick = () => {
-    //delete the PDF here
+  const handleConfirmClick = async () => {
+    await onConfirm();
     onClose();
   };
 

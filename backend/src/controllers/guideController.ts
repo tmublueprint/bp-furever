@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { createGuide, getGuide } from "../services/guideService.js";
+import { createGuide, deleteGuide, getGuide } from "../services/guideService.js";
 import type { guideModel } from "../models/guideModel.js";
 import admin, { bucket } from "../firebase.js";
 
@@ -124,6 +124,29 @@ export async function createGuideController(req: Request, res: Response) {
         return res.status(500).json({
             error: "Internal server error",
         });
+    }
+}
+
+export async function deleteGuideController(req: Request, res: Response) {
+    try {
+        const { guideID } = req.params;
+
+        if (!guideID) {
+            return res.status(400).json({ error: 'guideID required' });
+        }
+
+        await deleteGuide(guideID, FIRESTORE_COLLECTION);
+
+        return res.status(200).json({ message: 'Guide deleted successfully' });
+    } catch (e) {
+        const message = e instanceof Error ? e.message : 'Internal server error';
+
+        if (message.startsWith('Guide not found')) {
+            return res.status(404).json({ error: message });
+        }
+
+        console.error('Delete guide failed:', e);
+        return res.status(500).json({ error: 'Internal server error' });
     }
 }
 

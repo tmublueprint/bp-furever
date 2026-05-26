@@ -1,177 +1,211 @@
-import { useEffect, useRef, useState, type ChangeEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.css';
-import PDFcard from '../../components/PDFCard/PDFCard';
+import AddPopup from '../../components/AddPopup/AddPopup';
 import DeletePopup from '../../components/DeletePopup/DeletePopup';
+import Footer from '../../components/Footer/Footer';
+import PDFGallery from '../../components/PDFGallery/PDFGallery';
+import type { PDFCardItem } from '../../components/PDFCard/PDFCard';
 import closeIcon from '../../assets/DeletePDFPopup/delete-pdf-remove.svg';
+import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
+import { pdfData } from '../Education';
+
+type AdminPdf = PDFCardItem & {
+  id: string;
+};
+
+type GuideApiItem = {
+  guideID: string;
+  postTitle: string;
+  postSummary: string;
+  imageLink: string;
+  pdfLink: string;
+};
+
+const createAdminPdf = (pdf: PDFCardItem, index: number): AdminPdf => ({
+  ...pdf,
+  id: String(pdf.id ?? pdf.guideID ?? `pdf-${index + 1}`),
+});
+
+const mapGuideApiItem = (guide: GuideApiItem): PDFCardItem => ({
+  guideID: guide.guideID,
+  id: guide.guideID,
+  image: guide.imageLink,
+  title: guide.postTitle,
+  summary: guide.postSummary,
+  link: guide.pdfLink,
+});
+
+const revokeBlobUrl = (url: string) => {
+  if (url.startsWith('blob:')) {
+    URL.revokeObjectURL(url);
+  }
+};
 
 function Admin() {
-  const [coverImage, setCoverImage] = useState('');
-  const [title, setTitle] = useState('');
-  const [summary, setSummary] = useState('');
-  const [pdfLink, setPdfLink] = useState('');
+  const [pdfs, setPdfs] = useState<AdminPdf[]>(() => pdfData.map(createAdminPdf));
+  const [pdfPendingDelete, setPdfPendingDelete] = useState<AdminPdf | null>(null);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
-  const deleteButtonRef = useRef<HTMLButtonElement>(null);
+  const [showAddPopup, setShowAddPopup] = useState(false);
+  const deleteButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
+  const addButtonRef = useRef<HTMLButtonElement | null>(null);
+  const pdfsRef = useRef<AdminPdf[]>([]);
 
   useEffect(() => {
-    return () => {
-      if (coverImage.startsWith('blob:')) {
-        URL.revokeObjectURL(coverImage);
+    let isMounted = true;
+
+    const loadGuides = async () => {
+      try {
+        const response = await fetch('/api/guides');
+
+        if (!response.ok) {
+          throw new Error(`Failed to load guides: ${response.status}`);
+        }
+
+        const guides = (await response.json()) as GuideApiItem[];
+
+        if (!isMounted) {
+          return;
+        }
+
+        if (guides.length > 0) {
+          setPdfs(guides.map((guide, index) => createAdminPdf(mapGuideApiItem(guide), index)));
+        } else {
+          setPdfs(pdfData.map(createAdminPdf));
+        }
+      } catch (error) {
+        console.error(error);
+
+        if (isMounted) {
+          setPdfs(pdfData.map(createAdminPdf));
+        }
       }
     };
-  }, [coverImage]);
+
+    loadGuides();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   useEffect(() => {
-    return () => {
-      if (pdfLink.startsWith('blob:')) {
-        URL.revokeObjectURL(pdfLink);
-      }
-    };
-  }, [pdfLink]);
+    pdfsRef.current = pdfs;
+  }, [pdfs]);
 
-  const handlePdfFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-
-    if (!file) {
-      return;
-    }
-
-    if (pdfLink.startsWith('blob:')) {
-      URL.revokeObjectURL(pdfLink);
-    }
-
-    const newPdfUrl = URL.createObjectURL(file);
-    setPdfLink(newPdfUrl);
+  const openAddPopup = () => {
+    setShowAddPopup(true);
   };
 
-  const handleCoverImageFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-
-    if (!file) {
-      return;
-    }
-
-    if (coverImage.startsWith('blob:')) {
-      URL.revokeObjectURL(coverImage);
-    }
-
-    const newCoverImageUrl = URL.createObjectURL(file);
-    setCoverImage(newCoverImageUrl);
+  const closeAddPopup = () => {
+    setShowAddPopup(false);
+    addButtonRef.current?.focus();
   };
 
-  const handleDeleteButtonClick = () => {
+  const handleDeleteButtonClick = (pdf: AdminPdf) => {
+    setPdfPendingDelete(pdf);
     setShowDeletePopup(true);
   };
 
-  const handleSave = async () => {
-    try {
-      const form = new FormData();
-      const imageInput = (document.querySelector('#admin-image-input') as HTMLInputElement);
-      const pdfInput = (document.querySelector('#admin-pdf-input') as HTMLInputElement);
+  const handleCloseDeletePopup = () => {
+    const pendingPdfId = pdfPendingDelete?.id;
 
-      const imageFile = imageInput?.files?.[0];
-      const pdfFile = pdfInput?.files?.[0];
+    setShowDeletePopup(false);
+    setPdfPendingDelete(null);
 
-      if (imageFile) form.append('image', imageFile);
-      else if (coverImage) form.append('imageLink', coverImage);
-
-      if (pdfFile) form.append('pdf', pdfFile);
-      else if (pdfLink) form.append('pdfLink', pdfLink);
-
-      form.append('postTitle', title);
-      form.append('postSummary', summary);
-
-      const resp = await fetch('/api/guides', {
-        method: 'POST',
-        body: form,
-      });
-
-      if (!resp.ok) {
-        const err = await resp.json();
-        alert('Save failed: ' + (err?.error || resp.statusText));
-        return;
-      }
-
-      await resp.json();
-      alert('Guide saved');
-      // Optionally you could set state from returned guide
-    } catch (e) {
-      console.error(e);
-      alert('Save failed');
+    if (pendingPdfId) {
+      deleteButtonRefs.current[pendingPdfId]?.focus();
     }
   };
 
-  const handleCloseDeletePopup = () => {
-    setShowDeletePopup(false);
-    deleteButtonRef.current?.focus();
+  const handleConfirmDelete = async () => {
+    if (!pdfPendingDelete) {
+      return;
+    }
+
+    const pendingPdf = pdfPendingDelete;
+    const guideID = pendingPdf.guideID ?? pendingPdf.id;
+
+    try {
+      const response = await fetch(`/api/guides/${encodeURIComponent(guideID)}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        const errorBody = await response.json().catch(() => null);
+        throw new Error(errorBody?.error || response.statusText);
+      }
+
+      revokeBlobUrl(pendingPdf.image);
+      revokeBlobUrl(pendingPdf.link);
+      setPdfs((currentPdfs) => currentPdfs.filter((pdf) => pdf.id !== pendingPdf.id));
+    } catch (error) {
+      console.error(error);
+      alert(`Delete failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw error;
+    }
+  };
+
+
+  const handleSavedPdf = (pdf: PDFCardItem) => {
+    setPdfs((currentPdfs) => [...currentPdfs, createAdminPdf(pdf, pdfsRef.current.length)]);
   };
 
   return (
-    <>
-      <main id="admin-container">
-        <div id="admin-input-container">
-          <div>
-            <p>Cover Image</p>
-            <input
-              id="admin-image-input"
-              type="file"
-              accept="image/*"
-              onChange={handleCoverImageFileChange}
-            ></input>
-          </div>
-          <div id="title-input-container">
-            <p>Title</p>
-            <input
-              type="text"
-              style={{ height: 16, margin: 'auto 0 auto 10px' }}
-              value={title}
-              onChange={(event) => setTitle(event.target.value)}
-            ></input>
-          </div>
-          <div id="summary-input-container">
-            <p>Summary</p>
-            <input
-              type="text"
-              style={{ height: 16, margin: 'auto 0 auto 10px' }}
-              value={summary}
-              onChange={(event) => setSummary(event.target.value)}
-            ></input>
-          </div>
-          <div>
-            <p>PDF</p>
-            <input
-              id="admin-pdf-input"
-              type="file"
-              accept="application/pdf"
-              onChange={handlePdfFileChange}
-            ></input>
-          </div>
-          <p>Or</p>
-          <div>
-            <p>Hyperlink</p>
-            <input
-              type="text"
-              value={pdfLink}
-              onChange={(event) => setPdfLink(event.target.value)}
-            ></input>
-          </div>
+    <div className="admin-page-container">
+      <header className="admin-header">
+        <div className="admin-header-content">
+          <img className="admin-logo" src={fureverLogo} alt="Fur-Ever Wild Rehabilitation" />
+          <p className="admin-header-title">Admin Page</p>
         </div>
-        <div id="admin-preview-container">
-          <PDFcard image={coverImage} title={title} summary={summary} link={pdfLink} />
-          <button id="admin-save-btn" type="button" onClick={handleSave}>Save</button>
-          <button
-            id="admin-delete-btn"
-            type="button"
-            onClick={handleDeleteButtonClick}
-            ref={deleteButtonRef}
-          >
-            <img id="delete-pdf-remove-icon" src={closeIcon} aria-hidden = "true" alt="Close" />
-            Remove PDF
-          </button>
-        </div>
-        <DeletePopup visible={showDeletePopup} onClose={handleCloseDeletePopup} pdfTitle={title} />
+      </header>
+
+      <main id="admin-container" className="admin-main">
+        <section className="admin-current-pdfs" aria-labelledby="admin-current-pdfs-title">
+          <div className="admin-section-header">
+            <h1 id="admin-current-pdfs-title">Current PDFs</h1>
+            <button
+              className="admin-add-pdf-btn"
+              type="button"
+              onClick={openAddPopup}
+              ref={addButtonRef}
+            >
+              <span aria-hidden="true">+</span>
+              Add new PDF
+            </button>
+          </div>
+
+          <PDFGallery
+            className="admin-pdf-gallery"
+            pdfList={pdfs}
+            renderCardAction={(pdf) => (
+              <button
+                className="admin-remove-pdf-btn"
+                type="button"
+                onClick={() => handleDeleteButtonClick(pdf)}
+                ref={(element) => {
+                  deleteButtonRefs.current[pdf.id] = element;
+                }}
+              >
+                <img src={closeIcon} aria-hidden="true" alt="" />
+                Remove PDF
+              </button>
+            )}
+          />
+        </section>
+
+        {showAddPopup && <AddPopup onClose={closeAddPopup} onSaved={handleSavedPdf} />}
+
+        <DeletePopup
+          visible={showDeletePopup}
+          onClose={handleCloseDeletePopup}
+          onConfirm={handleConfirmDelete}
+          pdfTitle={pdfPendingDelete?.title ?? ''}
+        />
       </main>
-    </>
-  )
+
+      <Footer />
+    </div>
+  );
 }
 
-export default Admin
+export default Admin;
