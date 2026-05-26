@@ -59,9 +59,9 @@ function VolunteerRoles(){
                 <h3 className="roles-subtitle">Click below to learn more about each role</h3>
                 <div className="roles">
                     {[
-                        { id: 'onsite', img: Role1, alt: 'house icon', label: 'On-Site Support', desc:'Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh eu'},
-                        { id: 'foster', img: Role2, alt: 'baby bottle icon', label: 'Foster Care', desc: 'Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh eu'},
-                        { id: 'driver', img: Role3, alt: 'car icon', label: 'Driver Support', desc: 'Lorem ipsum dolor sit amet,consectetuer adipiscing elit, sed diam nonummy nibh eu'},
+                        { id: 'onsite', img: Role1, alt: 'house icon', label: 'On-Site Support', desc:'Assisting with daily rehabilitation and care tasks.'},
+                        { id: 'foster', img: Role2, alt: 'baby bottle icon', label: 'Foster Care', desc: 'Providing temporary care in their homes for wildlife in need.'},
+                        { id: 'driver', img: Role3, alt: 'car icon', label: 'Driver Support', desc: 'Helping transport wildlife or supplies when required.'},
                     ].map(role => (
                         <div
                             key={role.id}
