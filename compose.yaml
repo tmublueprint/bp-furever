@@ -3,9 +3,15 @@ services:
     build: ./backend
     ports:
       - "3003:3003"
+    depends_on:
+      firebase-emulator:
+        condition: service_healthy
     environment:
       - NODE_ENV=development
       - PORT=3003
+      - FIRESTORE_EMULATOR_HOST=firebase-emulator:3005
+      - FIREBASE_AUTH_EMULATOR_HOST=firebase-emulator:9099
+      - FIREBASE_STORAGE_EMULATOR_HOST=firebase-emulator:9199
     volumes:
       - ./backend/src:/app/src
 
@@ -14,7 +20,10 @@ services:
     ports:
       - "3004:80"
     depends_on:
-      - backend
+      backend:
+        condition: service_started
+      firebase-emulator:
+        condition: service_healthy
     volumes:
       - ./frontend/src:/app/src
       - ./frontend/public:/app/public
@@ -28,3 +37,8 @@ services:
       - "3006:3006"  # Emulator UI
       - "9099:9099"  # Auth emulator
       - "9199:9199"  # Cloud storage
+    healthcheck:
+      test: ["CMD", "curl", "-fs", "http://localhost:3006/"]
+      interval: 5s
+      timeout: 3s
+      retries: 30

@@ -1,9 +1,9 @@
 import admin from 'firebase-admin';
 
 const PROJECT_ID = 'bp-furever';
-const EMULATOR_HOST = 'firebase-emulator:3005'; 
-const AUTH_EMULATOR_HOST = 'firebase-emulator:9099'
-const CLOUD_STORAGE_HOST = 'firebase-emulator:9199';
+const EMULATOR_HOST = process.env.FIRESTORE_EMULATOR_HOST ?? '127.0.0.1:3005';
+const AUTH_EMULATOR_HOST = process.env.FIREBASE_AUTH_EMULATOR_HOST ?? '127.0.0.1:9099';
+const CLOUD_STORAGE_HOST = process.env.FIREBASE_STORAGE_EMULATOR_HOST ?? '127.0.0.1:9199';
 
 
 // emulator, not live firebase services

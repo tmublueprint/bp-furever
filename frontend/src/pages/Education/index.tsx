@@ -3,7 +3,6 @@ import './style.css';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';
 import PDFGallery from '../../components/PDFGallery/PDFGallery';
-import type { PDFCardItem } from '../../components/PDFCard/PDFCard';
 import wildlife from "../../assets/pdf/Relocating Wildlife Doesn't Work.pdf";
 import property from '../../assets/pdf/Wildlife proofing your property A checklist for your home - Oakville.pdf';
 import wildlifeProofingImage from '../../assets/pdf/wildlife-proofing.png';
@@ -38,14 +37,14 @@ function Education() {
   const [guides, setGuides] = useState<Guide[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const firestoreGuides: PDFCardItem[] = guides.map((guide) => ({
+  const firestoreGuides = guides.map((guide) => ({
     guideID: guide.guideID,
     image: guide.imageLink,
     title: guide.postTitle,
     summary: guide.postSummary,
     link: guide.pdfLink,
   }));
-  const pdfList: PDFCardItem[] = firestoreGuides.length > 0 ? firestoreGuides : pdfData;
+  const pdfList = firestoreGuides.length > 0 ? firestoreGuides : pdfData;
 
   useEffect(() => {
     const loadGuides = async () => {
