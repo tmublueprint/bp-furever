@@ -28,9 +28,9 @@ function VolunteerRoles(){
                 "RVS Exam completed (MNRF— Aylmer District)",
             ],
             note: [
-                <span style={{ fontStyle: 'italic'}}>—To complete the rabies vector species exam and get study material email</span>,
-                <span style={{ textDecoration: 'underline', fontStyle: 'italic'}}>mnfr.ay@ontario.ca</span>,
-                <span style={{ fontStyle: 'italic'}}>—Experience with wildlife or animal rescue is considered an asset.</span>,
+                <>—To complete the rabies vector species exam and get study material email</>,
+                <a className="email" href="mailto:mnfr.ayl@ontario.ca">mnfr.ayl@ontario.ca</a>,
+                <>—Experience with wildlife or animal rescue is considered an asset.</>,
             ]
         },
         foster: {
@@ -44,9 +44,9 @@ function VolunteerRoles(){
                 "RVS Exam completed (MNRF— Aylmer District)",
             ],
             note: [
-                <span style={{ fontStyle: 'italic'}}>—To complete the rabies vector species exam and get study material email</span>,
-                <span style={{ textDecoration: 'underline', fontStyle: 'italic'}}>mnfr.ay@ontario.ca</span>,
-                <span style={{ fontStyle: 'italic'}}>—Experience with wildlife or animal rescue is considered an asset.</span>,
+                <>—To complete the rabies vector species exam and get study material email</>,
+                <a className="email" href="mailto:mnfr.ayl@ontario.ca">mnfr.ayl@ontario.ca</a>,
+                <>—Experience with wildlife or animal rescue is considered an asset.</>,
             ]
         },
         driver: {
@@ -56,7 +56,6 @@ function VolunteerRoles(){
                 "Willing to drive a minimum of 1 hour away",
                 "Brief description of your past career history and your interest in helping",
                 "Willing to be on an 'on call' basis as we never know when, where or the condition of the animal(s).",
-                "—Experience with wildlife or animal rescue is considered an asset."
             ],
             note: [
                 <span style={{ fontStyle: 'italic'}}>—Experience with wildlife or animal rescue is considered an asset.</span>,
@@ -101,9 +100,9 @@ function VolunteerRoles(){
                         {roleInfo[selectedRole].items.map((item, index) => (
                             <li key={index} className="requirement-item">✔ {item}</li>
                         ))}
-                    </ul>
-                    <ul className="requirement-list">
-                         <li>{roleInfo[selectedRole].note}</li>
+                        {roleInfo[selectedRole].note?.map((note, index) => (
+                            <li key={index} className="requirement-note">{note}</li>
+                        ))}
                     </ul>
                 </div>
                 <div className="requirement-vector">
