@@ -1,4 +1,4 @@
-.email{
+.volunteerEmail{
   text-decoration: underline;
   color: black;
 }
@@ -31,7 +31,7 @@
     opacity: 0.66;
 }
 
-.roles {
+.volunteerRoles {
     margin: 50px;
     display: flex;
     gap: 20px;

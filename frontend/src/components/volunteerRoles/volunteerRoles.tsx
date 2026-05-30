@@ -29,7 +29,7 @@ function VolunteerRoles(){
             ],
             note: [
                 <>—To complete the rabies vector species exam and get study material email</>,
-                <a className="email" href="mailto:mnfr.ayl@ontario.ca">mnfr.ayl@ontario.ca</a>,
+                <a className="volunteerEmail" href="mailto:mnfr.ayl@ontario.ca">mnfr.ayl@ontario.ca</a>,
                 <>—Experience with wildlife or animal rescue is considered an asset.</>,
             ]
         },
@@ -41,11 +41,12 @@ function VolunteerRoles(){
                 "Must be 18 years or older",
                 "Resume required (no cover letter) plus 2 references",
                 "Tetanus, Season Flu, and Avian Influenza Vaccines",
+                "A quiet place in your home, and backyard space for fostering an animal",
                 "RVS Exam completed (MNRF— Aylmer District)",
             ],
             note: [
                 <>—To complete the rabies vector species exam and get study material email</>,
-                <a className="email" href="mailto:mnfr.ayl@ontario.ca">mnfr.ayl@ontario.ca</a>,
+                <a className="volunteerEmail" href="mailto:mnfr.ayl@ontario.ca">mnfr.ayl@ontario.ca</a>,
                 <>—Experience with wildlife or animal rescue is considered an asset.</>,
             ]
         },
@@ -53,6 +54,7 @@ function VolunteerRoles(){
             title: "Driver Volunteer Requirements",
             items: [
                 "A Valid Driver license",
+                "Resume required (no cover letter) plus 2 refereneces",
                 "Willing to drive a minimum of 1 hour away",
                 "Brief description of your past career history and your interest in helping",
                 "Willing to be on an 'on call' basis as we never know when, where or the condition of the animal(s).",
@@ -68,7 +70,7 @@ function VolunteerRoles(){
             <section className="roles-container">
                 <h2 className="roles-title">Volunteer Roles & Opportunities</h2>
                 <h3 className="roles-subtitle">Click below to learn more about each role</h3>
-                <div className="roles">
+                <div className="volunteerRoles">
                     {[
                         { id: 'onsite', img: Role1, alt: 'house icon', label: 'On-Site Support', desc:'Assisting with daily rehabilitation and care tasks.'},
                         { id: 'foster', img: Role2, alt: 'baby bottle icon', label: 'Foster Care', desc: 'Providing temporary care in their homes for wildlife in need.'},

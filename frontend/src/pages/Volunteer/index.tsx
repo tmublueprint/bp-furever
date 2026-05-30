@@ -49,7 +49,7 @@ function Volunteer() {
             <div className="how-to-apply-body">
               <ul id="how-to-apply-checklist">
                 <li>1. Ensure you meet all volunteer requirements</li>
-                <li>2. Prepare your resume</li>
+                <li>2. Prepare your resume and include 2 references</li>
                 <li>3. Email Colleen (<a href="mailto:cburns6440@gmail.com" aria-hidden = "true">cburns6440@gmail.com</a>) to apply</li>
                 <li style={{fontWeight: "normal", fontStyle: "italic"}}>—  Please note, only applications meeting the requirements will be considered.</li>
                 <a href="mailto:cburns6440@gmail.com" id="apply-email-btn" aria-label="Apply by email">
