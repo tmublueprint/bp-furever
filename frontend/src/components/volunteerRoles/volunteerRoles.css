@@ -11,11 +11,6 @@
     padding: 50px 0;
 }
 
-.roles h3 {
-    margin: 10px;
-    padding: none;
-}
-
 .roles-title {
     font-family: 'Montserrat';
     font-style: normal;
@@ -37,7 +32,12 @@
     gap: 20px;
 }
 
-.role {
+.volunteerRoles h3 {
+    margin: 10px;
+    padding: none;
+}
+
+.volunteerRole {
     cursor: pointer;
     position: relative;
     width: 430px;
@@ -52,12 +52,12 @@
     padding: 30px;
 }
 
-.role.active{
+.volunteerRole.active{
     border: 5px solid #4C5C41;
     background-color: #E2E6C6;
 }
 
-.role-active-check {
+.volunteerRole-active-check {
     position: absolute;
     top: 10px;
     left: 10px;
@@ -65,7 +65,7 @@
     height: 50px;
 }
 
-.role p {
+.volunteerRole p {
   font-family: 'DM Sans';
   font-weight: 400;
   font-size: 20px;

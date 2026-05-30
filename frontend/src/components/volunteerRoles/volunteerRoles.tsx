@@ -78,11 +78,11 @@ function VolunteerRoles(){
                     ].map(role => (
                         <div
                             key={role.id}
-                            className={`role ${selectedRole == role.id ? 'active' :''}`}
+                            className={`volunteerRole ${selectedRole == role.id ? 'active' :''}`}
                             onClick={() => setSelectedRole(selectedRole === role.id ? 'onsite': role.id as RoleId)}
                         >
                             {selectedRole === role.id && (
-                                <img src={checkButton} alt="role selected" className="role-active-check" />
+                                <img src={checkButton} alt="role selected" className="volunteerRole-active-check" />
                             )}
                             <img src={role.img} alt={role.alt}/>
                             <h3>{role.label}</h3>
