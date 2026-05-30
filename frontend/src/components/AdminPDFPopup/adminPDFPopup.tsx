@@ -1,4 +1,4 @@
-import { useState, MouseEvent } from 'react'; 
+import { useState, type MouseEvent } from 'react'; 
 import './adminPDFPopup.css'; 
 import imageIcon from '../../assets/PDFPopup/image-icon.svg'; 
 import pdfIcon from '../../assets/PDFPopup/pdf-icon.svg'; 
@@ -18,13 +18,13 @@ function AdminPDFPopup({ visible, onClose }: { visible: boolean, onClose: () => 
     const [titleText, setTitleText] = useState(''); 
     const [summaryText, setSummaryText] = useState(''); 
 
-    const handleTitleTextChange = (e) => {
+    const handleTitleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setTitleText(e.target.value); 
     }
-    const handleSummaryTextChange = (e) => {
+    const handleSummaryTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setSummaryText(e.target.value); 
     }
-    const handleCancelClick = (e) => {
+    const handleCancelClick = () => {
         onClose(); 
     }
     /*const handleImgClick = () => {
@@ -91,8 +91,8 @@ function AdminPDFPopup({ visible, onClose }: { visible: boolean, onClose: () => 
                 <div className="preview-section">
                     <h3>Preview</h3>
                     <h3 className="details-text" style={{marginBottom: '20px'}}>Add details about your guide and upload relevant files</h3>
-                    <PDFCard title={titleText === '' ? "Title text goes here" : titleText} 
-                    summary={summaryText === '' ? "Short one line summary of what's covered in the guide" : summaryText}/> 
+                    <PDFCard image={""} title={titleText === '' ? "Title text goes here" : titleText} 
+                    summary={summaryText === '' ? "Short one line summary of what's covered in the guide" : summaryText} link={"#"}/> 
                 </div>
 
             </div>
