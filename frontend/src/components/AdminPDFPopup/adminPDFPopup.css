@@ -1,0 +1,139 @@
+:root {
+  --topPadding: #3498db;
+  --leftPadding: 40px;
+}
+
+* {
+    box-sizing: border-box; 
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    overflow: auto;
+}
+
+h1, h2, h3 {
+    padding: 0; 
+    margin: 0;
+    width: fit-content;
+}
+.admin-pdf-popup-container {
+    width: 90vw;
+    /*min-height: 500px;*/
+    height: 90vh;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    overflow: auto;
+}
+.pdf-popup-header-component {
+    position: relative;
+    grid-column: 1/3; 
+    min-height: 20%; 
+    padding-top: 40px;
+    padding-bottom: 20px;
+    padding-left: var(--leftPadding);
+}
+.details-text {
+    font-size: var(--font-size-paragraph); 
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+}
+.edit-pdf-section {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px;
+    min-height: 80%; /* */
+    border-right: 1px solid #cdcdcd; 
+    padding-left: var(--leftPadding);
+    gap: 5px;
+}
+#add-pdf-title {
+    font-size: var(--font-size-card-text); 
+    padding: 0;
+    margin: 0; 
+}
+.textbox {
+    width: 90%; 
+    height: 40px;
+    border: 2px solid #cdcdcd;
+    border-radius: 7px;
+    overflow-wrap: break-word; 
+}
+#summary-text-box {
+    min-height: 80px;
+    resize: none; 
+}
+.icon {
+    width: 35px;
+    height: auto;
+}
+.edit-pdf-btn {
+    height: 30px;
+    width: 100px;
+    margin-bottom: 30px;
+    border-radius: 7px;
+}
+#edit-pdf-btn-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-top: 20px;
+}
+.preview-section {
+    min-height: 80%; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.file-card {
+    width: 90%; 
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border: 2px dashed #a0a0a0; 
+    border-radius: 12px;
+    background-color: #fcfcfc;
+    padding-left: 20px;
+    gap: 15px;
+}
+.font-card-text {
+    display: flex;
+    flex-direction: column; 
+    gap: 0;
+} 
+#image-file-btn:hover, #pdf-file-btn:hover {
+    cursor: pointer;
+}
+
+.cancel-btn {
+    height: 35px;
+    width: 110px;
+    border: none; 
+    background-color: #D9D9D9;
+    box-shadow: none;
+    border-radius: 7px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    position: absolute;
+    top: 40px;
+    right: 24px;
+}

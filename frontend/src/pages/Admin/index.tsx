@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './style.css';
+import AdminPDFPopup from '../../components/AdminPDFPopup/adminPDFPopup'; 
 import DeletePopup from '../../components/DeletePopup/DeletePopup';
 import Footer from '../../components/Footer/Footer';
 import PDFGallery, { type PDFGalleryItem } from '../../components/PDFGallery/PDFGallery';
@@ -28,6 +29,7 @@ function Admin() {
   //const [title, setTitle] = useState('');
   //const [summary, setSummary] = useState('');
   //const [pdfLink, setPdfLink] = useState('');
+  const [showPDFPopup, setShowPDFPopup] = useState(false);
   const [pdfPendingDelete, setPdfPendingDelete] = useState<AdminPdf | null>(null);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const deleteButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -45,6 +47,13 @@ function Admin() {
       });
     };
   }, []);
+
+  useEffect(() => {
+      if (showPDFPopup)
+        document.body.style.overflow = "hidden";
+    else
+        document.body.style.overflow = "";
+  }, [showPDFPopup]); 
 
   //for adding new pdf
   /*
@@ -77,12 +86,16 @@ function Admin() {
     const newCoverImageUrl = URL.createObjectURL(file);
     setCoverImage(newCoverImageUrl);
   };
+  */
 
-  const handleAddPdfButtonClick = () => {
+  const handleAddPDFButtonClick = () => {
     //implement popup add pdf functionality here.
+    setShowPDFPopup(true); 
   };
 
-  */
+  const handleClosePDFPopup = () => {
+    setShowPDFPopup(false);
+  };
 
   const handleDeleteButtonClick = (pdf: AdminPdf) => {
     setPdfPendingDelete(pdf);
@@ -126,12 +139,15 @@ function Admin() {
             <button
               className="admin-add-pdf-btn"
               type="button"
-              //onClick={handleAddPdfButtonClick}
+              onClick={handleAddPDFButtonClick}
             >
               <span aria-hidden="true">+</span>
               Add new PDF
             </button>
           </div>
+
+          {showPDFPopup && <AdminPDFPopup visible={showPDFPopup} onClose={handleClosePDFPopup} />}
+
 
           <PDFGallery
             className="admin-pdf-gallery"
