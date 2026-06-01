@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import './style.css';
-import AddPopup from '../../components/AddPopup/AddPopup';
 import DeletePopup from '../../components/DeletePopup/DeletePopup';
 import Footer from '../../components/Footer/Footer';
 import PDFGallery from '../../components/PDFGallery/PDFGallery';
@@ -45,7 +44,6 @@ function Admin() {
   const [pdfs, setPdfs] = useState<AdminPdf[]>(() => pdfData.map(createAdminPdf));
   const [pdfPendingDelete, setPdfPendingDelete] = useState<AdminPdf | null>(null);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
-  const [showAddPopup, setShowAddPopup] = useState(false);
   const deleteButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const addButtonRef = useRef<HTMLButtonElement | null>(null);
   const pdfsRef = useRef<AdminPdf[]>([]);
@@ -92,15 +90,6 @@ function Admin() {
     pdfsRef.current = pdfs;
   }, [pdfs]);
 
-  const openAddPopup = () => {
-    setShowAddPopup(true);
-  };
-
-  const closeAddPopup = () => {
-    setShowAddPopup(false);
-    addButtonRef.current?.focus();
-  };
-
   const handleDeleteButtonClick = (pdf: AdminPdf) => {
     setPdfPendingDelete(pdf);
     setShowDeletePopup(true);
@@ -145,11 +134,6 @@ function Admin() {
     }
   };
 
-
-  const handleSavedPdf = (pdf: PDFCardItem) => {
-    setPdfs((currentPdfs) => [...currentPdfs, createAdminPdf(pdf, pdfsRef.current.length)]);
-  };
-
   return (
     <div className="admin-page-container">
       <header className="admin-header">
@@ -166,7 +150,6 @@ function Admin() {
             <button
               className="admin-add-pdf-btn"
               type="button"
-              onClick={openAddPopup}
               ref={addButtonRef}
             >
               <span aria-hidden="true">+</span>
@@ -193,7 +176,6 @@ function Admin() {
           />
         </section>
 
-        {showAddPopup && <AddPopup onClose={closeAddPopup} onSaved={handleSavedPdf} />}
 
         <DeletePopup
           visible={showDeletePopup}
