@@ -94,3 +94,10 @@
 .call-animal-services-box::after {
   content: none;
 }
+
+@media (max-width: 768px){
+  .call-animal-services-box{
+    width: 150px;
+    height: 13.5em; 
+  }
+}

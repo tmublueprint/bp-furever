@@ -151,6 +151,7 @@
     .footer-columns {gap: 1.5rem;}
     .footer-header { font-size: 34px; }
     .footer-subheader { font-size: 28px; }
+    .footer {white-space: normal; }
 }
 
 @media (max-width: 560px){
