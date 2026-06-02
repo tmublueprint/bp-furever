@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import './style.css';
 import DeletePopup from '../../components/DeletePopup/DeletePopup';
 import Footer from '../../components/Footer/Footer';
-import PDFGallery from '../../components/PDFGallery/PDFGallery';
-import type { PDFCardItem } from '../../components/PDFCard/PDFCard';
+import PDFGallery, { type PDFGalleryItem } from '../../components/PDFGallery/PDFGallery';
 import closeIcon from '../../assets/DeletePDFPopup/delete-pdf-remove.svg';
 import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
 import { pdfData } from '../Education';
 
-type AdminPdf = PDFCardItem & {
+type AdminPdf = PDFGalleryItem & {
+  guideID?: string;
   id: string;
 };
 
@@ -20,12 +20,12 @@ type GuideApiItem = {
   pdfLink: string;
 };
 
-const createAdminPdf = (pdf: PDFCardItem, index: number): AdminPdf => ({
+const createAdminPdf = (pdf: PDFGalleryItem & { guideID?: string }, index: number): AdminPdf => ({
   ...pdf,
   id: String(pdf.id ?? pdf.guideID ?? `pdf-${index + 1}`),
 });
 
-const mapGuideApiItem = (guide: GuideApiItem): PDFCardItem => ({
+const mapGuideApiItem = (guide: GuideApiItem): AdminPdf => ({
   guideID: guide.guideID,
   id: guide.guideID,
   image: guide.imageLink,

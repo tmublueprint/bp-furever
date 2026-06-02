@@ -4,16 +4,14 @@ import placeholder from "../../assets/PDFCard/pdf-card-img-placeholder.svg";
 import missingImg from "../../assets/PDFCard/pdf-card-missing-img.svg";
 import ellipse from "../../assets/PDFCard/pdf-card-ellipse.svg";
 
-export interface PDFCardItem {
-    guideID?: string;
-    id?: string;
+export type PDFCardProps = {
     image: string;
     title: string;
     summary: string;
     link: string;
-}
+};
 
-function PDFCard({image, title, summary, link}: PDFCardItem){
+function PDFCard({image, title, summary, link}: PDFCardProps){
     const hasCustomImage = Boolean(image);
 
     return(
