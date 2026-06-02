@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './style.css';
+import AdminPDFPopup from '../../components/AdminPDFPopup/adminPDFPopup'; 
 import DeletePopup from '../../components/DeletePopup/DeletePopup';
 import Footer from '../../components/Footer/Footer';
 import PDFGallery, { type PDFGalleryItem } from '../../components/PDFGallery/PDFGallery';
@@ -8,30 +9,12 @@ import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
 import { pdfData } from '../Education';
 
 type AdminPdf = PDFGalleryItem & {
-  guideID?: string;
   id: string;
 };
 
-type GuideApiItem = {
-  guideID: string;
-  postTitle: string;
-  postSummary: string;
-  imageLink: string;
-  pdfLink: string;
-};
-
-const createAdminPdf = (pdf: PDFGalleryItem & { guideID?: string }, index: number): AdminPdf => ({
+const createAdminPdf = (pdf: PDFGalleryItem, index: number): AdminPdf => ({
   ...pdf,
-  id: String(pdf.id ?? pdf.guideID ?? `pdf-${index + 1}`),
-});
-
-const mapGuideApiItem = (guide: GuideApiItem): AdminPdf => ({
-  guideID: guide.guideID,
-  id: guide.guideID,
-  image: guide.imageLink,
-  title: guide.postTitle,
-  summary: guide.postSummary,
-  link: guide.pdfLink,
+  id: String(pdf.id ?? `pdf-${index + 1}`),
 });
 
 const revokeBlobUrl = (url: string) => {
@@ -42,53 +25,77 @@ const revokeBlobUrl = (url: string) => {
 
 function Admin() {
   const [pdfs, setPdfs] = useState<AdminPdf[]>(() => pdfData.map(createAdminPdf));
+  //const [coverImage, setCoverImage] = useState('');
+  //const [title, setTitle] = useState('');
+  //const [summary, setSummary] = useState('');
+  //const [pdfLink, setPdfLink] = useState('');
+  const [showPDFPopup, setShowPDFPopup] = useState(false);
   const [pdfPendingDelete, setPdfPendingDelete] = useState<AdminPdf | null>(null);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const deleteButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
-  const addButtonRef = useRef<HTMLButtonElement | null>(null);
   const pdfsRef = useRef<AdminPdf[]>([]);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadGuides = async () => {
-      try {
-        const response = await fetch('/api/guides');
-
-        if (!response.ok) {
-          throw new Error(`Failed to load guides: ${response.status}`);
-        }
-
-        const guides = (await response.json()) as GuideApiItem[];
-
-        if (!isMounted) {
-          return;
-        }
-
-        if (guides.length > 0) {
-          setPdfs(guides.map((guide, index) => createAdminPdf(mapGuideApiItem(guide), index)));
-        } else {
-          setPdfs(pdfData.map(createAdminPdf));
-        }
-      } catch (error) {
-        console.error(error);
-
-        if (isMounted) {
-          setPdfs(pdfData.map(createAdminPdf));
-        }
-      }
-    };
-
-    loadGuides();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
 
   useEffect(() => {
     pdfsRef.current = pdfs;
   }, [pdfs]);
+
+  useEffect(() => {
+    return () => {
+      pdfsRef.current.forEach((pdf) => {
+        revokeBlobUrl(pdf.image);
+        revokeBlobUrl(pdf.link);
+      });
+    };
+  }, []);
+
+  useEffect(() => {
+      if (showPDFPopup)
+        document.body.style.overflow = "hidden";
+    else
+        document.body.style.overflow = "";
+  }, [showPDFPopup]); 
+
+  //for adding new pdf
+  /*
+  const handlePdfFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
+    if (!file) {
+      return;
+    }
+
+    if (pdfLink.startsWith('blob:')) {
+      URL.revokeObjectURL(pdfLink);
+    }
+
+    const newPdfUrl = URL.createObjectURL(file);
+    setPdfLink(newPdfUrl);
+  };
+
+  const handleCoverImageFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+
+    if (!file) {
+      return;
+    }
+
+    if (coverImage.startsWith('blob:')) {
+      URL.revokeObjectURL(coverImage);
+    }
+
+    const newCoverImageUrl = URL.createObjectURL(file);
+    setCoverImage(newCoverImageUrl);
+  };
+  */
+
+  const handleAddPDFButtonClick = () => {
+    //implement popup add pdf functionality here.
+    setShowPDFPopup(true); 
+  };
+
+  const handleClosePDFPopup = () => {
+    setShowPDFPopup(false);
+  };
 
   const handleDeleteButtonClick = (pdf: AdminPdf) => {
     setPdfPendingDelete(pdf);
@@ -106,32 +113,14 @@ function Admin() {
     }
   };
 
-  const handleConfirmDelete = async () => {
+  const handleConfirmDelete = () => {
     if (!pdfPendingDelete) {
       return;
     }
 
-    const pendingPdf = pdfPendingDelete;
-    const guideID = pendingPdf.guideID ?? pendingPdf.id;
-
-    try {
-      const response = await fetch(`/api/guides/${encodeURIComponent(guideID)}`, {
-        method: 'DELETE',
-      });
-
-      if (!response.ok) {
-        const errorBody = await response.json().catch(() => null);
-        throw new Error(errorBody?.error || response.statusText);
-      }
-
-      revokeBlobUrl(pendingPdf.image);
-      revokeBlobUrl(pendingPdf.link);
-      setPdfs((currentPdfs) => currentPdfs.filter((pdf) => pdf.id !== pendingPdf.id));
-    } catch (error) {
-      console.error(error);
-      alert(`Delete failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
-      throw error;
-    }
+    revokeBlobUrl(pdfPendingDelete.image);
+    revokeBlobUrl(pdfPendingDelete.link);
+    setPdfs((currentPdfs) => currentPdfs.filter((pdf) => pdf.id !== pdfPendingDelete.id));
   };
 
   return (
@@ -150,12 +139,15 @@ function Admin() {
             <button
               className="admin-add-pdf-btn"
               type="button"
-              ref={addButtonRef}
+              onClick={handleAddPDFButtonClick}
             >
               <span aria-hidden="true">+</span>
               Add new PDF
             </button>
           </div>
+
+          {showPDFPopup && <AdminPDFPopup visible={showPDFPopup} onClose={handleClosePDFPopup} />}
+
 
           <PDFGallery
             className="admin-pdf-gallery"
@@ -175,7 +167,6 @@ function Admin() {
             )}
           />
         </section>
-
 
         <DeletePopup
           visible={showDeletePopup}
