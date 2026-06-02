@@ -109,6 +109,26 @@ html, body {
   }
 }
 
+@media (max-width: 768px){
+  .volunteer-icon{
+    display: none;
+  }
+  .volunteer-icon-phone{
+    display: block;
+    margin: auto;
+  }
+  .volunteer-hero-container{
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .volunteer-hero-text{
+    width: 90%;
+  }
+}
+
 /* How to apply section */
 .container-how-to-apply {
   background-color: var(--color-white);
@@ -207,5 +227,17 @@ html, body {
   }
   .how-to-apply-end { 
     height: 50%; 
+  }
+}
+
+@media (max-width: 768px){
+  .container-how-to-apply{
+    width: 100%;
+  }
+  #how-to-apply-checklist {
+    width: 100%;
+  }
+  .how-to-apply-end{
+    height: auto;
   }
 }
