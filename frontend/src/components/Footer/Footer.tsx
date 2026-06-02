@@ -35,7 +35,7 @@ function Footer() {
                 <span style={{marginLeft: "0.4em"}}>Follow us on Facebook</span>
               </a>
             </div>
-            <div>Fur-ever Wild Rehabilitation</div>
+            <p className="col-text">Fur-ever Wild Rehabilitation</p>
           </div>
         </div>
       </div>
