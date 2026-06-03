@@ -20,8 +20,12 @@ function DeletePopup({ visible, onClose, onConfirm, pdfTitle }: DeletePopupProps
   };
 
   const handleConfirmClick = async () => {
-    await onConfirm();
-    onClose();
+    try {
+      await onConfirm();
+      onClose();
+    } catch (error) {
+      console.error('Failed to delete PDF:', error);
+    }
   };
 
   return (

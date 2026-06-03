@@ -34,6 +34,14 @@ export async function createGuide(
     : admin.firestore().collection(firestoreCollection).doc();
   const guideID = guideRef.id;
 
+  const shouldUseBackendRoute = (link?: string) => {
+    if (!link) {
+      return false;
+    }
+
+    return link.includes('storage.googleapis.com') || link.includes('firebasestorage.googleapis.com');
+  };
+
   try {
     const imageLink = data.imageFile
       ? await uploadImage(data.imageFile, guideAssetPath(guideID, 'image'))
@@ -55,8 +63,12 @@ export async function createGuide(
       guideID,
       postTitle: data.postTitle,
       postSummary: data.postSummary,
-      imageLink: imageLink?.startsWith('http') ? imageLink : `/api/guides/${guideID}/image`,
-      pdfLink: pdfLink?.startsWith('http') ? pdfLink : `/api/guides/${guideID}/pdf`,
+      imageLink: data.imageFile || shouldUseBackendRoute(imageLink)
+        ? `/api/guides/${guideID}/image`
+        : imageLink ?? `/api/guides/${guideID}/image`,
+      pdfLink: data.pdfFile || shouldUseBackendRoute(pdfLink)
+        ? `/api/guides/${guideID}/pdf`
+        : pdfLink ?? `/api/guides/${guideID}/pdf`,
     };
 
     await guideRef.set(guide);

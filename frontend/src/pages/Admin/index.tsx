@@ -6,94 +6,112 @@ import Footer from '../../components/Footer/Footer';
 import PDFGallery, { type PDFGalleryItem } from '../../components/PDFGallery/PDFGallery';
 import closeIcon from '../../assets/DeletePDFPopup/delete-pdf-remove.svg';
 import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
-import { pdfData } from '../Education';
 
 type AdminPdf = PDFGalleryItem & {
   id: string;
 };
 
-const createAdminPdf = (pdf: PDFGalleryItem, index: number): AdminPdf => ({
-  ...pdf,
-  id: String(pdf.id ?? `pdf-${index + 1}`),
+type GuideRecord = {
+  guideID: string;
+  postTitle: string;
+  postSummary: string;
+  imageLink: string;
+  pdfLink: string;
+};
+
+type AdminPdfSubmission = {
+  postTitle: string;
+  postSummary: string;
+  imageFile: File;
+  pdfFile: File;
+};
+
+const createAdminPdf = (guide: GuideRecord): AdminPdf => ({
+  id: guide.guideID,
+  image: guide.imageLink,
+  title: guide.postTitle,
+  summary: guide.postSummary,
+  link: guide.pdfLink,
 });
 
-const revokeBlobUrl = (url: string) => {
-  if (url.startsWith('blob:')) {
-    URL.revokeObjectURL(url);
+const readErrorMessage = async (response: Response, fallbackMessage: string) => {
+  try {
+    const payload = (await response.json()) as { error?: string };
+    return payload.error ?? fallbackMessage;
+  } catch {
+    return fallbackMessage;
   }
 };
 
 function Admin() {
-  const [pdfs, setPdfs] = useState<AdminPdf[]>(() => pdfData.map(createAdminPdf));
-  //const [coverImage, setCoverImage] = useState('');
-  //const [title, setTitle] = useState('');
-  //const [summary, setSummary] = useState('');
-  //const [pdfLink, setPdfLink] = useState('');
+  const [pdfs, setPdfs] = useState<AdminPdf[]>([]);
   const [showPDFPopup, setShowPDFPopup] = useState(false);
   const [pdfPendingDelete, setPdfPendingDelete] = useState<AdminPdf | null>(null);
   const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const [statusMessage, setStatusMessage] = useState('');
   const deleteButtonRefs = useRef<Record<string, HTMLButtonElement | null>>({});
-  const pdfsRef = useRef<AdminPdf[]>([]);
 
   useEffect(() => {
-    pdfsRef.current = pdfs;
-  }, [pdfs]);
+    const loadGuides = async () => {
+      try {
+        const response = await fetch('/api/guides');
 
-  useEffect(() => {
-    return () => {
-      pdfsRef.current.forEach((pdf) => {
-        revokeBlobUrl(pdf.image);
-        revokeBlobUrl(pdf.link);
-      });
+        if (!response.ok) {
+          throw new Error(await readErrorMessage(response, 'Failed to load guides.'));
+        }
+
+        const guides = (await response.json()) as GuideRecord[];
+        setPdfs(guides.map(createAdminPdf));
+        setStatusMessage('');
+      } catch (error) {
+        console.error('Failed to load admin guides:', error);
+        setStatusMessage('Unable to load guides right now.');
+      }
     };
+
+    void loadGuides();
   }, []);
 
   useEffect(() => {
-      if (showPDFPopup)
-        document.body.style.overflow = "hidden";
-    else
-        document.body.style.overflow = "";
-  }, [showPDFPopup]); 
+    document.body.style.overflow = showPDFPopup || showDeletePopup ? 'hidden' : '';
 
-  //for adding new pdf
-  /*
-  const handlePdfFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-
-    if (!file) {
-      return;
-    }
-
-    if (pdfLink.startsWith('blob:')) {
-      URL.revokeObjectURL(pdfLink);
-    }
-
-    const newPdfUrl = URL.createObjectURL(file);
-    setPdfLink(newPdfUrl);
-  };
-
-  const handleCoverImageFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-
-    if (!file) {
-      return;
-    }
-
-    if (coverImage.startsWith('blob:')) {
-      URL.revokeObjectURL(coverImage);
-    }
-
-    const newCoverImageUrl = URL.createObjectURL(file);
-    setCoverImage(newCoverImageUrl);
-  };
-  */
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [showDeletePopup, showPDFPopup]);
 
   const handleAddPDFButtonClick = () => {
-    //implement popup add pdf functionality here.
+    setStatusMessage('');
     setShowPDFPopup(true); 
   };
 
   const handleClosePDFPopup = () => {
+    setShowPDFPopup(false);
+  };
+
+  const handleCreatePdf = async (submission: AdminPdfSubmission) => {
+    const formData = new FormData();
+    formData.append('postTitle', submission.postTitle);
+    formData.append('postSummary', submission.postSummary);
+    formData.append('image', submission.imageFile);
+    formData.append('pdf', submission.pdfFile);
+
+    const response = await fetch('/api/guides', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error(await readErrorMessage(response, 'Failed to save the PDF.'));
+    }
+
+    const payload = (await response.json()) as { guide?: GuideRecord };
+
+    if (payload.guide) {
+      setPdfs((currentPdfs) => [createAdminPdf(payload.guide as GuideRecord), ...currentPdfs.filter((pdf) => pdf.id !== payload.guide?.guideID)]);
+    }
+
+    setStatusMessage('');
     setShowPDFPopup(false);
   };
 
@@ -115,12 +133,19 @@ function Admin() {
 
   const handleConfirmDelete = () => {
     if (!pdfPendingDelete) {
-      return;
+      return Promise.resolve();
     }
 
-    revokeBlobUrl(pdfPendingDelete.image);
-    revokeBlobUrl(pdfPendingDelete.link);
-    setPdfs((currentPdfs) => currentPdfs.filter((pdf) => pdf.id !== pdfPendingDelete.id));
+    return fetch(`/api/guides/${pdfPendingDelete.id}`, {
+      method: 'DELETE',
+    }).then(async (response) => {
+      if (!response.ok) {
+        throw new Error(await readErrorMessage(response, 'Failed to delete the PDF.'));
+      }
+
+      setPdfs((currentPdfs) => currentPdfs.filter((pdf) => pdf.id !== pdfPendingDelete.id));
+      setStatusMessage('');
+    });
   };
 
   return (
@@ -146,7 +171,13 @@ function Admin() {
             </button>
           </div>
 
-          {showPDFPopup && <AdminPDFPopup visible={showPDFPopup} onClose={handleClosePDFPopup} />}
+          {showPDFPopup && (
+            <AdminPDFPopup
+              visible={showPDFPopup}
+              onClose={handleClosePDFPopup}
+              onSubmit={handleCreatePdf}
+            />
+          )}
 
 
           <PDFGallery
@@ -166,6 +197,9 @@ function Admin() {
               </button>
             )}
           />
+
+          {statusMessage && <p className="admin-status-message">{statusMessage}</p>}
+          {!statusMessage && pdfs.length === 0 && <p className="admin-status-message">No PDFs have been added yet.</p>}
         </section>
 
         <DeletePopup
