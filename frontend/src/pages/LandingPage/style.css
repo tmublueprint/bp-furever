@@ -372,4 +372,8 @@ h4 {
         flex-wrap: wrap;
         width: 70%;
     }
+    .locations-section .call-animal-services-box {
+        bottom: 100px;
+        right: 100px;
+    }
 }
