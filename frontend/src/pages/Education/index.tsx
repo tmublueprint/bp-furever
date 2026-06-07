@@ -44,7 +44,8 @@ function Education() {
     summary: guide.postSummary,
     link: guide.pdfLink,
   }));
-  const pdfList = firestoreGuides.length > 0 ? firestoreGuides : pdfData;
+  // const pdfList = firestoreGuides.length > 0 ? firestoreGuides : pdfData;
+  const pdfList = firestoreGuides;
 
   useEffect(() => {
     const loadGuides = async () => {
