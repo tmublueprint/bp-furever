@@ -23,6 +23,13 @@
     z-index: 3;
 }
 
+@media (max-width: 992px) {
+    .pdf-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+        box-sizing: border-box;
+    }
+}
+
 @media (max-width: 576px) {
     .pdf-gallery {
         padding: 0;

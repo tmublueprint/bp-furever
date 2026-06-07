@@ -87,6 +87,59 @@ html, body {
   width: 650px;
 }
 
+@media (max-width: 992px) {
+  .volunteer-hero {
+    padding-top: 48px;
+  }
+
+  .volunteer-hero-container {
+    width: 100%;
+    padding: 0 48px;
+    gap: 32px;
+    box-sizing: border-box;
+  }
+
+  .volunteer-hero-text {
+    width: auto;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .volunteer-hero-title {
+    margin-bottom: 28px;
+    font-size: 48px;
+    line-height: 1.15;
+  }
+
+  .volunteer-hero-body {
+    width: 100%;
+    max-width: 100%;
+    font-size: 22px;
+    line-height: 1.5;
+  }
+
+  .volunteer-hero-body-bold {
+    width: 100%;
+  }
+
+  .volunteer-icon {
+    width: min(32%, 280px);
+    flex-shrink: 0;
+    align-items: center;
+  }
+
+  .volunteer-icon img {
+    width: 100%;
+    margin: 0;
+  }
+
+  .volunteer-icon-phone img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
+}
+
 @media (max-width: 576px) {
   .volunteer-hero-container {
     width: 100%; 
@@ -107,6 +160,12 @@ html, body {
   .volunteer-icon {
     display: none; 
   }
+  .volunteer-hero-title {
+    font-size: 38px;
+  }
+  .volunteer-hero-body {
+    font-size: 18px;
+  }
 }
 
 /* How to apply section */
@@ -115,11 +174,17 @@ html, body {
   padding: 0; 
   margin: 0; 
   margin-top: 94px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .how-to-apply-header-two {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: var(--font-size-heading-two);
   color: var(--color-heading-dark-green);
   text-align: center;
@@ -199,6 +264,50 @@ html, body {
   font-weight: 600; 
   font-size: var(--font-size-heading-three);
   text-align: center;
+}
+
+@media (max-width: 992px) {
+  .container-how-to-apply {
+    margin-top: 64px;
+  }
+
+  .how-to-apply-header-two {
+    padding: 0 32px;
+    font-size: 38px;
+    line-height: 1.2;
+  }
+
+  #how-to-apply-checklist {
+    width: calc(100% - 64px);
+    margin: 40px auto;
+    padding: 0;
+    font-size: 24px;
+    line-height: 1.45;
+  }
+
+  #apply-email-btn {
+    width: min(389px, 100%);
+    min-height: 80px;
+    box-sizing: border-box;
+  }
+
+  #apply-email-btn-arrow-circle,
+  #apply-email-btn-arrow {
+    width: 60px;
+    height: 60px;
+  }
+
+  .how-to-apply-end {
+    height: auto;
+    min-height: 240px;
+    padding: 40px 32px;
+  }
+
+  .how-to-apply-ending-text {
+    margin: 0;
+    font-size: 24px;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 576px) {
