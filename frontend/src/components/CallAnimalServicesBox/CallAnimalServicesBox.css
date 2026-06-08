@@ -94,3 +94,19 @@
 .call-animal-services-box::after {
   content: none;
 }
+
+@media (max-width: 768px){
+  .call-animal-services-box{
+    width: 140px;
+    height: 9em; 
+  }
+  .call-animal-services-title-row p {
+    font-size: 11px;
+  }
+  .call-animal-services-phone-row p {
+    font-size: 11px;
+  }
+  .call-animal-services-description{
+    font-size: 7px;
+  }
+}
