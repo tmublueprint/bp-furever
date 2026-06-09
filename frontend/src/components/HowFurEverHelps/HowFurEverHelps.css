@@ -65,7 +65,7 @@
     height: 60px;
 }
 
-@media (max-width: 992px) {
+@media (min-width: 769px) and (max-width: 1200px){
     #how-furever-helps h2 {
         width: 100%;
         height: auto;

@@ -43,7 +43,7 @@
     margin: auto;
 }
 
-@media (max-width: 992px) {
+@media (min-width: 769px) and (max-width: 1200px){
     #how-you-can-help {
         width: 100%;
         gap: 20px;
