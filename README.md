@@ -64,6 +64,8 @@ docker compose restart       # Restart containers
 bp-furever/
 ├── frontend/            # React frontend
 │   ├── src/
+│   │   ├── assets/                     # Contains images, pdfs, etc.
+│   │   │   └── <component/page name>/  # Contains all assets only relate to said component or page.
 │   │   ├── components/
 │   │   │   └── <component name>/
 │   │   ├── pages/
@@ -75,6 +77,11 @@ bp-furever/
 │   └── package.json
 ├── backend/
 │   ├── src/
+│   │   ├── controllers/    # Process API requests
+│   │   ├── middleware/     # Mostly just auth
+│   │   ├── models/         # Models of how data is formatted
+│   │   ├── services/       # Core logic
+│   ├── index.ts            # Holds all paths/APIs
 │   ├── Dockerfile
 │   ├── env.example
 │   └── package.json
