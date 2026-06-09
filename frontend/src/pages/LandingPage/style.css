@@ -394,6 +394,10 @@ h4 {
         justify-content: center;
     }
 
+    .locations-section .call-animal-services-box {
+        right: 30px;
+    }
+
     .found-animal-notice-box {
         width: min(100%, 593px);
         height: auto;
