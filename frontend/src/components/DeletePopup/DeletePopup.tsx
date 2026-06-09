@@ -4,7 +4,7 @@ import './DeletePopup.css';
 interface DeletePopupProps {
   visible: boolean;
   onClose: () => void;
-  onConfirm: () => void;
+  onConfirm: () => void | Promise<void>;
   pdfTitle: string;
 }
 
@@ -19,9 +19,13 @@ function DeletePopup({ visible, onClose, onConfirm, pdfTitle }: DeletePopupProps
     }
   };
 
-  const handleConfirmClick = () => {
-    onConfirm();
-    onClose();
+  const handleConfirmClick = async () => {
+    try {
+      await onConfirm();
+      onClose();
+    } catch (error) {
+      console.error('Failed to delete PDF:', error);
+    }
   };
 
   return (

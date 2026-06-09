@@ -112,3 +112,9 @@
     }
 
 }
+
+@media (max-width: 768px){
+    #how-furever-helps-info{
+        flex-wrap: wrap;
+    }
+}

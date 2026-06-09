@@ -19,7 +19,7 @@ function NavBar() {
   return (
     <header>
       <nav id="navbar">
-        <img src={fureverLogo} id="furever-logo" alt="furever-logo" style={{width: "85px", height: "90px"}}/>
+        <img src={fureverLogo} id="furever-logo" alt="furever-logo" style={{height: "90px"}}/>
         
         { hideMenu && <a id="hamburger-menu-wrapper" onClick={handleMenuClick}>
           <img src={hamburgerMenuPlaceHolder} id="hamburger-menu" alt="hamburger-menu"/>

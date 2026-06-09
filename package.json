@@ -28,7 +28,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^24.10.1",
+    "@types/node": "^24.12.4",
     "baseline-browser-mapping": "^2.10.12",
     "concurrently": "^8.2.2"
   },

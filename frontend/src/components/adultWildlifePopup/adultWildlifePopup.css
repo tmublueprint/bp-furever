@@ -130,3 +130,14 @@
     }
 }
 
+@media (max-width: 768px){
+    .adult-wildlife-popup-title{
+        width: 100%;
+        font-size: var(--font-size-heading-two);
+        height: auto;
+    }
+    .adult-wildlife-popup-description{
+        width: 100%;
+        font-size: var(--font-size-heading-three);
+    }
+}

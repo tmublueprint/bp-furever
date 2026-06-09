@@ -87,36 +87,36 @@ function LandingPage() {
                 <p className="headingThree" id="introductory-paragraph-landing-page" style={{fontWeight: "300"}}>We rescue and rehabilitate orphaned, injured, sick, and displaced wildlife, 
                 aiming to return them to their natural habitat.</p>
 
-              {/** PHONE Found Animal Notice Box */}
-              <div className="found-animal-notice-box" id="notice-box-phone" style={noticeBoxStyle}>
-                <div id="group-top">
-                  <h2 style={{color: "#778932", fontWeight: "700"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
-                  <p>Choose one to get immediate guidance: </p>
-                  <div id="container-btn">
-                    <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick} ref={openAdultBtn}>
-                      <p>Adult</p>
-                    </button>
-                      <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn" onClick={babyBtnClick}>
-                        <p>Baby</p> 
-                      </button> 
+                {/** PHONE Found Animal Notice Box */}
+                <div className="found-animal-notice-box" id="notice-box-phone" style={noticeBoxStyle}>
+                  <div id="group-top">
+                    <h2 style={{color: "#778932", fontWeight: "700"}}>FOUND AN ANIMAL IN DISTRESS?</h2>
+                    <p>Choose one to get immediate guidance: </p>
+                    <div id="container-btn">
+                      <button style = {{border: "solid 2px #4C5C41"}} id="adultBtn" onClick={handleAdultBtnClick} ref={openAdultBtn}>
+                        <p>Adult</p>
+                      </button>
+                        <button style = {{border: "solid 2px #A89F5A"}} id="babyBtn" onClick={babyBtnClick}>
+                          <p>Baby</p> 
+                        </button> 
+                    </div>
+                    <p>Things to Keep in Mind -</p>
                   </div>
-                  <p>Things to Keep in Mind -</p>
+                  <div id="group-bottom">
+                    <div>
+                      <img src={safetyIcon} alt="Shield with checkmark"/>
+                      <p>Your Safety Is #1</p>
+                    </div>
+                    <div>
+                      <img src={feedIcon} alt="Crossed out hand feeding an animal"/>
+                      <p>Never Feed Any Wild Animal</p>
+                    </div>
+                    <div>
+                      <img src={talkingIcon} alt="Speech bubble with an X"/>
+                      <p>No Talking To The Animal</p>
+                    </div>
+                  </div>
                 </div>
-                <div id="group-bottom">
-                  <div>
-                    <img src={safetyIcon} alt="Shield with checkmark"/>
-                    <p>Your Safety Is #1</p>
-                  </div>
-                  <div>
-                    <img src={feedIcon} alt="Crossed out hand feeding an animal"/>
-                    <p>Never Feed Any Wild Animal</p>
-                  </div>
-                  <div>
-                    <img src={talkingIcon} alt="Speech bubble with an X"/>
-                    <p>No Talking To The Animal</p>
-                  </div>
-                </div>
-              </div>
 
 
                 <p className="headingThree" style={{fontWeight: "bold"}}>We are not a removal service.</p>

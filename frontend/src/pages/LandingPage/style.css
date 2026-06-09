@@ -93,6 +93,24 @@
     }
 }
 
+@media (max-width: 768px){
+    .hero-component-centering{
+        align-items: center;
+        justify-content: center;
+    }
+    #hero-component{
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #services{
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
 /* Found Animal Notice Box */
 #notice-box-phone {
     display: none; 
@@ -217,6 +235,36 @@ h3 {
     }
     #notice-box {
         display: none; 
+    }
+}
+
+@media (max-width: 768px){
+    #notice-box{
+        display: none;
+    }
+    #notice-box-phone { 
+        width: 100%;
+        display: flex;
+        flex-direction: column; 
+        background-repeat: no-repeat; 
+        background-position: bottom right; 
+    }
+    #group-top, #container-btn {
+        width: 100%;
+        align-items: center; 
+    }
+    #group-top h2, #group-top p {
+        width: 80%;
+    }
+    #container-btn {
+        gap: 0px;
+        column-gap: 20px;
+    }
+    #container-btn p {
+        width: 100%;
+    }
+    #adultBtn, #babyBtn {
+        width: 50%;
     }
 }
 
@@ -414,5 +462,16 @@ h4 {
 @media (max-width: 576px) { 
     #footer-sec {
         width: 100%;
+    }
+}
+
+@media (max-width: 768px){
+    #service-locations{
+        flex-wrap: wrap;
+        width: 70%;
+    }
+    .locations-section .call-animal-services-box {
+        bottom: 100px;
+        right: 100px;
     }
 }

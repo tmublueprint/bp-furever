@@ -6,6 +6,9 @@
     justify-content: center;
 }
 
+#how-you-can-help-title{
+    margin: auto;
+}
 
 .images {
     display: flex;
@@ -71,6 +74,12 @@
 
 @media (max-width: 576px) {
     #how-you-can-help {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px){
+    #how-you-can-help{
         flex-direction: column;
     }
 }

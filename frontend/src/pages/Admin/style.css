@@ -118,6 +118,13 @@
     margin-right: 13.39px;
 }
 
+.admin-status-message {
+    margin: 28px 0 0;
+    color: #4d5a47;
+    font-size: 18px;
+    font-weight: 500;
+}
+
 @media (max-width: 1320px) {
     .admin-header-content {
         padding-left: 64px;
@@ -179,6 +186,10 @@
         pointer-events: auto;
         transform: none;
     }
+}
+
+@media(max-width: 768px) {
+
 }
 
 @media (max-width: 576px) {

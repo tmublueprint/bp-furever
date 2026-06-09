@@ -25,7 +25,12 @@ function PDFGallery<TItem extends PDFGalleryItem>({
     <div className={galleryClassName}>
       {pdfList.map((pdf, index) => (
         <div className="pdf-gallery-item" key={pdf.id ?? `${pdf.title}-${index}`}>
-          <PDFCard image={pdf.image} title={pdf.title} summary={pdf.summary} link={pdf.link} />
+          <PDFCard
+            image={pdf.image}
+            title={pdf.title}
+            summary={pdf.summary}
+            link={pdf.link}
+          />
           {renderCardAction && (
             <div className="pdf-gallery-card-action">{renderCardAction(pdf, index)}</div>
           )}

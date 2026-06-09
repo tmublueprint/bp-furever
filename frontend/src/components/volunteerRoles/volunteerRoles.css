@@ -170,6 +170,17 @@
   }
 }
 
+@media (max-width: 768px) {
+  .volunteerRoles{
+    flex-direction: column;
+    align-items: center;
+  }
+  .roles-title {
+    width: 90%;
+    text-align: center;
+  }
+}
+
 /* Volunteer Requirements section */
 .requirement-container {
   position: relative;
