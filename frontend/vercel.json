@@ -17,6 +17,10 @@
     {
       "source": "/api/(.*)",
       "destination": "/backend/src/index.ts"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "frontend/src/App.tsx"
     }
   ]
 }
