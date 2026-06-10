@@ -3,9 +3,15 @@ const rawApiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 export const apiBaseUrl = rawApiBaseUrl ? rawApiBaseUrl.replace(/\/$/, '') : '';
 
 export function apiUrl(path: string) {
-  if (!path.startsWith('/')) {
-    return `${apiBaseUrl}/${path}`;
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+
+  if (!apiBaseUrl) {
+    return normalizedPath;
   }
 
-  return `${apiBaseUrl}${path}`;
+  if (apiBaseUrl.endsWith('/api') && normalizedPath.startsWith('/api')) {
+    return `${apiBaseUrl}${normalizedPath.slice(4)}`;
+  }
+
+  return `${apiBaseUrl}${normalizedPath}`;
 }
