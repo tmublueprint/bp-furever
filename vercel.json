@@ -1,6 +1,11 @@
 {
   "version": 2,
   "builds": [
+    {
+      "src": "frontend/src/App.tsx",
+      "use": "@vercel/node"
+    }
+
   ],
   "rewrites": [
     {
@@ -9,7 +14,7 @@
     },
     {
       "source": "/((?!api/).*)",
-      "destination": "/App.tsx"
+      "destination": "frontend/src/App.tsx"
     }
   ]
 }
