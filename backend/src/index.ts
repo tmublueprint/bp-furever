@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import dotenv from 'dotenv';
 import { getAllGuidesController, getGuideController, createGuideController, deleteGuideController, getGuideImageController, getGuidePdfController } from './controllers/guideController.js';
 import multer from 'multer';
+import { onRequest } from 'firebase-functions/v2/https';
 
 dotenv.config();
 
@@ -33,6 +34,10 @@ app.delete('/api/guides/:guideID', deleteGuideController);
 // Create guide (accepts multipart/form-data or url fields)
 app.post('/api/guides', upload.fields([{ name: 'image' }, { name: 'pdf' }]), createGuideController);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+export const api = onRequest(app);
+
+if (process.env.FUNCTIONS_EMULATOR !== 'true' && !process.env.K_SERVICE) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
