@@ -33,6 +33,10 @@ app.delete('/api/guides/:guideID', deleteGuideController);
 // Create guide (accepts multipart/form-data or url fields)
 app.post('/api/guides', upload.fields([{ name: 'image' }, { name: 'pdf' }]), createGuideController);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+export default app;
+
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}

@@ -1,20 +1,15 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "frontend/src/App.tsx",
-      "use": "@vercel/node"
-    }
-
-  ],
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build:frontend && npm run build:backend",
+  "outputDirectory": "frontend/dist",
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/backend/src/index.ts"
+      "destination": "/api"
     },
     {
       "source": "/((?!api/).*)",
-      "destination": "frontend/src/App.tsx"
+      "destination": "/index.html"
     }
   ]
 }
