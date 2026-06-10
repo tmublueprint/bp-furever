@@ -22,4 +22,5 @@
       "source": "/(.*)",
       "destination": "frontend/src/App.tsx"
     }
-]
+  ]
+}
