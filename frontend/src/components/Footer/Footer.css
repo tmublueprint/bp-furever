@@ -134,7 +134,7 @@
     }
 }
 
-@media (max-width: 1200px){
+@media (min-width: 992px) and (max-width: 1200px){
     .footer-header { font-size: 38px; }
     .footer-subheader { font-size: 32px; }
     .col-header1 {font-size: 36px; }

@@ -129,28 +129,168 @@
     height: 630px;
 }
 
-@media (max-width: 768px){
-    .select-animal{
+@media (max-width: 992px) {
+    .found-animal-hero-container {
+        padding: 0 32px;
+    }
+
+    .page-title {
+        margin: 80px 0 24px;
+        font-size: 56px;
+        line-height: 1.15;
+    }
+
+    .page-desc {
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    .help-tips {
+        margin-top: 80px;
+        padding: 60px 32px;
+    }
+
+    .help-tips-container {
         width: 100%;
     }
-    .cards{
+
+    .help-svgs {
+        gap: 48px 32px;
+    }
+
+    .help-tip-item p {
+        font-size: 20px;
+        line-height: 1.35;
+    }
+
+    .select-animal {
+        margin-top: 120px;
+        padding: 0 32px;
+    }
+
+    .section-header {
+        font-size: 44px;
+        line-height: 1.2;
+    }
+
+    .select-animal .section-header {
+        margin-bottom: 48px;
+    }
+
+    .cards {
+        grid-auto-flow: row;
+        grid-template-columns: minmax(0, 1fr);
         width: 100%;
-        display: flex;
+        max-width: 880px;
+        gap: 32px;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+        gap: 32px;
+    }
+
+    .left > *,
+    .right > * {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .left > * {
+        height: 300px;
+    }
+
+    .right > * {
+        height: 420px;
+    }
+
+    .animalBoxContainer {
+        padding: 32px;
+    }
+
+    .animalBoxContainer h3 {
+        margin-left: 0;
+        font-size: 32px;
+    }
+
+    .url {
+        min-width: 0;
+        padding-left: 18px;
+    }
+
+    .url p {
+        font-size: 18px;
+    }
+
+    .url img {
+        width: 48px;
+        height: 48px;
+        margin-left: 12px;
+    }
+
+    .found-animal {
+        padding: 72px 32px;
+    }
+
+    .found-animal p {
+        margin-bottom: 0;
+        font-size: 24px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 576px) {
+    .found-animal-hero-container,
+    .select-animal {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .page-title {
+        margin-top: 56px;
+        font-size: 42px;
+    }
+
+    .page-desc {
+        font-size: 20px;
+    }
+
+    .help-tips {
+        margin-top: 56px;
+        padding: 48px 20px;
+    }
+
+    .section-header {
+        font-size: 34px;
+    }
+
+    .animalBoxContainer {
+        justify-content: flex-end;
+        align-items: flex-start;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        gap: 16px;
+        padding: 24px;
     }
-    .section-header{
-        width: 100%;
+
+    .animalBoxContainer h3 {
+        margin: 0;
     }
-    .left, .right{
-        width: 90%;
+
+    .left > * {
+        height: 280px;
     }
-    .right > *{
-        width: 100%;
-        height: 353px;
+
+    .right > * {
+        height: 360px;
     }
-    .left > *{
-        width: 100%;
+
+    .found-animal {
+        padding: 56px 20px;
+    }
+
+    .found-animal p {
+        font-size: 20px;
     }
 }

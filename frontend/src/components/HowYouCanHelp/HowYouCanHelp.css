@@ -43,6 +43,35 @@
     margin: auto;
 }
 
+@media (min-width: 769px) and (max-width: 1200px){
+    #how-you-can-help {
+        width: 100%;
+        gap: 20px;
+        padding: 0 32px;
+        box-sizing: border-box;
+    }
+
+    .images {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .images img {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .images button {
+        width: min(220px, 80%);
+    }
+
+    .how-you-can-help-btn-text {
+        margin-top: 140px;
+        min-height: 56px;
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 576px) {
     #how-you-can-help {
         flex-direction: column;

@@ -137,7 +137,7 @@
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 992px) {
     .admin-header-content {
         height: 150px;
         padding-left: 32px;
@@ -161,10 +161,30 @@
     .admin-section-header {
         flex-direction: column;
         align-items: flex-start;
+        margin-bottom: 48px;
     }
 
     .admin-section-header h1 {
-        font-size: 44px;
+        font-size: 48px;
+        line-height: 1.15;
+    }
+
+    .admin-add-pdf-btn {
+        min-width: 220px;
+        min-height: 64px;
+        font-size: 20px;
+    }
+
+    .admin-remove-pdf-btn {
+        width: 190px;
+        height: 60px;
+        font-size: 20px;
+    }
+
+    .admin-pdf-gallery .pdf-gallery-card-action {
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
     }
 }
 
