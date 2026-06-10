@@ -58,6 +58,13 @@ docker compose down          # Stop everything
 docker compose restart       # Restart containers
 ```
 
+### Firebase set up 
+```bash
+npm install -g firebase-tools
+firebase login
+
+```
+
 ## Project Structure
 
 ```

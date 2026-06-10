@@ -6,6 +6,7 @@ import Footer from '../../components/Footer/Footer';
 import PDFGallery, { type PDFGalleryItem } from '../../components/PDFGallery/PDFGallery';
 import closeIcon from '../../assets/DeletePDFPopup/delete-pdf-remove.svg';
 import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
+import { apiUrl } from '../../lib/api';
 
 type AdminPdf = PDFGalleryItem & {
   id: string;
@@ -54,7 +55,7 @@ function Admin() {
   useEffect(() => {
     const loadGuides = async () => {
       try {
-        const response = await fetch('/api/guides');
+        const response = await fetch(apiUrl('/api/guides'));
 
         if (!response.ok) {
           throw new Error(await readErrorMessage(response, 'Failed to load guides.'));
@@ -96,7 +97,7 @@ function Admin() {
     formData.append('image', submission.imageFile);
     formData.append('pdf', submission.pdfFile);
 
-    const response = await fetch('/api/guides', {
+    const response = await fetch(apiUrl('/api/guides'), {
       method: 'POST',
       body: formData,
     });
@@ -136,7 +137,7 @@ function Admin() {
       return Promise.resolve();
     }
 
-    return fetch(`/api/guides/${pdfPendingDelete.id}`, {
+    return fetch(apiUrl(`/api/guides/${pdfPendingDelete.id}`), {
       method: 'DELETE',
     }).then(async (response) => {
       if (!response.ok) {
