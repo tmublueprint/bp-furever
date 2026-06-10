@@ -1,0 +1,47 @@
+{
+  "hosting": {
+    "public": "frontend/dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "redirects": [
+      { "source": "/",              "destination": "https://bp-furever.vercel.app/",                  "type": 302 },
+      { "source": "/admin",         "destination": "https://bp-furever.vercel.app/admin",             "type": 302 },
+      { "source": "/foundAnAnimal", "destination": "https://bp-furever.vercel.app/foundAnAnimal",     "type": 302 },
+      { "source": "/education",     "destination": "https://bp-furever.vercel.app/education",         "type": 302 },
+      { "source": "/volunteer",     "destination": "https://bp-furever.vercel.app/volunteer",         "type": 302 }
+    ],
+    "rewrites": [
+      {
+        "source": "/api/**",
+        "run": {
+          "serviceId": "api",
+          "region": "us-central1"
+        }
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "functions": [
+    {
+      "source": "backend",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ],
+      "runtime": "nodejs22",
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+    }
+  ]
+}
