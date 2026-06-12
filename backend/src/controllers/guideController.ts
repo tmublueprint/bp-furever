@@ -85,6 +85,10 @@ export async function getGuideController(req: Request, res: Response) {
 // CREATE new guide
 export async function createGuideController(req: Request, res: Response) {
     console.log("Creating/updating guide with data");
+    console.log("Creating/updating guide with data");
+    console.log("Content-Type:", req.headers["content-type"]);
+    console.log("Files:", req.files);
+    console.log("Body:", req.body);
     try {
         const { image, pdf } = req.files as {
             image?: Express.Multer.File[];
