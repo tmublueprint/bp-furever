@@ -13,9 +13,28 @@ const PORT = process.env.PORT || 3003;
 
 app.use(helmet());
 app.use(cors());
-app.use(express.json());
 
 const upload = multer();
+
+// Create guide (accepts multipart/form-data or url fields)
+app.post('/guides', (req, res, next) => {
+  upload.fields([
+    { name: 'image' },
+    { name: 'pdf' }
+  ])(req, res, (err) => {
+    if (err) {
+      console.error('Multer error:', err);
+      return res.status(400).json({
+        error: err.message,
+        stack: err.stack,
+      });
+    }
+
+    console.log('Files parsed:', req.files);
+    next();
+  });
+}, createGuideController);
+app.use(express.json());
 
 app.get('/health', (req, res) => {
   res.json({ message: 'Server is running!' });
@@ -31,8 +50,6 @@ app.get('/guides/:guideID/pdf', getGuidePdfController);
 
 app.delete('/guides/:guideID', deleteGuideController);
 
-// Create guide (accepts multipart/form-data or url fields)
-app.post('/guides', upload.fields([{ name: 'image' }, { name: 'pdf' }]), createGuideController);
 
 export const api = onRequest({ invoker: 'public' }, app);
 

@@ -107,7 +107,7 @@ function Admin() {
         console.log(`- ${key}: ${value}`);
       }
     }
-    const response = await fetch(apiUrl('/api/guides'), {
+    const response = await fetch("https://us-central1-tmublueprint-furever.cloudfunctions.net/api/guides", {
       method: 'POST',
       body: formData,
     });
