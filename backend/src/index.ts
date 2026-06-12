@@ -34,7 +34,7 @@ app.delete('/api/guides/:guideID', deleteGuideController);
 // Create guide (accepts multipart/form-data or url fields)
 app.post('/api/guides', upload.fields([{ name: 'image' }, { name: 'pdf' }]), createGuideController);
 
-export const api = onRequest(app);
+export const api = onRequest({ invoker: 'public' }, app);
 
 if (process.env.FUNCTIONS_EMULATOR !== 'true' && !process.env.K_SERVICE) {
   app.listen(PORT, () => {
