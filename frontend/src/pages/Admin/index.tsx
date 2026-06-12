@@ -55,6 +55,7 @@ function Admin() {
   useEffect(() => {
     const loadGuides = async () => {
       try {
+        console.log("Loading guides for admin page... attempting to fetch from:", apiUrl('/api/guides'));
         const response = await fetch(apiUrl('/api/guides'));
 
         if (!response.ok) {
@@ -97,6 +98,7 @@ function Admin() {
     formData.append('image', submission.imageFile);
     formData.append('pdf', submission.pdfFile);
 
+    console.log("Submitting new guide with title:", submission.postTitle, "to:", apiUrl('/api/guides'));
     const response = await fetch(apiUrl('/api/guides'), {
       method: 'POST',
       body: formData,

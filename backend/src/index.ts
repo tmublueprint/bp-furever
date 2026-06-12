@@ -17,22 +17,22 @@ app.use(express.json());
 
 const upload = multer();
 
-app.get('/api/health', (req, res) => {
+app.get('/health', (req, res) => {
   res.json({ message: 'Server is running!' });
 });
 
-app.get('/api/guides', getAllGuidesController);
+app.get('/guides', getAllGuidesController);
 
-app.get('/api/guides/:guideID', getGuideController);
+app.get('/guides/:guideID', getGuideController);
 
-app.get('/api/guides/:guideID/image', getGuideImageController);
+app.get('/guides/:guideID/image', getGuideImageController);
 
-app.get('/api/guides/:guideID/pdf', getGuidePdfController);
+app.get('/guides/:guideID/pdf', getGuidePdfController);
 
-app.delete('/api/guides/:guideID', deleteGuideController);
+app.delete('/guides/:guideID', deleteGuideController);
 
 // Create guide (accepts multipart/form-data or url fields)
-app.post('/api/guides', upload.fields([{ name: 'image' }, { name: 'pdf' }]), createGuideController);
+app.post('/guides', upload.fields([{ name: 'image' }, { name: 'pdf' }]), createGuideController);
 
 export const api = onRequest({ invoker: 'public' }, app);
 

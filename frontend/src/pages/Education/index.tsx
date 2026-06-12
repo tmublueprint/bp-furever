@@ -51,6 +51,7 @@ function Education() {
   useEffect(() => {
     const loadGuides = async () => {
       try {
+        console.log("Loading guides for education page... attempting to fetch from:", apiUrl('/api/guides'));
         const response = await fetch(apiUrl('/api/guides'));
 
         if (!response.ok) {
