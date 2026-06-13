@@ -6,6 +6,7 @@ import Footer from '../../components/Footer/Footer';
 import PDFGallery, { type PDFGalleryItem } from '../../components/PDFGallery/PDFGallery';
 import closeIcon from '../../assets/DeletePDFPopup/delete-pdf-remove.svg';
 import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
+import { uploadFile } from '../../firebase/firebaseApp';
 import { apiUrl } from '../../lib/api';
 
 type AdminPdf = PDFGalleryItem & {
@@ -107,20 +108,31 @@ function Admin() {
         console.log(`- ${key}: ${value}`);
       }
     }
-    const response = await fetch("https://us-central1-tmublueprint-furever.cloudfunctions.net/api/guides", {
-      method: 'POST',
-      body: formData,
-    });
+    const imageUrl = await uploadFile(
+      submission.imageFile,
+      `guides/${Date.now()}_image`
+    );
+    console.log("Image uploaded to:", imageUrl);
+    const pdfUrl = await uploadFile(
+      submission.pdfFile,
+      `guides/${Date.now()}_pdf`
+    );
+    console.log("PDF uploaded to:", pdfUrl);
 
-    if (!response.ok) {
-      throw new Error(await readErrorMessage(response, 'Failed to save the PDF.'));
-    }
+    // const response = await fetch("https://us-central1-tmublueprint-furever.cloudfunctions.net/api/guides", {
+    //   method: 'POST',
+    //   body: formData,
+    // });
 
-    const payload = (await response.json()) as { guide?: GuideRecord };
+    // if (!response.ok) {
+    //   throw new Error(await readErrorMessage(response, 'Failed to save the PDF.'));
+    // }
 
-    if (payload.guide) {
-      setPdfs((currentPdfs) => [createAdminPdf(payload.guide as GuideRecord), ...currentPdfs.filter((pdf) => pdf.id !== payload.guide?.guideID)]);
-    }
+    // const payload = (await response.json()) as { guide?: GuideRecord };
+
+    // if (payload.guide) {
+    //   setPdfs((currentPdfs) => [createAdminPdf(payload.guide as GuideRecord), ...currentPdfs.filter((pdf) => pdf.id !== payload.guide?.guideID)]);
+    // }
 
     setStatusMessage('');
     setShowPDFPopup(false);

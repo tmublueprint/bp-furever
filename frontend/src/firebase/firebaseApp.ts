@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_apiKey,
@@ -14,10 +16,20 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
+const storage = getStorage(app);
 
 const authEmulatorHost = import.meta.env.VITE_AUTH_EMULATOR_HOST;
 if (import.meta.env.DEV && authEmulatorHost) {
   connectAuthEmulator(auth, authEmulatorHost);
 }
-export default auth
+
+export async function uploadFile(file: File, path: string) {
+  const storageRef = ref(storage, path);
+
+  await uploadBytes(storageRef, file);
+
+  const url = await getDownloadURL(storageRef);
+  return url;
+}
+
