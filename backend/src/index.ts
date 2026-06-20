@@ -1,18 +1,21 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import dotenv from 'dotenv';
 import { getAllGuidesController, getGuideController, createGuideController, deleteGuideController, getGuideImageController, getGuidePdfController } from './controllers/guideController.js';
 import multer from 'multer';
 import { onRequest } from 'firebase-functions/v2/https';
+import { verifyAdmin } from './middleware/verifyAdmin.js';
 
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3003;
 
 app.use(helmet());
 app.use(cors());
+app.use(express.json());
 
 const upload = multer({
   limits: {
@@ -21,8 +24,14 @@ const upload = multer({
   storage: multer.memoryStorage(),
 });
 
+app.get('/health', (req, res) => {
+  res.json({ message: 'Server is running!' });
+})
+
+app.use('/api', verifyAdmin);
+
 // Create guide (accepts multipart/form-data or url fields)
-app.post('/guides', (req, res, next) => {
+app.post('/api/guides', (req, res, next) => {
   upload.fields([
     { name: 'image' },
     { name: 'pdf' }
@@ -39,7 +48,7 @@ app.post('/guides', (req, res, next) => {
     next();
   });
 }, createGuideController);
-app.use(express.json());
+
 
 app.post('/api/debug-upload', upload.any(), (req, res) => {
   console.log('files:', req.files);
@@ -47,20 +56,11 @@ app.post('/api/debug-upload', upload.any(), (req, res) => {
   res.json({ ok: true });
 });
 
-app.get('/health', (req, res) => {
-  res.json({ message: 'Server is running!' });
-});
-
-app.get('/guides', getAllGuidesController);
-
-app.get('/guides/:guideID', getGuideController);
-
-app.get('/guides/:guideID/image', getGuideImageController);
-
-app.get('/guides/:guideID/pdf', getGuidePdfController);
-
-app.delete('/guides/:guideID', deleteGuideController);
-
+app.get('/api/guides', getAllGuidesController);
+app.get('/api/guides/:guideID', getGuideController);
+app.get('/api/guides/:guideID/image', getGuideImageController);
+app.get('/api/guides/:guideID/pdf', getGuidePdfController);
+app.delete('/api/guides/:guideID', deleteGuideController);
 
 export const api = onRequest({ invoker: 'public' }, app);
 
