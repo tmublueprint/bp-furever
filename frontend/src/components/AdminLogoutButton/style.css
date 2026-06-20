@@ -1,12 +1,13 @@
 .admin-logout-btn {
     padding: 0.5rem 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: #333;
     background-color: #BBC499;
     border: 1px solid #d0d0d0;
     border-radius: 6px;
     cursor: pointer;
+    max-width: 200px;
 }
 
 .admin-logout-btn:hover {
