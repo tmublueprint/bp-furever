@@ -32,25 +32,29 @@ export default function AdminLogin() {
                 <h1 className='admin-login-title'>Admin Sign In</h1>
                 <form onSubmit={handleSubmit}>
                     <div className='admin-login-field'>
+                        <label htmlFor='email'>Email</label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Email"
                             required
+                            autoComplete="username"
                         />
                     </div>
                     <div className='admin-login-field'>
+                        <label htmlFor='password'>Password</label>
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Password"
                             required
+                            autoComplete="current-password"
                         />
                     </div>
                     {error && <p role="alert">{error}</p>}
-                    <button type="submit" disabled={submitting}>
+                    <button type="submit" className='admin-login-submit' disabled={submitting}>
                         {submitting ? 'Signing in...' : 'Sign in'}
                     </button>
                 </form>
