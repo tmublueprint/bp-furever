@@ -11,7 +11,7 @@ interface AuthContextValue {
 const AuthContext = createContext<AuthContextValue>({
     currentUser: null,
     isAdmin: false,
-    loading: true
+    loading: true,
 });
 
 export function AuthProvider({ children }: {children: ReactNode }){
