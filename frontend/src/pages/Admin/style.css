@@ -35,6 +35,12 @@
     font-weight: 500;
 }
 
+.admin-title-btn {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
 #admin-container.admin-main {
     width: 100%;
     max-width: 1700px;

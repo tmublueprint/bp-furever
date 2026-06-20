@@ -4,6 +4,7 @@ import AdminPDFPopup from '../../components/AdminPDFPopup/adminPDFPopup';
 import DeletePopup from '../../components/DeletePopup/DeletePopup';
 import Footer from '../../components/Footer/Footer';
 import PDFGallery, { type PDFGalleryItem } from '../../components/PDFGallery/PDFGallery';
+import { LogoutButton } from '../../components/AdminLogoutButton';
 import closeIcon from '../../assets/DeletePDFPopup/delete-pdf-remove.svg';
 import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
 import { uploadFile } from '../../firebase/firebaseApp';
@@ -176,7 +177,10 @@ function Admin() {
       <header className="admin-header">
         <div className="admin-header-content">
           <img className="admin-logo" src={fureverLogo} alt="Fur-Ever Wild Rehabilitation" />
-          <p className="admin-header-title">Admin Page</p>
+          <div className="admin-title-btn">
+            <p className="admin-header-title">Admin Page</p>
+            <LogoutButton></LogoutButton>
+          </div>
         </div>
       </header>
 
