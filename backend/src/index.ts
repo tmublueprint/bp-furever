@@ -56,11 +56,11 @@ app.post('/api/debug-upload', upload.any(), (req, res) => {
   res.json({ ok: true });
 });
 
-app.get('/api/guides', getAllGuidesController);
-app.get('/api/guides/:guideID', getGuideController);
-app.get('/api/guides/:guideID/image', getGuideImageController);
-app.get('/api/guides/:guideID/pdf', getGuidePdfController);
-app.delete('/api/guides/:guideID', deleteGuideController);
+app.get('/guides', getAllGuidesController);
+app.get('/guides/:guideID', getGuideController);
+app.get('/guides/:guideID/image', getGuideImageController);
+app.get('/guides/:guideID/pdf', getGuidePdfController);
+app.delete('/guides/:guideID', deleteGuideController);
 
 export const api = onRequest({ invoker: 'public' }, app);
 
