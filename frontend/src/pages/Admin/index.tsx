@@ -8,6 +8,7 @@ import { LogoutButton } from '../../components/AdminLogoutButton';
 import closeIcon from '../../assets/DeletePDFPopup/delete-pdf-remove.svg';
 import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
 import { uploadFile } from '../../firebase/firebaseApp';
+import { authedFetch } from '../../lib/authedFetch';
 import { apiUrl } from '../../lib/api';
 
 type AdminPdf = PDFGalleryItem & {
@@ -58,7 +59,7 @@ function Admin() {
     const loadGuides = async () => {
       try {
         console.log("Loading guides for admin page... attempting to fetch from:", apiUrl('/api/guides'));
-        const response = await fetch(apiUrl('/api/guides'));
+        const response = await authedFetch(apiUrl('/api/guides'));
 
         if (!response.ok) {
           throw new Error(await readErrorMessage(response, 'Failed to load guides.'));
@@ -160,7 +161,7 @@ function Admin() {
       return Promise.resolve();
     }
 
-    return fetch(apiUrl(`/api/guides/${pdfPendingDelete.id}`), {
+    return authedFetch(apiUrl(`/api/guides/${pdfPendingDelete.id}`), {
       method: 'DELETE',
     }).then(async (response) => {
       if (!response.ok) {
