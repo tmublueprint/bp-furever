@@ -121,20 +121,20 @@ function Admin() {
     );
     console.log("PDF uploaded to:", pdfUrl);
 
-    // const response = await fetch("https://us-central1-tmublueprint-furever.cloudfunctions.net/api/guides", {
-    //   method: 'POST',
-    //   body: formData,
-    // });
+    const response = await authedFetch('/api/guides', {
+      method: 'POST',
+      body: formData,
+    });
 
-    // if (!response.ok) {
-    //   throw new Error(await readErrorMessage(response, 'Failed to save the PDF.'));
-    // }
+    if (!response.ok) {
+      throw new Error(await readErrorMessage(response, 'Failed to save the PDF.'));
+    }
 
-    // const payload = (await response.json()) as { guide?: GuideRecord };
+    const payload = (await response.json()) as { guide?: GuideRecord };
 
-    // if (payload.guide) {
-    //   setPdfs((currentPdfs) => [createAdminPdf(payload.guide as GuideRecord), ...currentPdfs.filter((pdf) => pdf.id !== payload.guide?.guideID)]);
-    // }
+    if (payload.guide) {
+      setPdfs((currentPdfs) => [createAdminPdf(payload.guide as GuideRecord), ...currentPdfs.filter((pdf) => pdf.id !== payload.guide?.guideID)]);
+    }
 
     setStatusMessage('');
     setShowPDFPopup(false);

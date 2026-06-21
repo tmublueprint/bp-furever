@@ -69,6 +69,14 @@
     margin: 1rem 0 2rem;
 }
 
+.education-status {
+    font-family: "Montserrat";
+    font-size: var(--font-size-heading-three);
+    color: var(--color-body-dark-green);
+    text-align: center;
+    margin: 1rem 0 2rem;
+}
+
 @media (max-width: 576px) {
     .education-hero-title {
         margin: 0; 
