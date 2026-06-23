@@ -349,6 +349,108 @@ h4 {
     cursor: pointer;
 }
 
+#how-you-can-help-sec {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@media (min-width: 769px) and (max-width: 1200px){
+    .hero-component-centering {
+        margin-top: 40px;
+    }
+
+    #hero-component {
+        width: calc(100% - 64px);
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+    }
+
+    #services {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .titleText {
+        width: 100%;
+        font-size: 48px;
+        line-height: 1.15;
+    }
+
+    .headingThree {
+        font-size: 22px;
+        line-height: 1.5;
+    }
+
+    #introductory-paragraph-landing-page {
+        max-width: 720px;
+    }
+
+    #credentials {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .locations-section .call-animal-services-box {
+        right: 30px;
+    }
+
+    .found-animal-notice-box {
+        width: min(100%, 593px);
+        height: auto;
+        min-height: 620px;
+        box-sizing: border-box;
+    }
+
+    #notice-box > div {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    #notice-box #group-top > p {
+        width: auto !important;
+    }
+
+    #notice-box #container-btn {
+        width: 100%;
+        margin: 12px 0;
+        padding: 20px 0;
+        gap: 16px;
+        box-sizing: border-box;
+    }
+
+    #notice-box #adultBtn,
+    #notice-box #babyBtn {
+        width: auto;
+        min-width: 0;
+        flex: 1;
+    }
+
+    #group-bottom > div > p {
+        width: 90%;
+        font-size: 16px;
+        line-height: 1.35;
+    }
+
+    .locations-section {
+        padding: 40px 32px;
+        box-sizing: border-box;
+    }
+
+    #service-locations {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .map-container {
+        margin: 10px;
+    }
+}
+
 @media (max-width: 576px) { 
     .locations-section {
         margin: 0; 

@@ -4,8 +4,12 @@ import AdminPDFPopup from '../../components/AdminPDFPopup/adminPDFPopup';
 import DeletePopup from '../../components/DeletePopup/DeletePopup';
 import Footer from '../../components/Footer/Footer';
 import PDFGallery, { type PDFGalleryItem } from '../../components/PDFGallery/PDFGallery';
+import { LogoutButton } from '../../components/AdminLogoutButton';
 import closeIcon from '../../assets/DeletePDFPopup/delete-pdf-remove.svg';
 import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
+import { uploadFile } from '../../firebase/firebaseApp';
+import { authedFetch } from '../../lib/authedFetch';
+import { apiUrl } from '../../lib/api';
 
 type AdminPdf = PDFGalleryItem & {
   id: string;
@@ -54,7 +58,8 @@ function Admin() {
   useEffect(() => {
     const loadGuides = async () => {
       try {
-        const response = await fetch('/api/guides');
+        console.log("Loading guides for admin page... attempting to fetch from:", apiUrl('/api/guides'));
+        const response = await authedFetch(apiUrl('/api/guides'));
 
         if (!response.ok) {
           throw new Error(await readErrorMessage(response, 'Failed to load guides.'));
@@ -96,7 +101,27 @@ function Admin() {
     formData.append('image', submission.imageFile);
     formData.append('pdf', submission.pdfFile);
 
-    const response = await fetch('/api/guides', {
+    console.log("Submitting new guide with title:", submission.postTitle, "to:", apiUrl('/api/guides'));
+    console.log("FormData entries:");
+    for (const [key, value] of formData.entries()) {
+      if (value instanceof File) {
+        console.log(`- ${key}: File name=${value.name}, size=${value.size} bytes, type=${value.type}`);
+      } else {
+        console.log(`- ${key}: ${value}`);
+      }
+    }
+    const imageUrl = await uploadFile(
+      submission.imageFile,
+      `guides/${Date.now()}_image`
+    );
+    console.log("Image uploaded to:", imageUrl);
+    const pdfUrl = await uploadFile(
+      submission.pdfFile,
+      `guides/${Date.now()}_pdf`
+    );
+    console.log("PDF uploaded to:", pdfUrl);
+
+    const response = await authedFetch('/api/guides', {
       method: 'POST',
       body: formData,
     });
@@ -136,7 +161,7 @@ function Admin() {
       return Promise.resolve();
     }
 
-    return fetch(`/api/guides/${pdfPendingDelete.id}`, {
+    return authedFetch(apiUrl(`/api/guides/${pdfPendingDelete.id}`), {
       method: 'DELETE',
     }).then(async (response) => {
       if (!response.ok) {
@@ -153,7 +178,10 @@ function Admin() {
       <header className="admin-header">
         <div className="admin-header-content">
           <img className="admin-logo" src={fureverLogo} alt="Fur-Ever Wild Rehabilitation" />
-          <p className="admin-header-title">Admin Page</p>
+          <div className="admin-title-btn">
+            <p className="admin-header-title">Admin Page</p>
+            <LogoutButton></LogoutButton>
+          </div>
         </div>
       </header>
 

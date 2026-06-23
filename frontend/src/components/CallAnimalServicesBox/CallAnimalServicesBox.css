@@ -108,5 +108,12 @@
   }
   .call-animal-services-description{
     font-size: 7px;
-  }
+  } 
+  
+}
+
+@media (min-width: 769px) and (max-width: 1200px){
+  .call-animal-services-box::before {
+      right: 95px;
+  }   
 }
