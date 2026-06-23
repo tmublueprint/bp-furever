@@ -95,20 +95,7 @@ function Admin() {
   };
 
   const handleCreatePdf = async (submission: AdminPdfSubmission) => {
-    const formData = new FormData();
-    formData.append('postTitle', submission.postTitle);
-    formData.append('postSummary', submission.postSummary);
-    
-
     console.log("Submitting new guide with title:", submission.postTitle, "to:", apiUrl('/api/guides'));
-    console.log("FormData entries:");
-    for (const [key, value] of formData.entries()) {
-      if (value instanceof File) {
-        console.log(`- ${key}: File name=${value.name}, size=${value.size} bytes, type=${value.type}`);
-      } else {
-        console.log(`- ${key}: ${value}`);
-      }
-    }
     const imageUrl = await uploadFile(
       submission.imageFile,
       `guides/${Date.now()}_image`
@@ -120,12 +107,17 @@ function Admin() {
     );
     console.log("PDF uploaded to:", pdfUrl);
 
-    formData.append('imageLink', imageUrl);
-    formData.append('pdfLink', pdfUrl);
-
     const response = await authedFetch(apiUrl('/api/guides'), {
       method: 'POST',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        postTitle: submission.postTitle,
+        postSummary: submission.postSummary,
+        imageLink: imageUrl,
+        pdfLink: pdfUrl,
+      }),
     });
 
     if (!response.ok) {
