@@ -120,8 +120,8 @@ function Admin() {
     );
     console.log("PDF uploaded to:", pdfUrl);
 
-    formData.append('image', imageUrl);
-    formData.append('pdf', pdfUrl);
+    formData.append('imageLink', imageUrl);
+    formData.append('pdfLink', pdfUrl);
 
     const response = await authedFetch(apiUrl('/api/guides'), {
       method: 'POST',
