@@ -40,16 +40,13 @@ function normalizeGuideLinks(data: Record<string, any>) {
 export async function getAllGuidesController(req: Request, res: Response) {
     console.log("Fetching all guides...");
     try {
-    const snapshot = await admin.firestore().collection(FIRESTORE_COLLECTION).get();
-
-    const guides = snapshot.docs.map(doc => normalizeGuideLinks(doc.data()));
-
-    return res.status(200).json(guides);
-
-  } catch (e) {
-    console.error("Failed to fetch guides:", e);
-    return res.status(500).json({ error: "Internal server error" });
-  }
+        const snapshot = await admin.firestore().collection(FIRESTORE_COLLECTION).get();
+        const guides = snapshot.docs.map(doc => normalizeGuideLinks(doc.data()));
+        return res.status(200).json(guides);
+    } catch (e) {
+        console.error("Failed to fetch guides:", e);
+        return res.status(500).json({ error: "Internal server error" });
+    }
 }
 
 // GET guide by ID

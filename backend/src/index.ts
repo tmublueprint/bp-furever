@@ -5,7 +5,6 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import { getAllGuidesController, getGuideController, createGuideController, deleteGuideController, getGuideImageController, getGuidePdfController } from './controllers/guideController.js';
-import multer from 'multer';
 import { onRequest } from 'firebase-functions/v2/https';
 import { verifyAdmin } from './middleware/verifyAdmin.js';
 
