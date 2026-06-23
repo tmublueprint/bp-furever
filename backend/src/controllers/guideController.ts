@@ -38,8 +38,7 @@ function normalizeGuideLinks(data: Record<string, any>) {
 
 // GET all guides
 export async function getAllGuidesController(req: Request, res: Response) {
-    console.log("Fetching all guides...");
-    try {
+  try {
     const snapshot = await admin.firestore().collection(FIRESTORE_COLLECTION).get();
 
         const guides = snapshot.docs.map(doc => normalizeGuideLinks(doc.data()));
@@ -54,7 +53,6 @@ export async function getAllGuidesController(req: Request, res: Response) {
 
 // GET guide by ID
 export async function getGuideController(req: Request, res: Response) {
-    console.log("Fetching guide with ID:", req.params.guideID);
     try {
         const { guideID } = req.params;
 
@@ -84,11 +82,6 @@ export async function getGuideController(req: Request, res: Response) {
 
 // CREATE new guide
 export async function createGuideController(req: Request, res: Response) {
-    console.log("Creating/updating guide with data");
-    console.log("Creating/updating guide with data");
-    console.log("Content-Type:", req.headers["content-type"]);
-    console.log("Files:", req.files);
-    console.log("Body:", req.body);
     try {
         const { image, pdf } = req.files as {
             image?: Express.Multer.File[];
@@ -135,7 +128,6 @@ export async function createGuideController(req: Request, res: Response) {
 }
 
 export async function deleteGuideController(req: Request, res: Response) {
-    console.log("Deleting guide with ID:", req.params.guideID);
     try {
         const { guideID } = req.params;
 
@@ -159,7 +151,6 @@ export async function deleteGuideController(req: Request, res: Response) {
 }
 
 async function sendGuideAsset(req: Request, res: Response, assetType: 'image' | 'pdf') {
-    console.log(`Sending guide ${assetType} for guide ID:`, req.params.guideID);
     try {
         const { guideID } = req.params;
 

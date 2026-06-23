@@ -4,9 +4,11 @@ import AdminPDFPopup from '../../components/AdminPDFPopup/adminPDFPopup';
 import DeletePopup from '../../components/DeletePopup/DeletePopup';
 import Footer from '../../components/Footer/Footer';
 import PDFGallery, { type PDFGalleryItem } from '../../components/PDFGallery/PDFGallery';
+import { LogoutButton } from '../../components/AdminLogoutButton';
 import closeIcon from '../../assets/DeletePDFPopup/delete-pdf-remove.svg';
 import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
 import { uploadFile } from '../../firebase/firebaseApp';
+import { authedFetch } from '../../lib/authedFetch';
 import { apiUrl } from '../../lib/api';
 
 type AdminPdf = PDFGalleryItem & {
@@ -57,7 +59,7 @@ function Admin() {
     const loadGuides = async () => {
       try {
         console.log("Loading guides for admin page... attempting to fetch from:", apiUrl('/api/guides'));
-        const response = await fetch(apiUrl('/api/guides'));
+        const response = await authedFetch(apiUrl('/api/guides'));
 
         if (!response.ok) {
           throw new Error(await readErrorMessage(response, 'Failed to load guides.'));
@@ -119,20 +121,20 @@ function Admin() {
     );
     console.log("PDF uploaded to:", pdfUrl);
 
-    // const response = await fetch("https://us-central1-tmublueprint-furever.cloudfunctions.net/api/guides", {
-    //   method: 'POST',
-    //   body: formData,
-    // });
+    const response = await authedFetch('/api/guides', {
+      method: 'POST',
+      body: formData,
+    });
 
-    // if (!response.ok) {
-    //   throw new Error(await readErrorMessage(response, 'Failed to save the PDF.'));
-    // }
+    if (!response.ok) {
+      throw new Error(await readErrorMessage(response, 'Failed to save the PDF.'));
+    }
 
-    // const payload = (await response.json()) as { guide?: GuideRecord };
+    const payload = (await response.json()) as { guide?: GuideRecord };
 
-    // if (payload.guide) {
-    //   setPdfs((currentPdfs) => [createAdminPdf(payload.guide as GuideRecord), ...currentPdfs.filter((pdf) => pdf.id !== payload.guide?.guideID)]);
-    // }
+    if (payload.guide) {
+      setPdfs((currentPdfs) => [createAdminPdf(payload.guide as GuideRecord), ...currentPdfs.filter((pdf) => pdf.id !== payload.guide?.guideID)]);
+    }
 
     setStatusMessage('');
     setShowPDFPopup(false);
@@ -159,7 +161,7 @@ function Admin() {
       return Promise.resolve();
     }
 
-    return fetch(apiUrl(`/api/guides/${pdfPendingDelete.id}`), {
+    return authedFetch(apiUrl(`/api/guides/${pdfPendingDelete.id}`), {
       method: 'DELETE',
     }).then(async (response) => {
       if (!response.ok) {
@@ -176,7 +178,10 @@ function Admin() {
       <header className="admin-header">
         <div className="admin-header-content">
           <img className="admin-logo" src={fureverLogo} alt="Fur-Ever Wild Rehabilitation" />
-          <p className="admin-header-title">Admin Page</p>
+          <div className="admin-title-btn">
+            <p className="admin-header-title">Admin Page</p>
+            <LogoutButton></LogoutButton>
+          </div>
         </div>
       </header>
 
