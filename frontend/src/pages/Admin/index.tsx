@@ -96,8 +96,7 @@ function Admin() {
     const formData = new FormData();
     formData.append('postTitle', submission.postTitle);
     formData.append('postSummary', submission.postSummary);
-    formData.append('image', submission.imageFile);
-    formData.append('pdf', submission.pdfFile);
+    
 
     console.log("Submitting new guide with title:", submission.postTitle, "to:", apiUrl('/api/guides'));
     console.log("FormData entries:");
@@ -119,20 +118,23 @@ function Admin() {
     );
     console.log("PDF uploaded to:", pdfUrl);
 
-    // const response = await fetch("https://us-central1-tmublueprint-furever.cloudfunctions.net/api/guides", {
-    //   method: 'POST',
-    //   body: formData,
-    // });
+    formData.append('image', imageUrl);
+    formData.append('pdf', pdfUrl);
 
-    // if (!response.ok) {
-    //   throw new Error(await readErrorMessage(response, 'Failed to save the PDF.'));
-    // }
+    const response = await fetch(apiUrl('/api/guides'), {
+      method: 'POST',
+      body: formData,
+    });
 
-    // const payload = (await response.json()) as { guide?: GuideRecord };
+    if (!response.ok) {
+      throw new Error(await readErrorMessage(response, 'Failed to save the PDF.'));
+    }
 
-    // if (payload.guide) {
-    //   setPdfs((currentPdfs) => [createAdminPdf(payload.guide as GuideRecord), ...currentPdfs.filter((pdf) => pdf.id !== payload.guide?.guideID)]);
-    // }
+    const payload = (await response.json()) as { guide?: GuideRecord };
+
+    if (payload.guide) {
+      setPdfs((currentPdfs) => [createAdminPdf(payload.guide as GuideRecord), ...currentPdfs.filter((pdf) => pdf.id !== payload.guide?.guideID)]);
+    }
 
     setStatusMessage('');
     setShowPDFPopup(false);

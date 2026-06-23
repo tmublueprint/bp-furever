@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { createGuide, deleteGuide, getGuide } from "../services/guideService.js";
 import type { guideModel } from "../models/guideModel.js";
-import admin, { bucket } from "../firebase.js";
+import admin from "../firebase.js";
 
 
 const FIRESTORE_COLLECTION = "guides";
@@ -42,7 +42,7 @@ export async function getAllGuidesController(req: Request, res: Response) {
     try {
     const snapshot = await admin.firestore().collection(FIRESTORE_COLLECTION).get();
 
-        const guides = snapshot.docs.map(doc => normalizeGuideLinks(doc.data()));
+    const guides = snapshot.docs.map(doc => normalizeGuideLinks(doc.data()));
 
     return res.status(200).json(guides);
 
@@ -85,38 +85,22 @@ export async function getGuideController(req: Request, res: Response) {
 // CREATE new guide
 export async function createGuideController(req: Request, res: Response) {
     console.log("Creating/updating guide with data");
-    console.log("Creating/updating guide with data");
     console.log("Content-Type:", req.headers["content-type"]);
-    console.log("Files:", req.files);
     console.log("Body:", req.body);
     try {
-        const { image, pdf } = req.files as {
-            image?: Express.Multer.File[];
-            pdf?: Express.Multer.File[];
-        };
+        const { postTitle, postSummary, pdfLink, imageLink } = req.body;
 
-        const imageFile = image?.[0];
-        const pdfFile = pdf?.[0];
-
-        const { postTitle, postSummary } = req.body;
-
-        // Allow either uploaded files or existing links provided in the body
-        const imageLink = req.body.imageLink as string | undefined;
-        const pdfLink = req.body.pdfLink as string | undefined;
-
-        if (!imageFile && !imageLink) {
+        if (!imageLink) {
             return res.status(400).json({ error: 'Image file or imageLink is required' });
         }
 
-        if (!pdfFile && !pdfLink) {
+        if (!pdfLink) {
             return res.status(400).json({ error: 'PDF file or pdfLink is required' });
         }
 
         const guide: guideModel = await createGuide({
             postTitle,
             postSummary,
-            imageFile,
-            pdfFile,
             imageLink,
             pdfLink,
         }, FIRESTORE_COLLECTION);
@@ -168,22 +152,22 @@ async function sendGuideAsset(req: Request, res: Response, assetType: 'image' | 
         }
 
         const filePath = `guides/${guideID}/${assetType}`;
-        const fileRef = bucket.file(filePath);
-        const [exists] = await fileRef.exists();
+        // const fileRef = bucket.file(filePath);
+        // const [exists] = await fileRef.exists();
 
-        if (!exists) {
-            return res.status(404).json({ error: `${assetType} not found` });
-        }
+        // if (!exists) {
+        //     return res.status(404).json({ error: `${assetType} not found` });
+        // }
 
-        const [metadata] = await fileRef.getMetadata();
-        const [fileBuffer] = await fileRef.download();
+        // const [metadata] = await fileRef.getMetadata();
+        // const [fileBuffer] = await fileRef.download();
 
-        if (metadata.contentType) {
-            res.setHeader('Content-Type', metadata.contentType);
-        }
+        // if (metadata.contentType) {
+        //     res.setHeader('Content-Type', metadata.contentType);
+        // }
 
-        res.setHeader('Content-Length', fileBuffer.length);
-        return res.status(200).send(fileBuffer);
+        // res.setHeader('Content-Length', fileBuffer.length);
+        // return res.status(200).send(fileBuffer);
     } catch (e) {
         console.error(`Failed to send guide ${assetType}:`, e);
         return res.status(500).json({ error: 'Internal server error' });

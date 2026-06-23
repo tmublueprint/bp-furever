@@ -1,4 +1,3 @@
-import { bucket } from '../firebase.js'
 
 // wrappers for generic file upload func
 export function uploadImage(  
@@ -21,21 +20,22 @@ async function uploadFile(
   fileType: string
 ): Promise<string> {
   try {
-    const fileRef = bucket.file(destinationPath);
+    // const fileRef = bucket.file(destinationPath);
 
-    await fileRef.save(file.buffer, {
-      resumable: false,
-      metadata: {
-        contentType: fileType,
-      },
-    });
+    // await fileRef.save(file.buffer, {
+    //   resumable: false,
+    //   metadata: {
+    //     contentType: fileType,
+    //   },
+    // });
 
-    await fileRef.makePublic();
+    // await fileRef.makePublic();
 
-    const publicUrl = `https://storage.googleapis.com/${bucket.name}/${destinationPath}`;
+    // const publicUrl = `https://storage.googleapis.com/${bucket.name}/${destinationPath}`;
 
-    console.log("Uploaded PDF to:", publicUrl);
-    return publicUrl;
+    // console.log("Uploaded PDF to:", publicUrl);
+    // return publicUrl;
+    return "broken";
 
   } catch (e) {
     console.error("Storage upload failed:", e);
@@ -48,10 +48,11 @@ export function guideAssetPath(guideID: string, assetType: 'image' | 'pdf') {
 }
 
 export async function deleteGuideAsset(destinationPath: string): Promise<void> {
-  const fileRef = bucket.file(destinationPath);
-  const [exists] = await fileRef.exists();
+  // const fileRef = bucket.file(destinationPath);
+  // const [exists] = await fileRef.exists();
 
-  if (exists) {
-    await fileRef.delete();
-  }
+  // if (exists) {
+  //   await fileRef.delete();
+  // }
+  
 }
