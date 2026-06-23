@@ -123,7 +123,7 @@ function Admin() {
     formData.append('image', imageUrl);
     formData.append('pdf', pdfUrl);
 
-    const response = await authedFetch('/api/guides', {
+    const response = await authedFetch(apiUrl('/api/guides'), {
       method: 'POST',
       body: formData,
     });
