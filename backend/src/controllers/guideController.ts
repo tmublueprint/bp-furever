@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
 import { createGuide, deleteGuide, getGuide } from "../services/guideService.js";
 import type { guideModel } from "../models/guideModel.js";
-import admin from "../firebase.js";
-
+import admin, { bucket } from "../firebase.js"; 
 
 const FIRESTORE_COLLECTION = "guides";
 
@@ -149,22 +148,22 @@ async function sendGuideAsset(req: Request, res: Response, assetType: 'image' | 
         }
 
         const filePath = `guides/${guideID}/${assetType}`;
-        // const fileRef = bucket.file(filePath);
-        // const [exists] = await fileRef.exists();
+        const fileRef = bucket.file(filePath);
+        const [exists] = await fileRef.exists();
 
-        // if (!exists) {
-        //     return res.status(404).json({ error: `${assetType} not found` });
-        // }
+        if (!exists) {
+            return res.status(404).json({ error: `${assetType} not found` });
+        }
 
-        // const [metadata] = await fileRef.getMetadata();
-        // const [fileBuffer] = await fileRef.download();
+        const [metadata] = await fileRef.getMetadata();
+        const [fileBuffer] = await fileRef.download();
 
-        // if (metadata.contentType) {
-        //     res.setHeader('Content-Type', metadata.contentType);
-        // }
+        if (metadata.contentType) {
+            res.setHeader('Content-Type', metadata.contentType);
+        }
 
-        // res.setHeader('Content-Length', fileBuffer.length);
-        // return res.status(200).send(fileBuffer);
+        res.setHeader('Content-Length', fileBuffer.length);
+        return res.status(200).send(fileBuffer);
     } catch (e) {
         console.error(`Failed to send guide ${assetType}:`, e);
         return res.status(500).json({ error: 'Internal server error' });
