@@ -32,10 +32,10 @@ type AdminPdfSubmission = {
 
 const createAdminPdf = (guide: GuideRecord): AdminPdf => ({
   id: guide.guideID,
-  image: guide.imageLink,
+  image: apiUrl(guide.imageLink),
   title: guide.postTitle,
   summary: guide.postSummary,
-  link: guide.pdfLink,
+  link: apiUrl(guide.pdfLink),
 });
 
 const readErrorMessage = async (response: Response, fallbackMessage: string) => {
