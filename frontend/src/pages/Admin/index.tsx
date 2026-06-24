@@ -100,12 +100,12 @@ function Admin() {
     console.log("Submitting new guide with title:", submission.postTitle, "to:", apiUrl('/api/guides'));
     const imageUrl = await uploadFile(
       submission.imageFile,
-      `guides/${Date.now()}_image`
+      `guides/${Date.now()}/image`
     );
     console.log("Image uploaded to:", imageUrl);
     const pdfUrl = await uploadFile(
       submission.pdfFile,
-      `guides/${Date.now()}_pdf`
+      `guides/${Date.now()}/pdf`
     );
     console.log("PDF uploaded to:", pdfUrl);
 

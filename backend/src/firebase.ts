@@ -6,11 +6,11 @@ if (!admin.apps.length) {
     // firebase-admin reads those env vars automatically.
     admin.initializeApp({ 
       projectId: process.env.GCLOUD_PROJECT || 'tmublueprint-furever',
-      storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+      storageBucket: process.env.FIREBASE_STORAGE_BUCKET || "tmublueprint-furever.firebasestorage.app",
     } as any);
   } else {
     admin.initializeApp({
-      storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+      storageBucket: process.env.FIREBASE_STORAGE_BUCKET || "tmublueprint-furever.firebasestorage.app",
     }); // uses Application Default Credentials in Cloud Functions
   }
 }

@@ -150,6 +150,7 @@ async function sendGuideAsset(req: Request, res: Response, assetType: 'image' | 
         const filePath = `guides/${guideID}/${assetType}`;
         const fileRef = bucket.file(filePath);
         const [exists] = await fileRef.exists();
+        console.log(`File path: ${filePath}, fileRef: ${fileRef}, Exists: ${exists}`);
 
         if (!exists) {
             return res.status(404).json({ error: `${assetType} not found` });
