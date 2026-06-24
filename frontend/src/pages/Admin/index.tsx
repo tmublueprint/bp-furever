@@ -10,6 +10,7 @@ import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
 import { uploadFile } from '../../firebase/firebaseApp';
 import { authedFetch } from '../../lib/authedFetch';
 import { apiUrl } from '../../lib/api';
+import { storageUrl } from '../../lib/storageUrl';
 
 type AdminPdf = PDFGalleryItem & {
   id: string;
@@ -32,10 +33,10 @@ type AdminPdfSubmission = {
 
 const createAdminPdf = (guide: GuideRecord): AdminPdf => ({
   id: guide.guideID,
-  image: apiUrl(guide.imageLink),
+  image: storageUrl(guide.imageLink),
   title: guide.postTitle,
   summary: guide.postSummary,
-  link: apiUrl(guide.pdfLink),
+  link: storageUrl(guide.pdfLink),
 });
 
 const readErrorMessage = async (response: Response, fallbackMessage: string) => {
