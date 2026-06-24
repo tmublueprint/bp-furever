@@ -27,10 +27,12 @@ export async function createGuide(
   },
   firestoreCollection: string
 ) {
+  console.log("guideId",data.guideID);
   const guideRef = data.guideID
     ? admin.firestore().collection(firestoreCollection).doc(data.guideID)
     : admin.firestore().collection(firestoreCollection).doc();
   const guideID = guideRef.id;
+  console.log("Guide ID is now:", guideID);
   try {
     const guide: guideModel = {
       guideID,

@@ -100,12 +100,12 @@ function Admin() {
     const guideId = Date.now().toString(); // Generate a unique guide ID based on the current timestamp
     const imageUrl = await uploadFile(
       submission.imageFile,
-      `guides/image/${guideId}`
+      `guides/${guideId}/image`
     );
     console.log("Image uploaded to:", imageUrl);
     const pdfUrl = await uploadFile(
       submission.pdfFile,
-      `guides/pdf/${guideId}`
+      `guides/${guideId}/pdf`
     );
     console.log("PDF uploaded to:", pdfUrl);
 
