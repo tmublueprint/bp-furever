@@ -10,7 +10,6 @@ import fureverLogo from '../../assets/NavBar/fureverLogo.svg';
 import { uploadFile } from '../../firebase/firebaseApp';
 import { authedFetch } from '../../lib/authedFetch';
 import { apiUrl } from '../../lib/api';
-import { storageUrl } from '../../lib/storageUrl';
 
 type AdminPdf = PDFGalleryItem & {
   id: string;
