@@ -17,5 +17,10 @@ if (!admin.apps.length) {
 
 export const db = admin.firestore();
 export const bucket = admin.storage().bucket();
+console.log("Bucket name:", bucket.name);
+
+bucket.getFiles().then(([files]) => {
+  console.log(files.map(f => f.name));
+});
 export const auth = admin.auth();
 export default admin;

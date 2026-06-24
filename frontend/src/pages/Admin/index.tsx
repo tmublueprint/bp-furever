@@ -97,14 +97,15 @@ function Admin() {
 
   const handleCreatePdf = async (submission: AdminPdfSubmission) => {
     console.log("Submitting new guide with title:", submission.postTitle, "to:", apiUrl('/api/guides'));
+    const guideId = Date.now().toString(); // Generate a unique guide ID based on the current timestamp
     const imageUrl = await uploadFile(
       submission.imageFile,
-      `guides/${Date.now()}/image`
+      `guides/image/${guideId}`
     );
     console.log("Image uploaded to:", imageUrl);
     const pdfUrl = await uploadFile(
       submission.pdfFile,
-      `guides/${Date.now()}/pdf`
+      `guides/pdf/${guideId}`
     );
     console.log("PDF uploaded to:", pdfUrl);
 
@@ -114,6 +115,7 @@ function Admin() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
+        guideID: guideId,
         postTitle: submission.postTitle,
         postSummary: submission.postSummary,
         imageLink: imageUrl,
