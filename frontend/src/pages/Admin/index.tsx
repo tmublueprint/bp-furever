@@ -67,7 +67,6 @@ function Admin() {
 
         const guides = (await response.json()) as GuideRecord[];
         console.log("Successfully loaded guides:", guides);
-        console.log("check", apiUrl(guides[1].imageLink));
         setPdfs(guides.map(createAdminPdf));
         setStatusMessage('');
       } catch (error) {
