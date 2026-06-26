@@ -6,16 +6,21 @@ if (!admin.apps.length) {
     // firebase-admin reads those env vars automatically.
     admin.initializeApp({ 
       projectId: process.env.GCLOUD_PROJECT || 'tmublueprint-furever',
-      storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+      storageBucket: process.env.FIREBASE_STORAGE_BUCKET || "tmublueprint-furever.firebasestorage.app",
     } as any);
   } else {
     admin.initializeApp({
-      storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+      storageBucket: process.env.FIREBASE_STORAGE_BUCKET || "tmublueprint-furever.firebasestorage.app",
     }); // uses Application Default Credentials in Cloud Functions
   }
 }
 
 export const db = admin.firestore();
 export const bucket = admin.storage().bucket();
+console.log("Bucket name:", bucket.name);
+
+bucket.getFiles().then(([files]) => {
+  console.log(files.map(f => f.name));
+});
 export const auth = admin.auth();
 export default admin;

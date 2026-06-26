@@ -7,6 +7,7 @@ import wildlife from "../../assets/pdf/Relocating Wildlife Doesn't Work.pdf";
 import property from '../../assets/pdf/Wildlife proofing your property A checklist for your home - Oakville.pdf';
 import wildlifeProofingImage from '../../assets/pdf/wildlife-proofing.png';
 import relocatingWildlifeImage from '../../assets/pdf/relocating-wildlife.png';
+import { apiUrl } from '../../lib/api';
 
 export const pdfData = [
   {
@@ -50,7 +51,8 @@ function Education() {
   useEffect(() => {
     const loadGuides = async () => {
       try {
-        const response = await fetch('/api/guides');
+        console.log("Loading guides for education page... attempting to fetch from:", apiUrl('/api/guides'));
+        const response = await fetch(apiUrl('/api/guides'));
 
         if (!response.ok) {
           throw new Error(`Failed to load guides: ${response.status}`);

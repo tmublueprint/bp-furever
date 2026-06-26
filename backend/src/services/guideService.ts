@@ -22,53 +22,24 @@ export async function createGuide(
     guideID?: string;
     postTitle: string;
     postSummary: string;
-    imageFile?: Express.Multer.File;
-    pdfFile?: Express.Multer.File;
-    imageLink?: string;
-    pdfLink?: string;
+    imageLink: string;
+    pdfLink: string;
   },
   firestoreCollection: string
 ) {
+  console.log("guideId",data.guideID);
   const guideRef = data.guideID
     ? admin.firestore().collection(firestoreCollection).doc(data.guideID)
     : admin.firestore().collection(firestoreCollection).doc();
   const guideID = guideRef.id;
-
-  const shouldUseBackendRoute = (link?: string) => {
-    if (!link) {
-      return false;
-    }
-
-    return link.includes('storage.googleapis.com') || link.includes('firebasestorage.googleapis.com');
-  };
-
+  console.log("Guide ID is now:", guideID);
   try {
-    const imageLink = data.imageFile
-      ? await uploadImage(data.imageFile, guideAssetPath(guideID, 'image'))
-      : data.imageLink?.trim();
-
-    const pdfLink = data.pdfFile
-      ? await uploadPDF(data.pdfFile, guideAssetPath(guideID, 'pdf'))
-      : data.pdfLink?.trim();
-
-    if (!imageLink) {
-      throw new Error('Image is required');
-    }
-
-    if (!pdfLink) {
-      throw new Error('PDF link or file is required');
-    }
-
     const guide: guideModel = {
       guideID,
       postTitle: data.postTitle,
       postSummary: data.postSummary,
-      imageLink: data.imageFile || shouldUseBackendRoute(imageLink)
-        ? `/api/guides/${guideID}/image`
-        : imageLink ?? `/api/guides/${guideID}/image`,
-      pdfLink: data.pdfFile || shouldUseBackendRoute(pdfLink)
-        ? `/api/guides/${guideID}/pdf`
-        : pdfLink ?? `/api/guides/${guideID}/pdf`,
+      imageLink: data.imageLink,
+      pdfLink: data.pdfLink,
     };
 
     await guideRef.set(guide);

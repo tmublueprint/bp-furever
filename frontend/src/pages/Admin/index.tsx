@@ -32,10 +32,10 @@ type AdminPdfSubmission = {
 
 const createAdminPdf = (guide: GuideRecord): AdminPdf => ({
   id: guide.guideID,
-  image: guide.imageLink,
+  image: apiUrl(guide.imageLink),
   title: guide.postTitle,
   summary: guide.postSummary,
-  link: guide.pdfLink,
+  link: apiUrl(guide.pdfLink),
 });
 
 const readErrorMessage = async (response: Response, fallbackMessage: string) => {
@@ -66,6 +66,7 @@ function Admin() {
         }
 
         const guides = (await response.json()) as GuideRecord[];
+        console.log("Successfully loaded guides:", guides);
         setPdfs(guides.map(createAdminPdf));
         setStatusMessage('');
       } catch (error) {
@@ -95,35 +96,31 @@ function Admin() {
   };
 
   const handleCreatePdf = async (submission: AdminPdfSubmission) => {
-    const formData = new FormData();
-    formData.append('postTitle', submission.postTitle);
-    formData.append('postSummary', submission.postSummary);
-    formData.append('image', submission.imageFile);
-    formData.append('pdf', submission.pdfFile);
-
     console.log("Submitting new guide with title:", submission.postTitle, "to:", apiUrl('/api/guides'));
-    console.log("FormData entries:");
-    for (const [key, value] of formData.entries()) {
-      if (value instanceof File) {
-        console.log(`- ${key}: File name=${value.name}, size=${value.size} bytes, type=${value.type}`);
-      } else {
-        console.log(`- ${key}: ${value}`);
-      }
-    }
+    const guideId = Date.now().toString(); // Generate a unique guide ID based on the current timestamp
     const imageUrl = await uploadFile(
       submission.imageFile,
-      `guides/${Date.now()}_image`
+      `guides/${guideId}/image`
     );
     console.log("Image uploaded to:", imageUrl);
     const pdfUrl = await uploadFile(
       submission.pdfFile,
-      `guides/${Date.now()}_pdf`
+      `guides/${guideId}/pdf`
     );
     console.log("PDF uploaded to:", pdfUrl);
 
-    const response = await authedFetch('/api/guides', {
+    const response = await authedFetch(apiUrl('/api/guides'), {
       method: 'POST',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        guideID: guideId,
+        postTitle: submission.postTitle,
+        postSummary: submission.postSummary,
+        imageLink: imageUrl,
+        pdfLink: pdfUrl,
+      }),
     });
 
     if (!response.ok) {

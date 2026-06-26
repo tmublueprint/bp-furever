@@ -13,5 +13,9 @@ export function apiUrl(path: string) {
     return `${apiBaseUrl}${normalizedPath.slice(4)}`;
   }
 
+  if(normalizedPath.startsWith('/api') && rawApiBaseUrl == 'http://localhost:3003') {
+    return `${apiBaseUrl}${normalizedPath.slice(4)}`;
+  }
+
   return `${apiBaseUrl}${normalizedPath}`;
 }
