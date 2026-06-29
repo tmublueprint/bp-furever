@@ -84,7 +84,7 @@ export async function createGuideController(req: Request, res: Response) {
     console.log("Content-Type:", req.headers["content-type"]);
     console.log("Body:", req.body);
     try {
-        const { postTitle, postSummary, pdfLink, imageLink } = req.body;
+        const { postTitle, postSummary, pdfLink, imageLink, guideID } = req.body;
 
         if (!imageLink) {
             return res.status(400).json({ error: 'Image file or imageLink is required' });
@@ -95,6 +95,7 @@ export async function createGuideController(req: Request, res: Response) {
         }
 
         const guide: guideModel = await createGuide({
+            guideID,
             postTitle,
             postSummary,
             imageLink,
