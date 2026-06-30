@@ -1,3 +1,4 @@
+// unused, due to not looking good.
 import './style.css';
 import NavBar from '../../components/NavBar/NavBar';
 import Footer from '../../components/Footer/Footer';

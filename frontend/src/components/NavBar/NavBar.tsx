@@ -32,8 +32,8 @@ function NavBar() {
           <NavLink to="/" className={({ isActive }) => isActive ? "active" : ""}>Home</NavLink>
           <NavLink to="/education" className={({ isActive }) => isActive ? "active" : ""}>Education</NavLink>
           <NavLink to="/volunteer" className={({ isActive }) => isActive ? "active" : ""}>Volunteer</NavLink>
-          <NavLink to="/facebook" className={({ isActive }) => isActive ? "active" : ""}>Facebook</NavLink>
-          <NavLink to="/contact-us" className={({ isActive }) => isActive ? "active" : ""}>Contact Us</NavLink>
+          {/* <NavLink to="/facebook" className={({ isActive }) => isActive ? "active" : ""}>Facebook</NavLink> */}
+          <NavLink to="https://www.facebook.com/FEVRWR/" className={({ isActive }) => isActive ? "active" : ""}>Facebook</NavLink>
         </div>
       </nav>
     </header>
