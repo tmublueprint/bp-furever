@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Admin from './pages/Admin';
-import Facebook from './pages/Facebook';
+// import Facebook from './pages/Facebook';
 import FoundAnimal from './pages/FoundAnimal';
 import Education from './pages/Education';
 import Landing from './pages/LandingPage';
