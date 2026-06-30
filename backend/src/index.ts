@@ -12,8 +12,8 @@ import { verifyAdmin } from './middleware/verifyAdmin.js';
 const app = express();
 const PORT = process.env.PORT || 3003;
 
-app.use(helmet());
-app.use(cors());
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" })); 
+app.use(cors({origin: true})); // replace with frontend URL later
 app.use(express.json());
 
 

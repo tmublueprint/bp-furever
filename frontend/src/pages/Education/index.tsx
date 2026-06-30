@@ -8,6 +8,7 @@ import property from '../../assets/pdf/Wildlife proofing your property A checkli
 import wildlifeProofingImage from '../../assets/pdf/wildlife-proofing.png';
 import relocatingWildlifeImage from '../../assets/pdf/relocating-wildlife.png';
 import { apiUrl } from '../../lib/api';
+import { authedFetch } from '../../lib/authedFetch';
 
 export const pdfData = [
   {
@@ -40,10 +41,10 @@ function Education() {
   const [error, setError] = useState('');
   const firestoreGuides = guides.map((guide) => ({
     guideID: guide.guideID,
-    image: guide.imageLink,
+    image: apiUrl(guide.imageLink),
     title: guide.postTitle,
     summary: guide.postSummary,
-    link: guide.pdfLink,
+    link: apiUrl(guide.pdfLink),
   }));
   // const pdfList = firestoreGuides.length > 0 ? firestoreGuides : pdfData;
   const pdfList = firestoreGuides;
@@ -52,7 +53,8 @@ function Education() {
     const loadGuides = async () => {
       try {
         console.log("Loading guides for education page... attempting to fetch from:", apiUrl('/api/guides'));
-        const response = await fetch(apiUrl('/api/guides'));
+        const response = await authedFetch(apiUrl('/api/guides'));
+        // const response = await fetch(apiUrl('/api/guides'));
 
         if (!response.ok) {
           throw new Error(`Failed to load guides: ${response.status}`);

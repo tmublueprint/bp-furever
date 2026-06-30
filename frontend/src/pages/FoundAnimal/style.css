@@ -14,7 +14,7 @@
     color: var(--color-heading-dark-green);
     font-size: var(--font-size-heading-zero);
     font-weight: 600;
-    margin: 146px 0 30px 0;
+    margin: 146px auto 30px;
 }
 
 .page-desc {
@@ -40,6 +40,7 @@
 .help-tips-container h2 {
     color: #132F27;
     font-weight: 600;
+    margin-left: 100px;
 }
 
 .help-svgs {
@@ -94,12 +95,14 @@
     font-size: var(--font-size-heading-one);
     text-transform: capitalize;
     color: var(--color-heading-dark-green);
+    margin-bottom: 30px;
 }
 
 .select-animal {
     margin-top: 200px;
     display: grid;
     align-items: center;
+    margin: 50px;
 }
 
 .select-animal h1 {

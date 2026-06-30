@@ -16,17 +16,17 @@ function HowFurEverHelps() {
                     <div className="furever-helps-card">
                         <img id="leaf" src={leaf} alt="leaf icon" aria-hidden = "true"></img>
                         <h3>Wildlife Education</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu </p>
+                        <p>Explore our collection of guides to learn about wildlife and how you affect it.</p>
                     </div>
                     <div className="furever-helps-card">
                         <img id="handshake" src={handshake} alt="handshaking icon" aria-hidden = "true"></img>
                         <h3>Guidance & Support</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu </p>
+                        <p>Receive guidance on how to handle wildlife when you call us.</p>
                     </div>
                     <div className="furever-helps-card">
                         <img id="group" src={group} alt="group icon" aria-hidden = "true"></img>
                         <h3>Community Awareness</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu </p>
+                        <p>We aspire to ensure our community knows more about the wildlife that surrounds them.</p>
                     </div>
                 </div>
             </div>
