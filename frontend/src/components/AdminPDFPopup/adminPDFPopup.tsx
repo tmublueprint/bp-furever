@@ -183,7 +183,6 @@ function AdminPDFPopup({ visible, onClose, onSubmit }: AdminPDFPopupProps) {
                             id="admin-pdf-input"
                             className="file-input"
                             type="file"
-                            accept="application/pdf"
                             onChange={handlePdfFileChange}
                         />
                     </label>
