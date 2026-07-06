@@ -4,6 +4,7 @@ export const apiBaseUrl = rawApiBaseUrl ? rawApiBaseUrl.replace(/\/$/, '') : '';
 
 export function apiUrl(path: string) {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  if(normalizedPath.includes('https://firebasestorage.googleapis.com')) return normalizedPath;
 
   if (!apiBaseUrl) {
     return normalizedPath;
