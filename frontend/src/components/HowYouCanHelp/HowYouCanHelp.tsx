@@ -3,6 +3,7 @@
 // ^ May be required later
 import './HowYouCanHelp.css';
 import imagePlaceholder from '../../assets/HowYouCanHelp/how-you-can-help-card.svg'; 
+import volunteers from "../../assets/HowYouCanHelp/volunteers.jpg";
 
 
 
@@ -13,15 +14,15 @@ function HowYouCanHelp() {
 
         <div id="how-you-can-help">
             <div className="images">
-                <img src={imagePlaceholder} alt="placeholder" aria-hidden = "true"></img>
+                <div style={{backgroundImage: `url(${volunteers})`, backgroundSize: `cover`}} aria-hidden = "true"></div>
                 <button className='how-you-can-help-btn-text'><p>Volunteer With Us</p></button>
             </div>
             <div className="images">
-                <img src={imagePlaceholder} alt="placeholder" aria-hidden = "true" ></img>
+                <div style={{backgroundImage: `url(${imagePlaceholder})`, backgroundSize: `cover`}} aria-hidden = "true" ></div>
                 <button className='how-you-can-help-btn-text'><p>Learn More</p></button>
             </div>
             <div className="images">
-                <img src={imagePlaceholder} alt="placeholder" aria-hidden = "true"></img>
+                <div style={{backgroundImage: `url(${imagePlaceholder})`, backgroundSize: `cover`}} aria-hidden = "true"></div>
                 <button className='how-you-can-help-btn-text'><p>Follow Our Facebook</p></button>
 
             </div>

@@ -7,6 +7,7 @@ import leaf from "../../assets//HowFurEverHelps/leaf-icon.svg";
 import handshake from "../../assets/HowFurEverHelps/handshake-icon.svg";
 import group from "../../assets/HowFurEverHelps/group-icon.svg";
 
+
 function HowFurEverHelps() {
     return (
         <>

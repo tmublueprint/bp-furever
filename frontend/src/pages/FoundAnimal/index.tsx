@@ -6,8 +6,16 @@ import Tip2 from '../../assets/FoundAnimal/help-tip-2.svg';
 import Tip3 from '../../assets/FoundAnimal/help-tip-3.svg'; 
 import Tip4 from '../../assets/FoundAnimal/help-tip-4.svg'; 
 import Tip5 from '../../assets/FoundAnimal/help-tip-5.svg'; 
+import babyRacconsLitter from '../../assets/FoundAnimal/images/babyRaccoonsLitter.jpg';
+import babyRedSquirrel from '../../assets/FoundAnimal/images/babyRedSquirrel.jpg';
+import babySkunk from '../../assets/FoundAnimal/images/babySkunk.jpg';
+import fawn from '../../assets/FoundAnimal/images/fawn.jpg';
+import juvenileBunny from '../../assets/FoundAnimal/images/juvenileBunny.jpg';
+import foundABabyFawn from '../../assets/FoundAnimal/guides/You Found a Baby Fawn.pdf';
+import foundABabyRabbit from '../../assets/FoundAnimal/guides/You Found a Baby Rabbit.pdf';
+import foundABabySkunk from '../../assets/FoundAnimal/guides/You Found a Baby Skunk.pdf';
+
 import AnimalBox from '../../components/AnimalBox/AnimalBox';
-import Example from '../../assets/deer-example.svg';
 
 
 function FoundAnimal() {
@@ -75,13 +83,13 @@ function FoundAnimal() {
           <h2 className="section-header">Select The Animal You Found</h2>
           <div className="cards">
             <div className="left">
-                <AnimalBox label="Squirrel"/>
-                <AnimalBox label="Rabbit"/>
-                <AnimalBox label="Fawn" image={Example}/>
+                <AnimalBox label="Squirrel" image={babyRedSquirrel} />
+                <AnimalBox label="Rabbit" image={juvenileBunny} hyperlink={foundABabyRabbit}/>
+                <AnimalBox label="Fawn" image={fawn} hyperlink={foundABabyFawn}/>
             </div>
             <div className="right">
-              <AnimalBox label="Raccoon"/>
-              <AnimalBox label="Skunk"/>
+              <AnimalBox label="Raccoon" image={babyRacconsLitter}/>
+              <AnimalBox label="Skunk" image={babySkunk} hyperlink={foundABabySkunk}/>
             </div>
           </div>
         </section>

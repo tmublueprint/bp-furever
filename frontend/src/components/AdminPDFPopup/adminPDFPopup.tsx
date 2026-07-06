@@ -176,14 +176,13 @@ function AdminPDFPopup({ visible, onClose, onSubmit }: AdminPDFPopupProps) {
                         <div className="font-card-text">
                             <h3 style={{ fontSize: '1.5em', fontWeight: '400', margin: '0' }}>Choose a PDF file</h3>
                             <h3 style={{ fontSize: 'var(--font-size-paragraph)', fontWeight: '400', margin: '0' }}>
-                                {pdfFile ? pdfFile.name : "Only PDF's are supported."}
+                                {pdfFile ? pdfFile.name : "PDFs and other files are supported!"}
                             </h3>
                         </div>
                         <input
                             id="admin-pdf-input"
                             className="file-input"
                             type="file"
-                            accept="application/pdf"
                             onChange={handlePdfFileChange}
                         />
                     </label>
