@@ -23,6 +23,14 @@
     border-radius: 10px;
 }
 
+#guideExample {
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+}
+
 .images button {
     width: 250px;
 }

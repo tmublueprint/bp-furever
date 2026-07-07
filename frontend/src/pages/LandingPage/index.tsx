@@ -122,7 +122,7 @@ function LandingPage() {
                 <p className="headingThree" style={{fontWeight: "bold"}}>We are not a removal service.</p>
                 <div id="certification-label"> 
                   <img src={licenseCheck} alt="licensed check icon"/>
-                  <p>Trained in wildlife behaviour & management</p>
+                  <p>Trained in wildlife behavior, management and conflict. Licensed by Ontario's Ministry of Natural Resources & Forestry.</p>
                 </div>
               </div>
 

@@ -22,12 +22,12 @@ function HowFurEverHelps() {
                     <div className="furever-helps-card">
                         <img id="handshake" src={handshake} alt="handshaking icon" aria-hidden = "true"></img>
                         <h3>Guidance & Support</h3>
-                        <p>Receive guidance on how to handle wildlife when you call us.</p>
+                        <p>We provide humane alternatives, behavior interpretation, & conflict assistance</p>
                     </div>
                     <div className="furever-helps-card">
                         <img id="group" src={group} alt="group icon" aria-hidden = "true"></img>
-                        <h3>Community Awareness</h3>
-                        <p>We aspire to ensure our community knows more about the wildlife that surrounds them.</p>
+                        <h3>Awareness</h3>
+                        <p>Helping you understand the wildlife around you and when to intervene.</p>
                     </div>
                 </div>
             </div>
