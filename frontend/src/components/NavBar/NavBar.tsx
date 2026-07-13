@@ -1,14 +1,27 @@
 
 import { NavLink } from "react-router-dom";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import fureverLogo from '../../assets/NavBar/fureverLogo.svg'; 
+import fureverIcon from '../../assets/NavBar/fureverIcon.svg'; 
 import hamburgerMenuPlaceHolder from '../../assets/NavBar/hamburger_menu.svg'; 
 import xIcon from '../../assets/NavBar/x-icon.svg'; 
 import './NavBar.css';
 
 
 function NavBar() {
+  useEffect(() => {
+    document.title = "Fur-Ever Wild Rehabilitation";
 
+    let link = document.querySelector("link[rel='icon']") as HTMLLinkElement | null;
+
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "icon";
+      document.head.appendChild(link);
+    }
+
+    link.href = fureverIcon;
+  }, []);
 
   const [hideMenu, setHideMenu] = useState(true);
 

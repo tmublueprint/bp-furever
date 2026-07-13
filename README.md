@@ -33,7 +33,7 @@ For development you can also use `npm run dev` (better because you can see real 
 
 ### Access Points
 - **Frontend**: http://localhost:3004
-- **Backend**: http://localhost:3003/api/health
+- **Backend**: http://localhost:3003
 
 ## Development Workflow
 
@@ -104,7 +104,11 @@ bp-furever/
 3. Start development (`docker compose up --build` or `npm run dev`)
 4. Make changes (hot reload handles updates)
 5. Commit and push
+6. Push backend/firebase changes to PROD using `firebase deploy`
+7. Push frontend changes to PROD by merging to main
+
+## Notes
+Backend is currently not functional in local, frontend is.
 
 ## License
-
 MIT

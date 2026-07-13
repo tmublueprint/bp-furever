@@ -1,3 +1,4 @@
+import { bucket } from "../firebase.js";
 
 // wrappers for generic file upload func
 export function uploadImage(  
@@ -48,11 +49,11 @@ export function guideAssetPath(guideID: string, assetType: 'image' | 'pdf') {
 }
 
 export async function deleteGuideAsset(destinationPath: string): Promise<void> {
-  // const fileRef = bucket.file(destinationPath);
-  // const [exists] = await fileRef.exists();
+  const fileRef = bucket.file(destinationPath);
+  const [exists] = await fileRef.exists();
 
-  // if (exists) {
-  //   await fileRef.delete();
-  // }
+  if (exists) {
+    await fileRef.delete();
+  }
   
 }
