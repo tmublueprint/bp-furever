@@ -35,7 +35,7 @@ function NavBar() {
         <img src={fureverLogo} id="furever-logo" alt="furever-logo" style={{height: "90px"}}/>
         
         { hideMenu && <a id="hamburger-menu-wrapper" onClick={handleMenuClick}>
-          <img src={hamburgerMenuPlaceHolder} id="hamburger-menu" alt="hamburger-menu"/>
+          <img src={hamburgerMenuPlaceHolder} id="hamburger-menu" alt="hamburger-menu"/> 
         </a>}
 
         <div className={hideMenu ? "navlink-container" : "navlink-container show-side-menu"} id="navlink-container">
