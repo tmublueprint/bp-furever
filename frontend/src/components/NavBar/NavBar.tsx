@@ -35,7 +35,7 @@ function NavBar() {
         <img src={fureverLogo} id="furever-logo" alt="furever-logo" style={{height: "90px"}}/>
         
         { hideMenu && <a id="hamburger-menu-wrapper" onClick={handleMenuClick}>
-          <img src={hamburgerMenuPlaceHolder} id="hamburger-menu" alt="hamburger-menu"/>
+          <img src={hamburgerMenuPlaceHolder} id="hamburger-menu" alt="hamburger-menu"/> 
         </a>}
 
         <div className={hideMenu ? "navlink-container" : "navlink-container show-side-menu"} id="navlink-container">
@@ -46,6 +46,7 @@ function NavBar() {
           <NavLink to="/education" className={({ isActive }) => isActive ? "active" : ""}>Education</NavLink>
           <NavLink to="/volunteer" className={({ isActive }) => isActive ? "active" : ""}>Volunteer</NavLink>
           {/* <NavLink to="/facebook" className={({ isActive }) => isActive ? "active" : ""}>Facebook</NavLink> */}
+          <NavLink to="/foundAnAnimal" className={({ isActive }) => isActive ? "active" : ""}>Found An Animal</NavLink>
           <NavLink to="https://www.facebook.com/FEVRWR/" className={({ isActive }) => isActive ? "active" : ""}>Facebook</NavLink>
         </div>
       </nav>
