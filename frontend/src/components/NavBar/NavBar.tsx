@@ -46,6 +46,7 @@ function NavBar() {
           <NavLink to="/education" className={({ isActive }) => isActive ? "active" : ""}>Education</NavLink>
           <NavLink to="/volunteer" className={({ isActive }) => isActive ? "active" : ""}>Volunteer</NavLink>
           {/* <NavLink to="/facebook" className={({ isActive }) => isActive ? "active" : ""}>Facebook</NavLink> */}
+          <NavLink to="/foundAnAnimal" className={({ isActive }) => isActive ? "active" : ""}>Found An Animal</NavLink>
           <NavLink to="https://www.facebook.com/FEVRWR/" className={({ isActive }) => isActive ? "active" : ""}>Facebook</NavLink>
         </div>
       </nav>

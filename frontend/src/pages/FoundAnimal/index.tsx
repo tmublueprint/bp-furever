@@ -6,7 +6,7 @@ import Tip2 from '../../assets/FoundAnimal/help-tip-2.svg';
 import Tip3 from '../../assets/FoundAnimal/help-tip-3.svg'; 
 import Tip4 from '../../assets/FoundAnimal/help-tip-4.svg'; 
 import Tip5 from '../../assets/FoundAnimal/help-tip-5.svg'; 
-import babyRacconsLitter from '../../assets/FoundAnimal/images/babyRaccoonsLitter.jpg';
+import babyRacconsLitter from '../../assets/FoundAnimal/images/babyRaccoon.jpg';
 import babyRedSquirrel from '../../assets/FoundAnimal/images/babyRedSquirrel.jpg';
 import babySkunk from '../../assets/FoundAnimal/images/babySkunk.jpg';
 import fawn from '../../assets/FoundAnimal/images/fawn.jpg';
@@ -14,6 +14,8 @@ import juvenileBunny from '../../assets/FoundAnimal/images/juvenileBunny.jpg';
 import foundABabyFawn from '../../assets/FoundAnimal/guides/You Found a Baby Fawn.pdf';
 import foundABabyRabbit from '../../assets/FoundAnimal/guides/You Found a Baby Rabbit.pdf';
 import foundABabySkunk from '../../assets/FoundAnimal/guides/You Found a Baby Skunk.pdf';
+import foundABabySquirrel from '../../assets/FoundAnimal/guides/You Found a Baby Squirrel.pdf';
+import foundABabyRacoon from '../../assets/FoundAnimal/guides/You Found a Baby Raccoon.pdf';
 
 import AnimalBox from '../../components/AnimalBox/AnimalBox';
 
@@ -83,12 +85,12 @@ function FoundAnimal() {
           <h2 className="section-header">Select The Animal You Found</h2>
           <div className="cards">
             <div className="left">
-                <AnimalBox label="Squirrel" image={babyRedSquirrel} />
+                <AnimalBox label="Squirrel" image={babyRedSquirrel} hyperlink={foundABabySquirrel}/>
                 <AnimalBox label="Rabbit" image={juvenileBunny} hyperlink={foundABabyRabbit}/>
                 <AnimalBox label="Fawn" image={fawn} hyperlink={foundABabyFawn}/>
             </div>
             <div className="right">
-              <AnimalBox label="Raccoon" image={babyRacconsLitter}/>
+              <AnimalBox label="Raccoon" image={babyRacconsLitter} hyperlink={foundABabyRacoon}/>
               <AnimalBox label="Skunk" image={babySkunk} hyperlink={foundABabySkunk}/>
             </div>
           </div>
